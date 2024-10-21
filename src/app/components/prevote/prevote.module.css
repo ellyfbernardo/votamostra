@@ -1,0 +1,37 @@
+.container {
+    background-color: #F98E11;
+     display: flex;
+     align-items: center;
+     padding: .5rem;
+     margin: .5rem;
+     border-radius: 8px;
+}
+
+.img {
+     width: 105px;
+     height: 85px;
+}
+
+.square {
+     background-color: #ffffff;
+     width: 4rem;
+     height: 2rem;
+     border: #000 dashed .5px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin-left: 12px;
+     color: #000;
+}
+
+.title{
+     font-size: 14px;
+     margin-left: .2rem;
+}
+
+.description{
+    font-size: 12px;
+    margin-top: 1rem;
+    margin-left: .2rem;
+     text-align: justify;
+}

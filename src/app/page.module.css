@@ -1,0 +1,28 @@
+.header_container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.link{
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin-top: 2rem;
+    list-style: none;
+}
+
+
+.li{
+  background: #FFB421;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: .3s;
+}
+
+.li:hover{
+  background: #ffb521cb;
+
+}

@@ -1,0 +1,37 @@
+.title{
+      text-align: center;
+      margin: 1rem;
+}
+
+.paragraph{
+     text-align: center;
+     margin-top: 50vh;
+}
+
+.footer{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+      gap: 1rem;
+}
+
+.button{
+      border-style: none;
+      height: 2rem;
+      width: 95%;
+      background-color: #62f9a1;
+      color: #000;
+      font-weight: bold;
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      padding: .5rem;
+}
+
+.button:nth-child(1){
+      background-color: #f97373;
+      color: #fff;
+
+}
