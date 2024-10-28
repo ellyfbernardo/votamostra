@@ -8,6 +8,8 @@ import filmepng1 from '../../assets/filme1.webp';
 import filmepng2 from '../../assets/filme2.webp';
 import filmepng3 from '../../assets/filme3.webp';
 
+import { Header } from '@/app/components/header/header';
+
 export default function Confirmeseuvoto() {
   const [votos, setVotos] = useState(null);
 
@@ -19,9 +21,17 @@ export default function Confirmeseuvoto() {
   }, []);
 
   return (
-    <>
-      <main>
-        <h2 className={style.title}>REVISE SEU VOTO</h2>
+    <div className={style.body}>
+      
+      <Header/> 
+      
+      <h2 className={style.title}>SUA VOTAÇÃO</h2>
+      
+      
+      <main className={style.container}>
+
+
+
         {!votos ? (
           <p className={style.paragraph}>Carregando votos...</p>
         ) : (
@@ -54,19 +64,22 @@ export default function Confirmeseuvoto() {
             )}
           </>
         )}
+      </main>
 
         <footer className={style.footer}>
-          <Link className={style.button} href="/mostra-panorama-22-11">
-            EDITAR VOTO
-          </Link>
 
-          {(votos?.filme1 || votos?.filme2 || votos?.filme3) && (
+        {(votos?.filme1 || votos?.filme2 || votos?.filme3) && (
             <Link className={style.button} href="/mostra-panorama-22-11/confirmeseuvoto/finalizar">
-              CONTINUAR
+              CONFIRMAR
             </Link>
           )}
+        <p className={style.warning}>Preencha seus dados na tela a seguir para confirmar sua votação</p>
+          <Link className={style.button2} href="/mostra-panorama-22-11">
+            REVISAR VOTOS
+          </Link>
+
+          
         </footer>
-      </main>
-    </>
+      </div>
   );
 }

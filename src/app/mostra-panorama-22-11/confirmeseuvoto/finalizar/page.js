@@ -2,6 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import style from './finalizar.module.css';
+import Image from 'next/image';
+import lanterna from '../../../assets/Lanterna direita cpf.png';
+import iconeinferior from '../../../assets/icone inferior direito cpf.png';
+import logo from '../../../assets/Logo-11-mostra-de-cinema.png';
+
 
 export default function VoteList() {
   const [cpf, setCpf] = useState('');
@@ -65,8 +70,13 @@ export default function VoteList() {
 
   return (
     <div className={style.container}>
-      <h1 className={style.h1}>Digite seu CPF</h1>
+    <Image src={lanterna} className={style.lanterna}/>
+    <Image src={iconeinferior} className={style.iconeinferior}/>
+    <Image src={logo} className={style.logo}/>
+
+      <h1 className={style.h1}>Preencha os dados abaixo para validar sua votação</h1>
       <form className={style.form} onSubmit={handleSubmit}>
+        <h2 className={style.cpf}>CPF</h2>
         <input
           className={style.input}
           type="text"
@@ -76,7 +86,7 @@ export default function VoteList() {
           maxLength="11"
           required
         />
-        <button className={style.button} type="submit">VOTAR</button>
+        <button className={style.button} type="submit">CONFIRMAR</button>
       </form>
     </div>
   );

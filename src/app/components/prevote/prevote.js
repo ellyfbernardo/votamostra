@@ -1,9 +1,11 @@
 import style from './prevote.module.css'
 import Image from 'next/image'
-import foto from '../../assets/filme1.webp'
+
+
+
 export function Prevote(props){
      return(
-          <>
+     
           
                <main className={style.container}>
                     <Image
@@ -14,6 +16,7 @@ export function Prevote(props){
                
                     <div>
                          <h2 className={style.title}>{props.title}</h2>
+
                          <p className={style.description}>{props.description}</p>
 
                     </div>
@@ -22,6 +25,6 @@ export function Prevote(props){
                          </div>
                     </main>
           
-          </>
+          
      )
 }

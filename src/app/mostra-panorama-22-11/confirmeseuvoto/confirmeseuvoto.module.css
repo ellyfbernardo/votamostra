@@ -1,6 +1,7 @@
 .title{
       text-align: center;
       margin: 1rem;
+      color: #FFF;
 }
 
 .paragraph{
@@ -14,24 +15,56 @@
       justify-content: center;
       align-items: center;
       margin-top: 2rem;
-      gap: 1rem;
 }
 
 .button{
       border-style: none;
-      height: 2rem;
-      width: 95%;
-      background-color: #62f9a1;
+      font-size: 1.5rem;
+      width: 70%;
+      background-color: #f4f4f4;
       color: #000;
       font-weight: bold;
-      border-radius: 8px;
+      border-radius: 18px;
       text-align: center;
       text-decoration: none;
       padding: .5rem;
+      -webkit-box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
+      -moz-box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
+      box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
 }
 
-.button:nth-child(1){
-      background-color: #f97373;
-      color: #fff;
 
+.button2{
+      border-style: none;
+      width: 45%;
+      font-size: .9rem;
+      color: #ffffff;
+      font-weight: bold;
+      border-radius: 1.5rem;
+      text-align: center;
+      text-decoration: none;
+      padding: .5rem;
+      border: .1rem rgb(255, 255, 255) solid;
+      margin-top: 1.1rem;
+      margin-bottom: 1.5rem;
 }
+
+.warning{
+      text-align: center;
+      color: #FFF;
+      font-size: .9rem;
+      width: 70%;
+      margin-top: .2rem;
+ }
+
+ .container{
+      padding: 0 1.4rem 0 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      
+ }
+
+.body{
+      background-color: #B93368;
+ }

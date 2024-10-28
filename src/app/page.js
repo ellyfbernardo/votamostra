@@ -3,6 +3,11 @@
 import { useEffect } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
+import Image from 'next/image';
+import logo from './assets/Logo-11-mostra-de-cinema.png';
+import arte from './assets/ícone mostra 743px.png'
+
+
 
 export default function Home() {
 
@@ -15,17 +20,19 @@ export default function Home() {
   }, []); // Esse efeito rodará apenas uma vez quando a página for carregada
 
   return (
-    <>
-      <header className={styles.header_container}>
-        <h1>Escolha sua Sessão</h1>
-        <Link href="/mostra-panorama-22-11" className={styles.link}>
-          <li className={styles.li}>22/11</li>
-        </Link>
-      </header>
-      <main>
-        {/* Conteúdo principal */}
-      </main>
-    </>
+    
+
+    <div className={styles.container}>
+        <main className={styles.body}>
+          <Image src={logo} className={styles.logo}/>
+          <Image src={arte} className={styles.arte}/>
+        </main>
+        <header className={styles.header_container}>
+          <Link href="/mostra-panorama-22-11" className={styles.link}>
+            <li className={styles.li}>INICIAR VOTAÇÃO</li>
+          </Link>
+        </header>
+        </div>
   );
 }
 

@@ -4,14 +4,25 @@
      align-items: center;
      justify-content: center;
      height: 100vh; /* Preenche toda a altura da tela */
-     background-color: #f9f9f9; /* Cor de fundo clara */
+     background-color: #2895D2; /* Cor de fundo clara */
      font-family: Arial, sans-serif;
    }
    
    .h1 {
      margin-bottom: 20px;
-     color: #333; /* Cor do texto do título */
+     padding: 1rem;
+     color: #ffffff; /* Cor do texto do título */
+     text-align: center;
+     font-size: 2rem;
+     text-shadow: 0px 4px 0px #000000;
    }
+
+   .cpf{
+    text-align: center;
+    color: #fff;
+    text-shadow: 0px 4px 0px #000000;
+
+}
    
    .form {
      display: flex;
@@ -22,23 +33,57 @@
    .input {
      padding: 10px;
      border: 1px solid #ccc; /* Borda do campo de entrada */
-     border-radius: 5px; /* Bordas arredondadas */
+     border-radius: 24px; /* Bordas arredondadas */
      width: 300px; /* Largura do campo de entrada */
      font-size: 16px; /* Tamanho da fonte */
+     text-align: center;
+     -webkit-box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
+     -moz-box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
+     box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
    }
    
    .button {
      padding: 10px;
      border: none; /* Remove a borda padrão do botão */
-     border-radius: 5px; /* Bordas arredondadas */
-     background-color: #007bff; /* Cor de fundo do botão */
+     border-radius: 18px; /* Bordas arredondadas */
+     background-color: #BA3368; /* Cor de fundo do botão */
      color: white; /* Cor do texto do botão */
      font-size: 16px; /* Tamanho da fonte */
      cursor: pointer; /* Muda o cursor ao passar o mouse */
      transition: background-color 0.3s; /* Efeito de transição para a cor de fundo */
+     font-weight: bold;
+     -webkit-box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
+     -moz-box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
+     box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
    }
    
    .button:hover {
      background-color: #0056b3; /* Cor do botão ao passar o mouse */
    }
    
+   .lanterna{
+    width: 50px;
+    height: 200px;
+    object-fit: contain;
+    position: fixed;
+    left: 0;
+   }
+
+.iconeinferior{
+
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  position: fixed;
+  bottom: 0;
+  right: -5%;
+}
+
+.logo{
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  position: fixed;
+  top: 3%;
+  right: -3%;
+}

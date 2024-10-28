@@ -14,11 +14,13 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  height: 100%;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  /* background: var(--background); */
+  /* background-color: #BA3368; */
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
