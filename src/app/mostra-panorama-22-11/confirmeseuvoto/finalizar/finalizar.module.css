@@ -3,7 +3,7 @@
      flex-direction: column;
      align-items: center;
      justify-content: center;
-     height: 100vh; /* Preenche toda a altura da tela */
+     height: 100%; /* Preenche toda a altura da tela */
      background-color: #2895D2; /* Cor de fundo clara */
      font-family: Arial, sans-serif;
    }
