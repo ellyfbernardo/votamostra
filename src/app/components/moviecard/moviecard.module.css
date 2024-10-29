@@ -103,8 +103,6 @@
 }
 
 .submitButton{
-     /* height: 4rem; */
-     padding: 10px;
      background-color: #ffffff;
      color: #000000;
      border-radius: 4rem;
@@ -113,9 +111,9 @@
      margin-bottom: 1rem;
      font-size: 1.5rem;
      border: none;
-     -webkit-box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
+     /* -webkit-box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
      -moz-box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
-     box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
+     box-shadow: 0px 3px 0px 0px rgba(0,0,0,1); */
 }
 
 .footer{
