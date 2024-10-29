@@ -5,8 +5,7 @@ import './moviecard.module.css'; // Importando o arquivo de CSS
 import Image from 'next/image';
 import style from './moviecard.module.css';
 import liner from '../../assets/linha-curvada-direita-sua-nota.png'
-import fundor from '../../assets/fundo direita.png';
-import fundol from '../../assets/fundo esquerda.png';
+import Link from 'next/link';
 
 
 const MovieCard = (props) => {
@@ -151,9 +150,9 @@ const MovieCard = (props) => {
 
 
       <footer className={style.footer}>
-        <button onClick={handleSubmit} className={style.submitButton}>
+        <Link href="#" onClick={handleSubmit} className={style.submitButton}>
           FINALIZAR
-        </button>
+        </Link>
       </footer>
     </>
   );

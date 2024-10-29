@@ -1,3 +1,7 @@
+.body{
+      background-color: #B93368;
+}
+
 .title{
       text-align: center;
       margin: 1rem;
@@ -65,7 +69,3 @@
       
  }
 
-.body{
-      background-color: #B93368;
-      height: 110%;
-}
