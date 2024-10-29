@@ -153,7 +153,7 @@ const MovieCard = (props) => {
 
       <footer className={style.footer}>
       {hasVotes && (
-          <button onClick={handleSubmit} className={style.submitButton}>
+          <button onTouchStart={handleSubmit} className={style.submitButton}>
             FINALIZAR
           </button>
         )}
