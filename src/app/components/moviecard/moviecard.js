@@ -150,9 +150,9 @@ const MovieCard = (props) => {
 
 
       <footer className={style.footer}>
-        <Link href="#" onClick={handleSubmit} className={style.submitButton}>
+        <button onClick={handleSubmit} className={style.submitButton}>
           FINALIZAR
-        </Link>
+        </button>
       </footer>
     </>
   );
