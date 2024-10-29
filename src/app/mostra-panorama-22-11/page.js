@@ -26,7 +26,7 @@ export default function VoteList() {
 
       <Image src={fundor} className={style.fundor} alt=""/>
         <MovieCard
-          title1={"O DIA QUE TE CONHECI"}
+          title1={"O DIA QUE TE CONHECi"}
           description1={"DIREÇÃO: ANDRÉ NOVAIS OLIVEIRA"}
           subdescription1={"FICÇÃO, 70MIN, MG, 2023, 14 ANOS"}
           filme1={filme1}
