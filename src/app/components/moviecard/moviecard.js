@@ -5,7 +5,7 @@ import './moviecard.module.css'; // Importando o arquivo de CSS
 import Image from 'next/image';
 import style from './moviecard.module.css';
 import liner from '../../assets/linha-curvada-direita-sua-nota.png'
-import Link from 'next/link';
+
 
 
 const MovieCard = (props) => {
@@ -38,6 +38,8 @@ const MovieCard = (props) => {
     // Redirecionar para a próxima página, se necessário
     window.location.href = '/mostra-panorama-22-11/confirmeseuvoto';
   };
+
+  const hasVotes = Object.values(votos).some(voto => voto !== null);
 
   return (
     <>
@@ -150,9 +152,11 @@ const MovieCard = (props) => {
 
 
       <footer className={style.footer}>
-        <button onClick={handleSubmit} className={style.submitButton}>
-          FINALIZAR
-        </button>
+      {hasVotes && (
+          <button onClick={handleSubmit} className={style.submitButton}>
+            FINALIZAR
+          </button>
+        )}
       </footer>
     </>
   );
