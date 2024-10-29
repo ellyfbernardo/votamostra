@@ -6,8 +6,6 @@ import Image from 'next/image';
 import style from './moviecard.module.css';
 import liner from '../../assets/linha-curvada-direita-sua-nota.png'
 
-
-
 const MovieCard = (props) => {
   const [votos, setVotos] = useState({
     filme1: null,
@@ -25,7 +23,7 @@ const MovieCard = (props) => {
   const handleVote = (topico, voto) => {
     const novosVotos = {
       ...votos,
-      [topico]: voto,
+      [topico]: votos[topico] === voto ? null : voto, // Desmarcar se já selecionado
     };
     
     setVotos(novosVotos);
@@ -33,9 +31,7 @@ const MovieCard = (props) => {
   };
 
   const handleSubmit = () => {
-    // Aqui você pode armazenar os votos em localStorage ou enviar para uma API
     console.log('Votos submetidos:', votos);
-    // Redirecionar para a próxima página, se necessário
     window.location.href = '/mostra-panorama-22-11/confirmeseuvoto';
   };
 
@@ -44,8 +40,6 @@ const MovieCard = (props) => {
   return (
     <>
       <div className={style.container_flex}>
-      {/* <Image src={fundor} className={style.fundor}/>
-      <Image src={fundol} className={style.fundol}/> */}
         {['filme1'].map((topico, index) => (
           <div key={index} className={style.container}>
             <h3 className={style.title}>{props.title1}</h3>
@@ -55,19 +49,16 @@ const MovieCard = (props) => {
             <p className={style.sinopse}>{props.sinopse1}</p>
 
             <div className={style.notecontainer}>
-            <Image src={liner} className={style.liner} alt=''/>
-            <h2 className={style.note}>SUA NOTA</h2>
-            <Image src={liner} className={style.linel} alt=''/>
+              <Image src={liner} className={style.liner} alt='' />
+              <h2 className={style.note}>SUA NOTA</h2>
+              <Image src={liner} className={style.linel} alt='' />
             </div>
-
 
             <div className={style.opcoes}>
               {[1, 2, 3, 4, 5].map((voto) => (
                 <div
                   key={voto}
-
                   className={`${style.opcao} ${votos[topico] === voto ? style.selecionado : ''} ${votos[topico] && votos[topico] !== voto ? style.esmaecido : ''}`}
-
                   onClick={() => handleVote(topico, voto)}
                 >
                   <div className={style.square}>
@@ -90,19 +81,16 @@ const MovieCard = (props) => {
             <p className={style.sinopse}>{props.sinopse2}</p>
 
             <div className={style.notecontainer}>
-            <Image src={liner} className={style.liner} alt=''/>
-            <h2 className={style.note}>SUA NOTA</h2>
-            <Image src={liner} className={style.linel} alt=''/>
+              <Image src={liner} className={style.liner} alt='' />
+              <h2 className={style.note}>SUA NOTA</h2>
+              <Image src={liner} className={style.linel} alt='' />
             </div>
-
 
             <div className={style.opcoes}>
               {[1, 2, 3, 4, 5].map((voto) => (
                 <div
                   key={voto}
-
                   className={`${style.opcao} ${votos[topico] === voto ? style.selecionado : ''} ${votos[topico] && votos[topico] !== voto ? style.esmaecido : ''}`}
-
                   onClick={() => handleVote(topico, voto)}
                 >
                   <div className={style.square}>
@@ -125,19 +113,16 @@ const MovieCard = (props) => {
             <p className={style.sinopse}>{props.sinopse2}</p>
 
             <div className={style.notecontainer}>
-            <Image src={liner} className={style.liner} alt=''/>
-            <h2 className={style.note}>SUA NOTA</h2>
-            <Image src={liner} className={style.linel} alt=''/>
+              <Image src={liner} className={style.liner} alt='' />
+              <h2 className={style.note}>SUA NOTA</h2>
+              <Image src={liner} className={style.linel} alt='' />
             </div>
-
 
             <div className={style.opcoes}>
               {[1, 2, 3, 4, 5].map((voto) => (
                 <div
                   key={voto}
-
                   className={`${style.opcao} ${votos[topico] === voto ? style.selecionado : ''} ${votos[topico] && votos[topico] !== voto ? style.esmaecido : ''}`}
-
                   onClick={() => handleVote(topico, voto)}
                 >
                   <div className={style.square}>
@@ -150,9 +135,8 @@ const MovieCard = (props) => {
         ))}
       </div>
 
-
       <footer className={style.footer}>
-      {hasVotes && (
+        {hasVotes && (
           <button onTouchStart={handleSubmit} className={style.submitButton}>
             FINALIZAR
           </button>
