@@ -24,8 +24,8 @@ export default function Home() {
 
     <div className={styles.container}>
         <main className={styles.body}>
-          <Image src={logo} className={styles.logo}/>
-          <Image src={arte} className={styles.arte}/>
+          <Image src={logo} className={styles.logo} alt=""/>
+          <Image src={arte} className={styles.arte}alt=""/>
         </main>
         <header className={styles.header_container}>
           <Link href="/mostra-panorama-22-11" className={styles.link}>

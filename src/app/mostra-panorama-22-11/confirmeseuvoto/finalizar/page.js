@@ -70,9 +70,9 @@ export default function VoteList() {
 
   return (
     <div className={style.container}>
-    <Image src={lanterna} className={style.lanterna}/>
-    <Image src={iconeinferior} className={style.iconeinferior}/>
-    <Image src={logo} className={style.logo}/>
+    <Image src={lanterna} className={style.lanterna} alt=''/>
+    <Image src={iconeinferior} className={style.iconeinferior} alt=''/>
+    <Image src={logo} className={style.logo} alt=''/>
 
       <h1 className={style.h1}>Preencha os dados abaixo para validar sua votação</h1>
       <form className={style.form} onSubmit={handleSubmit}>

@@ -22,9 +22,9 @@ export default function VoteList() {
         <p className={style.diasemana}>Sexta-feira</p>
       </header>
       <main>
-      <Image src={fundol} className={style.fundol}/>
+      <Image src={fundol} className={style.fundol} alt=""/>
 
-      <Image src={fundor} className={style.fundor}/>
+      <Image src={fundor} className={style.fundor} alt=""/>
         <MovieCard
           title1={"O DIA QUE TE CONHECI"}
           description1={"DIREÇÃO: ANDRÉ NOVAIS OLIVEIRA"}

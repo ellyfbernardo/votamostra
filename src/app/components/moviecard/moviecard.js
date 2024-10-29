@@ -53,9 +53,9 @@ const MovieCard = (props) => {
             <p className={style.sinopse}>{props.sinopse1}</p>
 
             <div className={style.notecontainer}>
-            <Image src={liner} className={style.liner}/>
+            <Image src={liner} className={style.liner} alt=''/>
             <h2 className={style.note}>SUA NOTA</h2>
-            <Image src={liner} className={style.linel}/>
+            <Image src={liner} className={style.linel} alt=''/>
             </div>
 
 
@@ -88,9 +88,9 @@ const MovieCard = (props) => {
             <p className={style.sinopse}>{props.sinopse2}</p>
 
             <div className={style.notecontainer}>
-            <Image src={liner} className={style.liner}/>
+            <Image src={liner} className={style.liner} alt=''/>
             <h2 className={style.note}>SUA NOTA</h2>
-            <Image src={liner} className={style.linel}/>
+            <Image src={liner} className={style.linel} alt=''/>
             </div>
 
 
@@ -123,9 +123,9 @@ const MovieCard = (props) => {
             <p className={style.sinopse}>{props.sinopse2}</p>
 
             <div className={style.notecontainer}>
-            <Image src={liner} className={style.liner}/>
+            <Image src={liner} className={style.liner} alt=''/>
             <h2 className={style.note}>SUA NOTA</h2>
-            <Image src={liner} className={style.linel}/>
+            <Image src={liner} className={style.linel} alt=''/>
             </div>
 
 
