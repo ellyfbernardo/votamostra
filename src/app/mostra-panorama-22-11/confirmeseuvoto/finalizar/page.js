@@ -12,6 +12,7 @@ export default function VoteList() {
   const [votos, setVotos] = useState({ filme1: '', filme2: '', filme3: '' });
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
+  const [locationError, setLocationError] = useState(false);
 
   useEffect(() => {
     // Carrega os votos do Local Storage
@@ -25,10 +26,16 @@ export default function VoteList() {
 
     // Pega a localização do usuário
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setLatitude(position.coords.latitude);
-        setLongitude(position.coords.longitude);
-      });
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+          setLocationError(false); // Reseta o erro se a localização for bem-sucedida
+        },
+        () => {
+          setLocationError(true); // Define o erro se a localização falhar
+        }
+      );
     } else {
       alert('Geolocalização não é suportada pelo seu navegador.');
     }
@@ -36,6 +43,13 @@ export default function VoteList() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Verifica se a localização está disponível
+    if (!latitude || !longitude) {
+      alert('Ative sua localização para votar.');
+      return; // Impede o envio se a localização não estiver disponível
+    }
+
     try {
       const res = await fetch('/api/saveVote', {
         method: 'POST',
@@ -47,8 +61,8 @@ export default function VoteList() {
           filme1: votos.filme1,
           filme2: votos.filme2,
           filme3: votos.filme3,
-          latitude,  // Inclui a latitude
-          longitude  // Inclui a longitude
+          latitude, // Inclui a latitude
+          longitude // Inclui a longitude
         }),
       });
 
@@ -86,6 +100,11 @@ export default function VoteList() {
           required
         />
         <button className={style.button} type="submit">CONFIRMAR</button>
+        {locationError && (
+          <p className={style.error}>
+            Erro: Ative sua localização para continuar.
+          </p>
+        )}
       </form>
     </div>
   );
