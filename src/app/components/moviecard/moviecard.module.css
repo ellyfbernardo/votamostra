@@ -3,6 +3,7 @@
      gap: 10px;
      flex-direction: row;
      justify-content: center;
+     
 }
    
 
@@ -29,9 +30,11 @@
    }
 
 .title{
-    font-size: 20px;
+    font-size: 1rem;
     text-align: center;
     color: #000000;
+    font-family: var(--agradir-grandheavy);
+    
     
 }
 
@@ -47,6 +50,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: var(--agradir-grandheavy);
 }
 
 .opcao:nth-child(1){
@@ -70,7 +74,7 @@
 
 .opcao.selecionado {
   background-color: #1f96db;
-  color: #FFF;
+  color: #FFF;            
 }
 
 .opcao.esmaecido {
@@ -84,7 +88,8 @@
   color: #000000;
   margin-top: .5rem;
   font-size: .8rem;
-  font-weight: 700;
+  font-family: var(--agradir-regular);
+  
 }
 
 .movie_image {
@@ -125,25 +130,31 @@
      opacity: 1;
      position: relative;
      z-index: 10;
+     font-family: var(--agradir-widelight);
 }
 
 
 
 .subdescription{
-  font-weight: 700;
-  font-size: .85rem;
+  font-size: .75rem;
   text-align: center;
+  font-family: var(--agradir-grandlight);
+
 }
 
 .note{
   text-align: center;
   font-size: 1.4rem;
+  font-family: var(--agradir-grandheavy);
+  font-size: 1rem;
 }
 
 .sinopse{
   text-align: center;
   font-size: .77rem;
   padding: 1rem;
+  font-family: var(--agradir-widelight);
+
 }
 
 .notecontainer{

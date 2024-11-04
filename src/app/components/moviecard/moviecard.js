@@ -23,6 +23,7 @@ const MovieCard = (props) => {
   const handleVote = (topico, voto) => {
     const novosVotos = {
       ...votos,
+      
       [topico]: votos[topico] === voto ? null : voto, // Desmarcar se já selecionado
     };
     

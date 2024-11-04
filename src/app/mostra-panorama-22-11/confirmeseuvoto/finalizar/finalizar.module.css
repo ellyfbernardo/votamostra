@@ -13,14 +13,17 @@
      padding: 1rem;
      color: #ffffff; /* Cor do texto do título */
      text-align: center;
-     font-size: 2rem;
-     text-shadow: 0px 4px 0px #000000;
+     font-size: 1.5rem;
+     text-shadow: 0px 2px 0px #000000;
+     font-family: var(--agradir-grandheavy);
    }
 
    .cpf{
     text-align: center;
     color: #fff;
-    text-shadow: 0px 4px 0px #000000;
+    text-shadow: 0px 2px 0px #000000;
+    font-family: var(--agradir-grandheavy);
+
 
 }
    

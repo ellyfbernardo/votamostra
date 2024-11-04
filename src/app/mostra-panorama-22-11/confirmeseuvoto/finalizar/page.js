@@ -7,7 +7,6 @@ import lanterna from '../../../assets/Lanterna direita cpf.png';
 import iconeinferior from '../../../assets/icone inferior direito cpf.png';
 import logo from '../../../assets/Logo-11-mostra-de-cinema.png';
 
-
 export default function VoteList() {
   const [cpf, setCpf] = useState('');
   const [votos, setVotos] = useState({ filme1: '', filme2: '', filme3: '' });
@@ -37,7 +36,6 @@ export default function VoteList() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const res = await fetch('/api/saveVote', {
         method: 'POST',
@@ -58,6 +56,8 @@ export default function VoteList() {
         alert('Voto submetido com sucesso!');
         setCpf(''); // Limpa o campo de CPF
         setVotos({ filme1: '', filme2: '', filme3: '' }); // Limpa os votos
+        // Redireciona o usuário para a página de agradecimento
+        window.location.href = '/mostra-panorama-22-11/confirmeseuvoto/finalizar/agradecimento';
       } else if (res.status === 409) {
         alert('Esse CPF já votou.');
       } else {
@@ -70,10 +70,9 @@ export default function VoteList() {
 
   return (
     <div className={style.container}>
-    <Image src={lanterna} className={style.lanterna} alt=''/>
-    <Image src={iconeinferior} className={style.iconeinferior} alt=''/>
-    <Image src={logo} className={style.logo} alt=''/>
-
+      <Image src={lanterna} className={style.lanterna} alt=''/>
+      <Image src={iconeinferior} className={style.iconeinferior} alt=''/>
+      <Image src={logo} className={style.logo} alt=''/>
       <h1 className={style.h1}>Preencha os dados abaixo para validar sua votação</h1>
       <form className={style.form} onSubmit={handleSubmit}>
         <h2 className={style.cpf}>CPF</h2>

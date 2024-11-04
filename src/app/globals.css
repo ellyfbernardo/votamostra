@@ -18,10 +18,10 @@ body {
 }
 
 body {
-  color: var(--foreground);
+  /* color: var(--foreground); */
   /* background: var(--background); */
   /* background-color: #BA3368; */
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

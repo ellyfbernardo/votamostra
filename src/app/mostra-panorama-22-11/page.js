@@ -9,26 +9,23 @@ import Image from 'next/image';
 import fundor from '../assets/fundo direita.png';
 import fundol from '../assets/fundo esquerda.png';
 
+import { Header } from "../components/header/header";
+
 export default function VoteList() {
 
 
   return (
     
     <div className={style.body}>
-      <header className={style.title}>
-        <h1 className={style.dia}>22</h1>
-        <h2 className={style.mes}>nov</h2>
-        <h1 className={style.mostra}>MOSTRA COMPETITIVA</h1>
-        <p className={style.diasemana}>Sexta-feira</p>
-      </header>
+      <Header/>
       <main>
       <Image src={fundol} className={style.fundol} alt=""/>
 
       <Image src={fundor} className={style.fundor} alt=""/>
         <MovieCard
           title1={"O DIA QUE TE CONHECi"}
-          description1={"DIREÇÃO: ANDRÉ NOVAIS OLIVEIRA"}
           subdescription1={"FICÇÃO, 70MIN, MG, 2023, 14 ANOS"}
+          description1={"DIREÇÃO: ANDRÉ NOVAIS OLIVEIRA"}
           filme1={filme1}
           sinopse1={"Zeca tenta levantar cedo para pegar o ônibus e chegar na escola da cidade vizinha, onde trabalha como bibliotecário. Acordar cedo anda cada vez mais difícil, mas um dia ele conhece Luísa e tudo muda em sua vida."}
 

@@ -35,7 +35,7 @@ export default function Confirmeseuvoto() {
         {!votos ? (
           <p className={style.paragraph}>Carregando votos...</p>
         ) : (
-          <>
+          <div className={style.body2}>
             {votos?.filme1 && (
               <Prevote
                 title="O DIA QUE TE CONHECI"
@@ -62,7 +62,7 @@ export default function Confirmeseuvoto() {
                 foto={filmepng3}
               />
             )}
-          </>
+          </div>
         )}
       </main>
 
