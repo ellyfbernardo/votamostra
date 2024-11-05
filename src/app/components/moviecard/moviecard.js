@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import './moviecard.module.css'; // Importando o arquivo de CSS
 import Image from 'next/image';
 import style from './moviecard.module.css';
-import liner from '../../assets/linha-curvada-direita-sua-nota.png'
 
 const MovieCard = (props) => {
   const [votos, setVotos] = useState({
@@ -50,9 +49,9 @@ const MovieCard = (props) => {
             <p className={style.sinopse}>{props.sinopse1}</p>
 
             <div className={style.notecontainer}>
-              <Image src={liner} className={style.liner} alt='' />
+              
               <h2 className={style.note}>SUA NOTA</h2>
-              <Image src={liner} className={style.linel} alt='' />
+              
             </div>
 
             <div className={style.opcoes}>
@@ -82,9 +81,9 @@ const MovieCard = (props) => {
             <p className={style.sinopse}>{props.sinopse2}</p>
 
             <div className={style.notecontainer}>
-              <Image src={liner} className={style.liner} alt='' />
+             
               <h2 className={style.note}>SUA NOTA</h2>
-              <Image src={liner} className={style.linel} alt='' />
+              
             </div>
 
             <div className={style.opcoes}>
@@ -114,9 +113,9 @@ const MovieCard = (props) => {
             <p className={style.sinopse}>{props.sinopse2}</p>
 
             <div className={style.notecontainer}>
-              <Image src={liner} className={style.liner} alt='' />
+             
               <h2 className={style.note}>SUA NOTA</h2>
-              <Image src={liner} className={style.linel} alt='' />
+             
             </div>
 
             <div className={style.opcoes}>

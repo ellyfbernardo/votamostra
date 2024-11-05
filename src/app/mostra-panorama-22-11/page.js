@@ -6,8 +6,6 @@ import filme1 from '../assets/filme1.webp';
 import filme2 from '../assets/filme2.webp';
 import filme3 from '../assets/filme3.webp';
 import Image from 'next/image';
-import fundor from '../assets/fundo direita.png';
-import fundol from '../assets/fundo esquerda.png';
 
 import { Header } from "../components/header/header";
 
@@ -19,9 +17,7 @@ export default function VoteList() {
     <div className={style.body}>
       <Header/>
       <main>
-      <Image src={fundol} className={style.fundol} alt=""/>
 
-      <Image src={fundor} className={style.fundor} alt=""/>
         <MovieCard
           title1={"O DIA QUE TE CONHECi"}
           subdescription1={"FICÇÃO, 70MIN, MG, 2023, 14 ANOS"}
