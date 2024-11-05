@@ -73,15 +73,15 @@ export default function VoteList() {
       });
 
       if (res.ok) {
-        alert('Voto submetido com sucesso!');
+        // alert('Voto submetido com sucesso!');
         setCpf(''); // Limpa o campo de CPF
         setVotos({ filme1: '', filme2: '', filme3: '' }); // Limpa os votos
         // Redireciona o usuário para a página de agradecimento
         window.location.href = '/mostra-panorama-22-11/confirmeseuvoto/finalizar/agradecimento';
       } else if (res.status === 409) {
-        alert('Esse CPF já votou.');
+        alert('Parece que você já votou hoje. Volte amanhã para mais : )');
       } else {
-        alert('Erro ao submeter o voto.');
+        alert('Erro ao Votar. Tente novamente em alguns instantes.');
       }
     } catch (error) {
       console.error('Erro ao submeter o voto:', error);
