@@ -24,21 +24,27 @@ export default function VoteList() {
     
     setVotos(storedVotes); // Atualiza o estado com os votos resgatados
 
-    // Pega a localização do usuário
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setLatitude(position.coords.latitude);
-          setLongitude(position.coords.longitude);
-          setLocationError(false); // Reseta o erro se a localização for bem-sucedida
-        },
-        () => {
-          setLocationError(true); // Define o erro se a localização falhar
-        }
-      );
-    } else {
-      alert('Geolocalização não é suportada pelo seu navegador.');
-    }
+    // Função para tentar obter a localização continuamente
+    const getLocation = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            setLatitude(position.coords.latitude);
+            setLongitude(position.coords.longitude);
+            setLocationError(false); // Reseta o erro se a localização for bem-sucedida
+          },
+          () => {
+            setLocationError(true); // Define o erro se a localização falhar
+            // Tenta novamente após um tempo
+            setTimeout(getLocation, 5000); // Tenta novamente após 5 segundos
+          }
+        );
+      } else {
+        alert('Geolocalização não é suportada pelo seu navegador.');
+      }
+    };
+
+    getLocation(); // Chama a função para começar a tentar obter a localização
   }, []);
 
   const handleSubmit = async (e) => {
