@@ -4,9 +4,10 @@ import { useEffect } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from 'next/image';
-import logo from './assets/Logo-11-mostra-de-cinema.png';
-import arte from './assets/ícone mostra 743px.png'
-
+import logo from './assets/Mostra SMG - Logo 2024_Preto-01 1.png';
+import petro from './assets/Petrobras.png';
+import arte from './assets/Ilustração.png';
+import rodape from './assets/Rodapé.png'
 
 
 export default function Home() {
@@ -23,15 +24,36 @@ export default function Home() {
     
 
     <div className={styles.container}>
+
+        <header className={styles.container_header}>
+          <p className={styles.p1}>MINISTÉRIO DA CULTURA,</p>
+          <Image src={petro} className={styles.petro} alt=""/>
+          <p className={styles.p2}>SALINOR E GOVERNO DO ESTADO DO RIO GRANDE DO NORTE APRESENTAM</p>
+        </header>
+
+          
+     
+
+
         <main className={styles.body}>
-          <Image src={logo} className={styles.logo} alt=""/>
-          <Image src={arte} className={styles.arte}alt=""/>
-        </main>
-        <header className={styles.header_container}>
+
+
           <Link href="/mostra-panorama-22-11" className={styles.link}>
             <li className={styles.li}>INICIAR VOTAÇÃO</li>
           </Link>
-        </header>
+
+
+          <Image src={logo} className={styles.logo} alt=""/>
+
+        </main>
+
+          <Image src={arte} className={styles.arte} alt=""/>
+
+
+          <footer className={styles.footer}>
+            <Image src={rodape} className={styles.rodape}/>
+          </footer>
+
         </div>
   );
 }
