@@ -1,14 +1,34 @@
-import style from './header.module.css'
+import style from './header.module.css';
+import Image from 'next/image';
+import art from '../../assets/Coral.svg';
+import luneta1 from '../../assets/Luneta 1.png';
+import luneta2 from '../../assets/Luneta 2.png';
+import flor from '../../assets/Flor.png'
+import logo from '../../assets/Mostra SMG - Logo 2024_Preto-01 1.svg'
+
 
 export function Header(){
      return(
 
 
      <header className={`${style.title}`}>
-          <h1 className={style.dia}>22 - 26</h1>
-          <h2 className={style.mes}>nov</h2>
-          <h1 className={style.mostra}>MOSTRA COMPETITIVA</h1>
-          <p className={style.diasemana}>Sexta-feira</p>
+          <Image src={art} className={style.art} alt=""/>
+          <Image src={luneta1} className={style.luneta1} alt=""/>
+          <Image src={luneta2} className={style.luneta2} alt=""/>
+          <Image src={flor} className={style.flor} alt=""/>
+          <Image src={logo} className={style.logo} alt=""/>
+          
+          
+          <div className={style.date_container}>
+               <h1 className={style.mostra}>MOSTRA COMPETITIVA</h1>
+               <div className={style.date}>
+                    <h1 className={style.dia}>23</h1>
+                    <h2 className={style.mes}>NOV</h2>
+                    <h1 className={style.dia}>2024</h1>
+               </div>
+          </div>
+               <p className={style.diasemana}>SÁBADO</p>
+
      </header>
 
 )
