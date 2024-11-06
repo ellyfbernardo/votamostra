@@ -8,7 +8,6 @@ import filmepng1 from '../../assets/filme1.webp';
 import filmepng2 from '../../assets/filme2.webp';
 import filmepng3 from '../../assets/filme3.webp';
 
-import { Header } from '@/app/components/header/header';
 
 export default function Confirmeseuvoto() {
   const [votos, setVotos] = useState(null);
@@ -23,7 +22,7 @@ export default function Confirmeseuvoto() {
   return (
     <div className={style.body}>
       
-      <Header/> 
+    
       
       <h2 className={style.title}>SUA VOTAÇÃO</h2>
       

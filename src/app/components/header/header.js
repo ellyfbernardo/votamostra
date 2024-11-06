@@ -12,11 +12,11 @@ export function Header(){
 
 
      <header className={`${style.title}`}>
-          <Image src={art} className={style.art} alt=""/>
-          <Image src={luneta1} className={style.luneta1} alt=""/>
-          <Image src={luneta2} className={style.luneta2} alt=""/>
-          <Image src={flor} className={style.flor} alt=""/>
-          <Image src={logo} className={style.logo} alt=""/>
+          <Image src={art} className={style.art} alt="#"/>
+          <Image src={luneta1} className={style.luneta1} alt="#"/>
+          <Image src={luneta2} className={style.luneta2} alt="#"/>
+          <Image src={flor} className={style.flor} alt="#"/>
+          <Image src={logo} className={style.logo} alt="#"/>
           
           
           <div className={style.date_container}>

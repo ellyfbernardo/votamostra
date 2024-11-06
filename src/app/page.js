@@ -5,9 +5,9 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import Image from 'next/image';
 import logo from './assets/Mostra SMG - Logo 2024_Preto-01 1.png';
-import petro from './assets/Petrobras.png';
-import arte from './assets/Ilustração.png';
-import rodape from './assets/Rodapé.png'
+import petro from './assets/Petrobras.svg';
+import arte from './assets/Ilustração.svg';
+import rodape from './assets/Rodapé.svg';
 
 
 export default function Home() {
@@ -51,7 +51,7 @@ export default function Home() {
 
 
           <footer className={styles.footer}>
-            <Image src={rodape} className={styles.rodape}/>
+            <Image src={rodape} className={styles.rodape} alt=""/>
           </footer>
 
         </div>

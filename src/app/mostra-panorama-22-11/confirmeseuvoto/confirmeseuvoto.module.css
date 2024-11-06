@@ -5,7 +5,8 @@
 
 .title{
       text-align: center;
-      margin: 1rem;
+      /* margin: 1rem; */
+      padding: 1rem;
       color: #FFF;
       font-family: var(--agradir-grandheavy);
 }
