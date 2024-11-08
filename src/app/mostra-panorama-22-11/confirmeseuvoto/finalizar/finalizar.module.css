@@ -3,9 +3,9 @@
      flex-direction: column;
      align-items: center;
      justify-content: center;
-     height: 100%; /* Preenche toda a altura da tela */
-     background-color: #2895D2; /* Cor de fundo clara */
-     font-family: Arial, sans-serif;
+     height: 100%; 
+     background-color: #2895D2; 
+     overflow: hidden;
    }
    
    .h1 {
@@ -13,84 +13,120 @@
      padding: 1rem;
      color: #ffffff; /* Cor do texto do título */
      text-align: center;
-     font-size: 1.5rem;
-     text-shadow: 0px 2px 0px #000000;
-     font-family: var(--agradir-grandheavy);
+     font-size: 1rem;
+     font-family: var(--agradir-regular);
+     text-wrap: balance;
+     margin-top: 2rem;
+     padding: 0 5rem 0 5rem;
    }
 
-   .cpf{
-    text-align: center;
-    color: #fff;
-    text-shadow: 0px 2px 0px #000000;
-    font-family: var(--agradir-grandheavy);
-
-
-}
    
    .form {
      display: flex;
      flex-direction: column;
-     gap: 10px; /* Espaço entre os elementos do formulário */
+     align-items: center;
+     gap: 1.2rem; 
+     
    }
    
    .input {
      padding: 10px;
-     border: 1px solid #ccc; /* Borda do campo de entrada */
-     border-radius: 24px; /* Bordas arredondadas */
-     width: 300px; /* Largura do campo de entrada */
-     font-size: 16px; /* Tamanho da fonte */
+     border-style: none;
+     border-radius: 24px; 
+     width: 300px; 
+     font-size: 1rem;
      text-align: center;
-     -webkit-box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
-     -moz-box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
-     box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
+     font-family: var(--agradir-narrowgrandlight);
+   }
+   .input::placeholder{
+    color: #000;
    }
    
    .button {
-     padding: 10px;
+    font-family: var(--agradir-bold);
+     padding: .8rem;
      border: none; /* Remove a borda padrão do botão */
      border-radius: 18px; /* Bordas arredondadas */
      background-color: #BA3368; /* Cor de fundo do botão */
      color: white; /* Cor do texto do botão */
      font-size: 16px; /* Tamanho da fonte */
      cursor: pointer; /* Muda o cursor ao passar o mouse */
-     transition: background-color 0.3s; /* Efeito de transição para a cor de fundo */
-     font-weight: bold;
-     -webkit-box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
-     -moz-box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
-     box-shadow: 0px 3px 0px 0px rgba(0,0,0,1);
+     width: 50%;
    }
    
    .button:hover {
-     background-color: #0056b3; /* Cor do botão ao passar o mouse */
+     background-color: #d73a79; /* Cor do botão ao passar o mouse */
    }
    
-   .lanterna{
-    width: 50px;
-    height: 200px;
-    object-fit: contain;
-    position: fixed;
-    left: 0;
-   }
-
-.iconeinferior{
-
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  position: fixed;
-  bottom: 0;
-  right: -5%;
-}
-
 .logo{
-  width: 120px;
-  height: 120px;
+  width: 35%;
+  height: auto;
   object-fit: contain;
-  position: fixed;
-  top: 3%;
-  right: -3%;
+  position: absolute;
+  top: 4%;
+  right: 4%;
 }
 
 .error{
-  color: #ff0000;
+  color: #BA3368;
+}
+
+
+.coral1{
+  position: absolute;
+  top: -5%;
+  left: -2%;
+  z-index: 0;
+  width: 10rem;
+}
+
+.luneta2{
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  width: 7rem;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.luneta3{
+  position: absolute;
+  top: 2%;
+  left: 25%;
+  width: 4rem;
+  object-fit: contain;
+  z-index: 1;
+
+}
+
+.coral2{
+  position: absolute;
+  left: -6%;
+  bottom: 0;
+  z-index: 0;
+  padding: 8rem 3rem 1rem 0;
+}
+
+.luneta1{
+  position: absolute;
+  width: 4rem;
+  object-fit: contain;
+  left: 6%;
+  bottom: 13%;
+  
+}
+
+.coral3{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.flor{
+  position: absolute;
+  right: 15%;
+  bottom: 0;
+  z-index: 0;
+  width: 10rem;
 }

@@ -8,11 +8,6 @@ export function Prevote(props){
      
           
                <main className={style.container}>
-                    <Image
-                         className={style.img}
-                         src={props.foto}
-                         alt=""
-                    />
                
                     <div>
                          <h2 className={style.title}>{props.title}</h2>

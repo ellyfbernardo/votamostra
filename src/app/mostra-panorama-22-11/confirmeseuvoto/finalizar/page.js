@@ -3,6 +3,14 @@
 import { useState, useEffect } from 'react';
 import style from './finalizar.module.css';
 import Image from 'next/image';
+import logo from '../../../assets/Mostra SMG - Logo 2024_Preto-01 1.svg';
+import coral1 from '../../../assets/Coral 2.svg';
+import coral2 from '../../../assets/Coral 1.svg';
+import luneta1 from '../../../assets/Luneta 1.png';
+import luneta2 from '../../../assets/Luneta 2.png';
+import luneta3 from '../../../assets/Luneta 3.png';
+import coral3 from '../../../assets/Coral 3.svg';
+import flor from '../../../assets/Flor Lateral.svg';
 
 
 export default function VoteList() {
@@ -89,9 +97,17 @@ export default function VoteList() {
   return (
     <div className={style.container}>
 
-      <h1 className={style.h1}>Preencha os dados abaixo para validar sua votação</h1>
+      <Image src={luneta2} alt='' className={style.luneta2}/>
+      <Image src={luneta3} alt='' className={style.luneta3}/>
+      <Image src={coral1} alt='' className={style.coral1}/>
+      <Image src={coral2} alt='' className={style.coral2}/>
+      <Image src={luneta1} alt='' className={style.luneta1}/>
+      <Image src={coral3} alt='' className={style.coral3}/>
+      <Image src={flor} alt='' className={style.flor}/>
+
+      <Image src={logo} alt='' className={style.logo}/> 
+      <h1 className={style.h1}>Informe seu CPF abaixo para validar a votação</h1>
       <form className={style.form} onSubmit={handleSubmit}>
-        <h2 className={style.cpf}>CPF</h2>
         <input
           className={style.input}
           type="text"
@@ -100,6 +116,7 @@ export default function VoteList() {
           placeholder="Digite seu CPF"
           maxLength="11"
           required
+          
         />
         <button className={style.button} type="submit">CONFIRMAR</button>
         {locationError && (

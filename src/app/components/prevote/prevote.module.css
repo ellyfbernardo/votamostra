@@ -2,28 +2,21 @@
     background-color: #FFFFFF;
      display: flex;
      align-items: center;
-     padding: .5rem;
+     padding: 1rem;
      margin: .5rem;
-     border-radius: 8px;
+     border-radius: 18px;
      /* height: 100%; */
-}
-
-.img {
-     width: 4rem;
-     height: 4rem;
-     border-radius: 1.5rem;
 }
 
 .title{
      font-size: .65rem;
      margin-left: .2rem;
+     color: #2895d2;
      font-family: var(--agradir-grandheavy);
 }
 .square {
      background-color: #2995CB;
-     width: 4rem;
-     height: 2rem;
-     /* border: #000 dashed .5px; */
+     padding: .7rem;
      display: flex;
      justify-content: center;
      align-items: center;
@@ -37,7 +30,7 @@
 
 .description{
     font-size: 12px;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     margin-left: .2rem;
     font-family: var(--agradir-regular);
 }
