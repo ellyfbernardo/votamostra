@@ -103,7 +103,7 @@ const MovieCard = (props) => {
         ))}
       </div>
 
-      <div className={style.container_flex}>
+      {/* <div className={style.container_flex}>
         {['filme3'].map((topico, index) => (
           <div key={index} className={style.container}>
             <h3 className={style.title}>{props.title3}</h3>
@@ -133,7 +133,7 @@ const MovieCard = (props) => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
 
       <footer className={style.footer}>
         {hasVotes && (
