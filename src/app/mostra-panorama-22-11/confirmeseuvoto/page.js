@@ -48,8 +48,8 @@ export default function Confirmeseuvoto() {
             <div className={style.body2}>
               {votos?.filme1 && (
                 <Prevote
-                  title="O DIA QUE TE CONHECI"
-                  description="FICÇÃO, 70MIN, MG, 2023, 14 ANOS DIREÇÃO ANDRÉ NOVAIS OLIVEIRA"
+                  title="TIJOLO POR TIJOLO"
+                  description="DOCUMENTÁRIO, 103 MIN, PE, 2024, LIVRE | DIREÇÃO: VICTÓRIA ÁLVARES E QUENTIN DELAROCHE"
                   vote={votos?.filme1}
                   
                 />
@@ -57,8 +57,8 @@ export default function Confirmeseuvoto() {
 
               {votos?.filme2 && (
                 <Prevote
-                  title="ESTRANHO CAMINHO"
-                  description="FICÇÃO, 70MIN, MG, 2023, 14 ANOS DIREÇÃO ANDRÉ NOVAIS OLIVEIRA"
+                  title="O DESERTO DE AKIN"
+                  description="FICÇÃO, 78 MIN, ES, 2024, 12 ANOS | DIREÇÃO: BERNARD LESSA"
                   vote={votos?.filme2}
                   
                 />
