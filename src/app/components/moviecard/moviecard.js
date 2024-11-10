@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import './moviecard.module.css'; // Importando o arquivo de CSS
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import style from './moviecard.module.css';
 
@@ -12,31 +12,29 @@ const MovieCard = (props) => {
     filme3: null,
   });
 
+  const router = useRouter();
+
   useEffect(() => {
     const votosArmazenados = localStorage.getItem('votos');
     if (votosArmazenados) {
       setVotos(JSON.parse(votosArmazenados));
     }
-  }, []);
+  }, [router.asPath]); // Atualiza o estado sempre que o caminho mudar
 
   const handleVote = (topico, voto) => {
     const novosVotos = {
       ...votos,
-      
-      [topico]: votos[topico] === voto ? null : voto, // Desmarcar se já selecionado
+      [topico]: votos[topico] === voto ? null : voto,
     };
-    
     setVotos(novosVotos);
-    localStorage.setItem('votos', JSON.stringify(novosVotos)); // Armazena os votos atualizados
+    localStorage.setItem('votos', JSON.stringify(novosVotos));
   };
 
   const handleSubmit = () => {
-    console.log('Votos submetidos:', votos);
-    window.location.href = '/mostra-panorama-22-11/confirmeseuvoto';
+    router.push('/mostra-panorama-22-11/confirmeseuvoto');
   };
 
   const hasVotes = Object.values(votos).some(voto => voto !== null);
-
   return (
     <>
       <div className={style.container_flex}>
