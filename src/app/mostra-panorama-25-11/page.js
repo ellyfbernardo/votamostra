@@ -2,12 +2,11 @@
 
 import style from "./page.module.css";
 import MovieCard25 from "../components/moviecard25/moviecard25";
-import filme1 from '../assets/YBY KATU.jpg';
+import filme1 from '../assets/YBYKATU.jpg';
 import filme2 from '../assets/CHIBO.png';
 import filme3 from '../assets/RAPOSA.jpg';
 import filme4 from '../assets/PEQUENAS INSURREIÇÕES.png';
 import filme5 from '../assets/MANAS.jpg';
-import Image from 'next/image';
 
 import { Header } from "../components/header/header";
 
