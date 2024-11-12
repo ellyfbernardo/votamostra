@@ -48,10 +48,10 @@
 }
 
 .petro{
-  object-fit: contain;
   position: absolute;
-  top: 10%;
-  left: 35%;
+  top: -30%;
+  width: 60%;
+
 }
 
 

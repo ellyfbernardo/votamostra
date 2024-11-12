@@ -27,6 +27,9 @@ export async function POST(request) {
     }
 
     // Insere os dados no banco de dados, incluindo a cidade
+
+    // COLEÇÃO DE TESTE ('votes')
+    // COLEÇÕES DE PRODUÇÃO ('votes-23-11', 'votes-24-11', 'votes-25-11')
     const result = await db.collection('votes').insertOne({
       ...data, // Inclui os dados do voto (CPF, filmes, etc.)
       cidade: city, // Adiciona o nome da cidade

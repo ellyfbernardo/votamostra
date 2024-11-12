@@ -31,7 +31,7 @@ const MovieCard = (props) => {
   };
 
   const handleSubmit = () => {
-    router.push('/mostra-panorama-22-11/confirmeseuvoto');
+    router.push('/mostra-panorama-23-11/confirmeseuvoto');
   };
 
   const hasVotes = Object.values(votos).some(voto => voto !== null);

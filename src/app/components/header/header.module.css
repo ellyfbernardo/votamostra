@@ -16,10 +16,11 @@
      color: #ffffff;
       font-size: 1.2rem;
      font-family: var(--agradir-grandheavy);
+     margin-bottom: 1rem;
 }
 
 .dia{
-     font-size: 1.4rem;
+     font-size: 1.55rem;
      color: #fff;
      height: 2.9rem;
      font-family: var(--agradir-bold);
@@ -27,9 +28,9 @@
 }
 
 .mes{
-     font-size: 1.4rem;
+     font-size: 1.55rem;
      color: #F8FCFC;
-     font-family: var(--agradir-grandlight);
+     font-family: var(--agradir-widelight);
      height: 0;
 }
 
@@ -38,13 +39,15 @@
 .diasemana{
      color: #F8FCFC;
      font-family: var(--agradir-bold);
-     padding: 1.3rem;
+     padding-top: 1.4rem;
+     font-size: 1.55rem;
 }
 
 .art{
      object-fit: cover;
      margin-left: -10.1rem;
 }
+
 
 .luneta1{
      position: absolute;

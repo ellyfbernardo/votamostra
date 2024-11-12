@@ -1,0 +1,132 @@
+.container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     height: 100%; 
+     background-color: #2895D2; 
+     overflow: hidden;
+   }
+   
+   .h1 {
+     margin-bottom: 20px;
+     padding: 1rem;
+     color: #ffffff; /* Cor do texto do título */
+     text-align: center;
+     font-size: 1rem;
+     font-family: var(--agradir-regular);
+     text-wrap: balance;
+     margin-top: 2rem;
+     padding: 0 5rem 0 5rem;
+   }
+
+   
+   .form {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 1.2rem; 
+     
+   }
+   
+   .input {
+     padding: 10px;
+     border-style: none;
+     border-radius: 24px; 
+     width: 300px; 
+     font-size: 1rem;
+     text-align: center;
+     font-family: var(--agradir-narrowgrandlight);
+   }
+   .input::placeholder{
+    color: #000;
+   }
+   
+   .button {
+    font-family: var(--agradir-bold);
+     padding: .8rem;
+     border: none; /* Remove a borda padrão do botão */
+     border-radius: 18px; /* Bordas arredondadas */
+     background-color: #BA3368; /* Cor de fundo do botão */
+     color: white; /* Cor do texto do botão */
+     font-size: 16px; /* Tamanho da fonte */
+     cursor: pointer; /* Muda o cursor ao passar o mouse */
+     width: 50%;
+   }
+   
+   .button:hover {
+     background-color: #d73a79; /* Cor do botão ao passar o mouse */
+   }
+   
+.logo{
+  width: 35%;
+  height: auto;
+  object-fit: contain;
+  position: absolute;
+  top: 4%;
+  right: 4%;
+}
+
+.error{
+  color: #BA3368;
+}
+
+
+.coral1{
+  position: absolute;
+  top: -5%;
+  left: -2%;
+  z-index: 0;
+  width: 10rem;
+}
+
+.luneta2{
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  width: 7rem;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.luneta3{
+  position: absolute;
+  top: 2%;
+  left: 25%;
+  width: 4rem;
+  object-fit: contain;
+  z-index: 1;
+
+}
+
+.coral2{
+  position: absolute;
+  left: -6%;
+  bottom: 0;
+  z-index: 0;
+  padding: 8rem 3rem 1rem 0;
+}
+
+.luneta1{
+  position: absolute;
+  width: 4rem;
+  object-fit: contain;
+  left: 6%;
+  bottom: 13%;
+  
+}
+
+.coral3{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.flor{
+  position: absolute;
+  right: 15%;
+  bottom: 0;
+  z-index: 0;
+  width: 10rem;
+}

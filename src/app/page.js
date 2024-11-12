@@ -5,9 +5,9 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import Image from 'next/image';
 import logo from './assets/Mostra SMG - Logo 2024_Preto-01 1.png';
-import petro from './assets/Petrobras.svg';
+import petro from './assets/Apresenta 2 linhas branco.svg';
 import arte from './assets/Ilustração.svg';
-import rodape from './assets/Rodapé.svg';
+import rodape from './assets/11MCG_Site Mobile.png';
 
 
 export default function Home() {
@@ -26,9 +26,7 @@ export default function Home() {
     <div className={styles.container}>
 
         <header className={styles.container_header}>
-          <p className={styles.p1}>MINISTÉRIO DA CULTURA,</p>
           <Image src={petro} className={styles.petro} alt=""/>
-          <p className={styles.p2}>SALINOR E GOVERNO DO ESTADO DO RIO GRANDE DO NORTE APRESENTAM</p>
         </header>
 
           
@@ -38,8 +36,9 @@ export default function Home() {
         <main className={styles.body}>
 
 
-          <Link href="/mostra-panorama-22-11" className={styles.link}>
+          <Link href="/mostra-panorama-23-11" className={styles.link}>
             <li className={styles.li}>INICIAR VOTAÇÃO</li>
+            
           </Link>
 
 
