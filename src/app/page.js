@@ -7,7 +7,7 @@ import Image from 'next/image';
 import logo from './assets/Mostra SMG - Logo 2024_Preto-01 1.png';
 import petro from './assets/Apresenta 2 linhas branco.svg';
 import arte from './assets/Ilustração.svg';
-import rodape from './assets/11MCG_Site Mobile.png';
+import rodape from './assets/Rodapé (1).svg';
 
 
 export default function Home() {
@@ -37,8 +37,7 @@ export default function Home() {
 
 
           <Link href="/mostra-panorama-23-11" className={styles.link}>
-            <li className={styles.li}>INICIAR VOTAÇÃO</li>
-            
+            <li className={styles.li}>INICIAR VOTAÇÃO</li> 
           </Link>
 
 

@@ -14,7 +14,7 @@
 
 .mostra{
      color: #ffffff;
-      font-size: 1.2rem;
+     font-size: 1.2rem;
      font-family: var(--agradir-grandheavy);
      margin-bottom: 1rem;
 }
@@ -45,7 +45,7 @@
 
 .art{
      object-fit: cover;
-     margin-left: -10.1rem;
+     margin-left: -10.6rem;
 }
 
 
@@ -88,4 +88,24 @@
      display: flex;
      justify-content: center;
      gap: .2rem;
+}
+
+@media (max-width: 320px){
+     .logo{
+          position: absolute;
+          top: -4%;
+          right: -3%;
+          padding: 1.8rem;
+          width: 11rem;
+          object-fit: contain;
+     }
+
+     .mostra{
+          color: #ffffff;
+          font-size: 1rem;
+          font-family: var(--agradir-grandheavy);
+          margin-bottom: 1rem;
+     }
+
+
 }

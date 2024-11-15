@@ -51,7 +51,6 @@
   position: absolute;
   top: -30%;
   width: 60%;
-
 }
 
 
@@ -82,4 +81,74 @@
 .rodape{
   margin-top: 12rem;
   width: 100%;
+}
+
+@media (max-width: 320px) {
+.link{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    list-style: none;
+    margin-left: .9rem;
+}
+
+.logo{
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+
+}
+.arte{
+  width: 20rem;
+  object-fit: contain;
+  padding: 1rem;
+  position: absolute;
+  top: 35%;
+}
+}
+
+
+@media (min-width: 425px) and (max-width: 768px) {
+.body{
+    display: flex;
+    padding: 3rem;
+    justify-content: center;
+    
+  }
+  
+.link{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    list-style: none;
+}
+
+.li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 16px;
+  transition: .3s;
+  font-weight: bold;
+  width: 11.68rem;
+  height: 2.81rem;
+  font-size: 1rem;
+  font-family: var(--agradir-bold);
+}
+
+.logo{
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+
+}
+.arte{
+  width: 20rem;
+  object-fit: contain;
+  padding: 1rem;
+  position: absolute;
+  top: 40%;
+  right: 18%;
+}
 }

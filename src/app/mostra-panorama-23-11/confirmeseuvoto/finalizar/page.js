@@ -90,7 +90,7 @@ export default function VoteList() {
         alert('Erro ao Votar. Tente novamente em alguns instantes.');
       }
     } catch (error) {
-      console.error('Erro ao submeter o voto:', error);
+      alert('Erro ao votar. Tente novamente em alguns instantes.', error);
     }
   };
 

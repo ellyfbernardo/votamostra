@@ -4,10 +4,11 @@
      align-items: center;
      justify-content: space-between;
      padding: .6rem;
-     margin: .5rem;
+     margin: 1rem;
      border-radius: 18px;
      /* height: 100%; */
      /* width: 100%; */
+
 }
 
 .title{
@@ -42,3 +43,14 @@
 
 
 }
+
+@media (max-width: 320px){
+
+.title{
+     font-size: .7rem;
+     margin-left: .2rem;
+     color: #2895d2;
+     font-family: var(--agradir-grandheavy);
+}
+
+} 

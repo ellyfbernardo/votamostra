@@ -6,6 +6,9 @@ import { Prevote } from '@/app/components/prevote/prevote';
 import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../../assets/Mostra SMG - Logo 2024_Preto-01 1.svg'
+import textura from "../../assets/textura-screen3.png"
+
+
 export default function Confirmeseuvoto() {
   const [votos, setVotos] = useState(null);
 
@@ -20,10 +23,9 @@ export default function Confirmeseuvoto() {
 
     
       <div className={style.body}>
-        
       
         <header className={style.header}>
-          <Image src={logo} className={style.logo} alt=''/>
+          
 
           <h1 className={style.title}>CONFIRME SEUS VOTOS</h1>
           
@@ -37,6 +39,11 @@ export default function Confirmeseuvoto() {
           <p className={style.diasemana}>SÁBADO</p>
 
         </header>
+
+          <Image src={logo} className={style.logo} alt=''/>
+        
+        
+      
         
         <main className={style.container}>
 
@@ -66,14 +73,9 @@ export default function Confirmeseuvoto() {
                 />
               )}
 
-              {votos?.filme3 && (
-                <Prevote
-                  title="QUANDO EU ME ENCONTRAR"
-                  description="FICÇÃO, 70MIN, MG, 2023, 14 ANOS DIREÇÃO ANDRÉ NOVAIS OLIVEIRA"
-                  vote={votos?.filme3}
-                  
-                />
-              )}
+              
+
+
             </div>
           )}
         </main>
@@ -92,6 +94,10 @@ export default function Confirmeseuvoto() {
 
             
           </footer>
+
+        
+
+        
         </div>
      
   );

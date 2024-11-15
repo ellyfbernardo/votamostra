@@ -184,20 +184,12 @@ height: 30px;
 object-fit: contain;
 }
 
-/* .fundor{
-position: absolute;
-object-fit: contain;
-width: 2.98rem;
-top: 40%;
-right: -17%;
-z-index: 0;
+@media (max-width: 320px){
+  .title{
+    font-size: .9rem;
+    text-align: center;
+    color: #2895d2;
+    font-family: var(--agradir-grandheavy);
 }
 
-.fundol{
-position: absolute;
-object-fit: contain;
-width: 2.95rem;
-top: 40%;
-left: -17%;
-z-index: 0;
-} */
+}
