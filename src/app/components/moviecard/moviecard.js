@@ -31,6 +31,7 @@ const MovieCard = (props) => {
   };
 
   const handleSubmit = () => {
+    // event.preventDefault();
     router.push('/mostra-panorama-23-11/confirmeseuvoto');
   };
 
@@ -135,7 +136,7 @@ const MovieCard = (props) => {
 
       <footer className={style.footer}>
         {hasVotes && (
-          <button onTouchStart={handleSubmit} className={style.submitButton}>
+          <button onClick={handleSubmit} className={style.submitButton}>
             FINALIZAR
           </button>
         )}
