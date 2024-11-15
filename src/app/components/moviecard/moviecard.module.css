@@ -147,14 +147,14 @@
   text-align: center;
   font-size: 1.4rem;
   font-family: var(--agradir-grandheavy);
-  font-size: 1rem;
+  font-size: 1rem ;
   color: #ba3368;
 }
 
 .sinopse{
   text-align: start;
   font-size: .77rem;
-  /* padding: 1rem; */
+  padding: .5rem 1rem 1rem 1.4rem;
   font-family: var(--agradir-regular);
 
 }
