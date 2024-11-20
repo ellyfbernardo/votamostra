@@ -30,7 +30,7 @@ export async function POST(request) {
 
     // COLEÇÃO DE TESTE ('votes')
     // COLEÇÕES DE PRODUÇÃO ('votes-23-11', 'votes-24-11', 'votes-25-11')
-    const result = await db.collection('votes-23-11').insertOne({
+    const result = await db.collection('votes-23-11-teste').insertOne({
       ...data, // Inclui os dados do voto (CPF, filmes, etc.)
       cidade: city, // Adiciona o nome da cidade
       horarioVoto: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }), // Adiciona o horário do voto
