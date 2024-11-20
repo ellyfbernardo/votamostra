@@ -49,7 +49,8 @@ export default function Confirmeseuvoto() {
               {votos?.filme1 && (
                 <Prevote
                   title="BATI DA VILA"
-                  description="DOCUMENTÁRIO, 13 MIN, RN, 2024  LIVRE | DIREÇÃO: RAQUEL CARDOZO"
+                  description="DOCUMENTÁRIO, 13 MIN, RN, 2024  LIVRE"
+                  direction={"DIREÇÃO: Raquel Cardozo"}
                   vote={votos?.filme1}
                   
                 />
@@ -58,7 +59,8 @@ export default function Confirmeseuvoto() {
               {votos?.filme2 && (
                 <Prevote
                   title="HOJE EU SÓ VOLTO AMANHÃ"
-                  description="ANIMAÇÃO, 24 MIN, PE, 2024, 12 ANOS | DIREÇÃO: DIEGO LACERDA"
+                  description="ANIMAÇÃO, 24 MIN, PE, 2024, 12 ANOS"
+                  direction={"DIREÇÃO: Diego Lacerda"}
                   vote={votos?.filme2}
                   
                 />
@@ -67,7 +69,8 @@ export default function Confirmeseuvoto() {
               {votos?.filme3 && (
                 <Prevote
                   title="CALUIM"
-                  description="FICÇÃO, 11 MIN, BA, 2023, LIVRE | DIREÇÃO: MARCOS ALEXANDRE"
+                  description="FICÇÃO, 11 MIN, BA, 2023, LIVRE"
+                  direction={"DIREÇÃO: Marcos Alexandre"}
                   vote={votos?.filme3}
                   
                 />
@@ -76,7 +79,8 @@ export default function Confirmeseuvoto() {
               {votos?.filme4 && (
                 <Prevote
                   title="AXÉ MEU AMOR"
-                  description="FICÇÃO, 18 MIN, PB, 2024, LIVRE | DIREÇÃO: THIAGO COSTA"
+                  description="FICÇÃO, 18 MIN, PB, 2024, LIVRE"
+                  direction={"DIREÇÃO: Thiago Costa"}
                   vote={votos?.filme4}
                   
                 />
@@ -85,16 +89,14 @@ export default function Confirmeseuvoto() {
               {votos?.filme5 && (
                 <Prevote
                   title="KASA BRANCA"
-                  description="FICÇÃO, 95 MIN, RJ, 2024, 12 ANOS | DIREÇÃO: LUCIANO VIDIGAL"
+                  description="FICÇÃO, 95 MIN, RJ, 2024, 12 ANOS"
+                  direction={"DIREÇÃO: Luciano Vidigal"}
                   vote={votos?.filme5}
                   
                 />
-              )}  
-            </div>
-          )}
-        </main>
+              )}
 
-          <footer className={style.footer}>
+                        <footer className={style.footer}>
 
           {(votos?.filme1 || votos?.filme2 || votos?.filme3 || votos?.filme4 || votos?.filme5) && (
               <Link className={style.button} href="/mostra-panorama-24-11/confirmeseuvoto/finalizar">
@@ -107,7 +109,12 @@ export default function Confirmeseuvoto() {
             </Link>
 
             
-          </footer>
+          </footer>  
+            </div>
+          )}
+        </main>
+
+
         </div>
      
   );

@@ -35,8 +35,6 @@
  text-align: center;
  color: #2895d2;
  font-family: var(--agradir-grandheavy);
- 
- 
 }
 
 .opcao {
@@ -149,14 +147,14 @@ margin-bottom: .8rem;
 text-align: center;
 font-size: 1.4rem;
 font-family: var(--agradir-grandheavy);
-font-size: 1rem;
+font-size: 1rem ;
 color: #ba3368;
 }
 
 .sinopse{
 text-align: start;
 font-size: .77rem;
-/* padding: 1rem; */
+padding: .5rem 1rem 1rem 1.4rem;
 font-family: var(--agradir-regular);
 
 }
@@ -169,27 +167,11 @@ height: 2rem;
 margin-bottom: .5rem;
 }
 
-.liner{
-z-index: 1;
-width: 4rem;
-height: 30px;
-object-fit: contain;
-
-}
-
-.linel{
-z-index: 1;
-width: 4rem;
-height: 30px;
-object-fit: contain;
-}
-
 @media (max-width: 320px){
-  .title{
-    font-size: .9rem;
-    text-align: center;
-    color: #2895d2;
-    font-family: var(--agradir-grandheavy);
+.title{
+ font-size: .9rem;
+ text-align: center;
+ color: #2895d2;
+ font-family: var(--agradir-grandheavy);
 }
-
 }

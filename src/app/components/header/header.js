@@ -36,7 +36,7 @@ export function Header() {
         </div>
       </div>
 
-      <p className={style.diasemana}>{/* {diaSemana} */} SÁBADO</p>
+      <p className={style.diasemana}>{diaSemana} </p>
     </header>
   );
 }

@@ -24,7 +24,7 @@ export default function Agradecimento(){
                     <h2 className={style.subtitle}>CONFIRMADA!</h2>
                </div>
 
-               <Link href={'/'} className={style.button}>ÍNICIO</Link>
+               <Link href={'/'} className={style.button}>INÍCIO</Link>
           </main>
 
 
