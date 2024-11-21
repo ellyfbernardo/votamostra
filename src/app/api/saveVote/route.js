@@ -56,4 +56,4 @@ export async function POST(request) {
     }
     return new Response("Erro ao salvar o voto", { status: 500 });
   }
-}
+};

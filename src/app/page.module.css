@@ -19,6 +19,7 @@
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
+  border-style: none;
   border-radius: 16px;
   transition: .3s;
   font-weight: bold;
@@ -26,6 +27,16 @@
   height: 2.81rem;
   font-size: 1rem;
   font-family: var(--agradir-bold);
+}
+
+.li:hover {
+  background-color: #ffd9e8; /* Cor do botão ao passar o mouse */
+}
+
+.li:active {
+ background-color: #ffd9e8; /* Cor mais escura ao clicar */
+ transform: scale(0.95); /* Reduz ligeiramente o botão */
+ box-shadow: 1px 4px 8px -4px rgba(0, 0, 0, 0.75); /* Reduz a sombra */
 }
 
 .logo{

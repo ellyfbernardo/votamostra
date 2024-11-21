@@ -37,7 +37,7 @@ export default function Home() {
 
 
           <Link href="/mostra-panorama-23-11" className={styles.link}>
-            <li className={styles.li}>INICIAR VOTAÇÃO</li> 
+            <button className={styles.li}>INICIAR VOTAÇÃO</button> 
           </Link>
 
 

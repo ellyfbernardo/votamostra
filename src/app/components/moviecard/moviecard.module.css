@@ -133,6 +133,15 @@
      height: 3.8rem;
 }
 
+.submitButton:hover {
+  background-color: #3f3f3f; /* Cor do botão ao passar o mouse */
+}
+
+.submitButton:active {
+ background-color: #383838; /* Cor mais escura ao clicar */
+ transform: scale(0.95); /* Reduz ligeiramente o botão */
+ box-shadow: 1px 4px 8px -4px rgba(0, 0, 0, 0.75); /* Reduz a sombra */
+}
 
 
 .subdescription{
