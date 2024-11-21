@@ -12,37 +12,33 @@ import luneta3 from '../../../assets/Luneta 3.png';
 import coral3 from '../../../assets/Coral 3.svg';
 import flor from '../../../assets/Flor Lateral.svg';
 
-
 export default function VoteList() {
   const [cpf, setCpf] = useState('');
   const [votos, setVotos] = useState({ filme1: '', filme2: '', filme3: '' });
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [locationError, setLocationError] = useState(false);
+  const [cpfError, setCpfError] = useState(false);
 
   useEffect(() => {
-    // Carrega os votos do Local Storage
     const storedVotes = JSON.parse(localStorage.getItem('votos')) || {
       filme1: '',
       filme2: '',
       filme3: ''
     };
-    
-    setVotos(storedVotes); // Atualiza o estado com os votos resgatados
+    setVotos(storedVotes);
 
-    // Função para tentar obter a localização continuamente
     const getLocation = () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
             setLatitude(position.coords.latitude);
             setLongitude(position.coords.longitude);
-            setLocationError(false); // Reseta o erro se a localização for bem-sucedida
+            setLocationError(false);
           },
           () => {
-            setLocationError(true); // Define o erro se a localização falhar
-            // Tenta novamente após um tempo
-            setTimeout(getLocation, 5000); // Tenta novamente após 5 segundos
+            setLocationError(true);
+            setTimeout(getLocation, 5000);
           }
         );
       } else {
@@ -50,16 +46,54 @@ export default function VoteList() {
       }
     };
 
-    getLocation(); // Chama a função para começar a tentar obter a localização
+    getLocation();
   }, []);
+
+  const validarCPF = (cpf) => {
+    cpf = cpf.replace(/[^\d]/g, "");
+    if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+
+    let soma = 0;
+    let resto;
+
+    for (let i = 0; i < 9; i++) soma += parseInt(cpf.charAt(i)) * (10 - i);
+    resto = (soma * 10) % 11;
+    if (resto === 10 || resto === 11) resto = 0;
+    if (resto !== parseInt(cpf.charAt(9))) return false;
+
+    soma = 0;
+    for (let i = 0; i < 10; i++) soma += parseInt(cpf.charAt(i)) * (11 - i);
+    resto = (soma * 10) % 11;
+    if (resto === 10 || resto === 11) resto = 0;
+    return resto === parseInt(cpf.charAt(10));
+  };
+
+  const formatCPF = (value) => {
+    return value
+      .replace(/\D/g, '') // Remove caracteres não numéricos
+      .replace(/(\d{3})(\d)/, '$1.$2') // Adiciona o primeiro ponto
+      .replace(/(\d{3})(\d)/, '$1.$2') // Adiciona o segundo ponto
+      .replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // Adiciona o hífen
+  };
+
+  const handleCpfChange = (e) => {
+    const formattedCpf = formatCPF(e.target.value);
+    setCpf(formattedCpf);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Verifica se a localização está disponível
+    const rawCpf = cpf.replace(/[^\d]/g, "");
+    if (!validarCPF(rawCpf)) {
+      setCpfError(true);
+      return;
+    }
+    setCpfError(false);
+
     if (!latitude || !longitude) {
       alert('Ative sua localização para votar.');
-      return; // Impede o envio se a localização não estiver disponível
+      return;
     }
 
     try {
@@ -69,20 +103,18 @@ export default function VoteList() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          cpf,
+          cpf: rawCpf,
           filme1: votos.filme1,
           filme2: votos.filme2,
           filme3: votos.filme3,
-          latitude, // Inclui a latitude
-          longitude // Inclui a longitude
+          latitude,
+          longitude
         }),
       });
 
       if (res.ok) {
-        // alert('Voto submetido com sucesso!');
-        setCpf(''); // Limpa o campo de CPF
-        setVotos({ filme1: '', filme2: '', filme3: '' }); // Limpa os votos
-        // Redireciona o usuário para a página de agradecimento
+        setCpf('');
+        setVotos({ filme1: '', filme2: '', filme3: '' });
         window.location.href = '/mostra-panorama-23-11/confirmeseuvoto/finalizar/agradecimento';
       } else if (res.status === 409) {
         alert('Parece que você já votou hoje. Volte amanhã para mais : )');
@@ -96,28 +128,26 @@ export default function VoteList() {
 
   return (
     <div className={style.container}>
-
-      <Image src={luneta2} alt='' className={style.luneta2}/>
-      <Image src={luneta3} alt='' className={style.luneta3}/>
-      <Image src={coral1} alt='' className={style.coral1}/>
-      <Image src={coral2} alt='' className={style.coral2}/>
-      <Image src={luneta1} alt='' className={style.luneta1}/>
-      <Image src={coral3} alt='' className={style.coral3}/>
-      <Image src={flor} alt='' className={style.flor}/>
-
-      <Image src={logo} alt='' className={style.logo}/> 
+      <Image src={luneta2} alt='' className={style.luneta2} />
+      <Image src={luneta3} alt='' className={style.luneta3} />
+      <Image src={coral1} alt='' className={style.coral1} />
+      <Image src={coral2} alt='' className={style.coral2} />
+      <Image src={luneta1} alt='' className={style.luneta1} />
+      <Image src={coral3} alt='' className={style.coral3} />
+      <Image src={flor} alt='' className={style.flor} />
+      <Image src={logo} alt='' className={style.logo} />
       <h1 className={style.h1}>Informe seu CPF abaixo para validar a votação</h1>
       <form className={style.form} onSubmit={handleSubmit}>
         <input
           className={style.input}
           type="text"
           value={cpf}
-          onChange={(e) => setCpf(e.target.value)}
+          onChange={handleCpfChange}
           placeholder="Digite seu CPF"
-          maxLength="11"
+          maxLength="14"
           required
-          
         />
+        {cpfError && <p className={style.error}>CPF inválido. Corrija para continuar.</p>}
         <button className={style.button} type="submit">CONFIRMAR</button>
         {locationError && (
           <p className={style.error}>

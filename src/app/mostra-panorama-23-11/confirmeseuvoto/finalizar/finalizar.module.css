@@ -62,6 +62,12 @@
      background-color: #d73a79; /* Cor do botão ao passar o mouse */
    }
    
+   .button:active {
+    background-color: #a62958; /* Cor mais escura ao clicar */
+    transform: scale(0.95); /* Reduz ligeiramente o botão */
+    box-shadow: 1px 4px 8px -4px rgba(0, 0, 0, 0.75); /* Reduz a sombra */
+  }
+
 .logo{
   width: 35%;
   height: auto;
