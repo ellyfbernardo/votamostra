@@ -19,6 +19,7 @@ export default function VoteList() {
   const [longitude, setLongitude] = useState(null);
   const [locationError, setLocationError] = useState(false);
   const [cpfError, setCpfError] = useState(false);
+  const [loading, setLoading] = useState(false); // Novo estado para controle do carregamento
 
   useEffect(() => {
     const storedVotes = JSON.parse(localStorage.getItem('votos')) || {
@@ -83,16 +84,19 @@ export default function VoteList() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);  // Ativa o loading
 
     const rawCpf = cpf.replace(/[^\d]/g, "");
     if (!validarCPF(rawCpf)) {
       setCpfError(true);
+      setLoading(false); // Desativa o loading se o CPF for inválido
       return;
     }
     setCpfError(false);
 
     if (!latitude || !longitude) {
       alert('Ative sua localização para votar.');
+      setLoading(false); // Desativa o loading em caso de erro de localização
       return;
     }
 
@@ -119,10 +123,12 @@ export default function VoteList() {
       } else if (res.status === 409) {
         alert('Parece que você já votou hoje. Volte amanhã para mais : )');
       } else {
-        alert('Erro ao Votar. Tente novamente em alguns instantes.');
+        alert('Erro ao votar. Tente novamente em alguns instantes.');
       }
     } catch (error) {
       alert('Erro ao votar. Tente novamente em alguns instantes.', error);
+    } finally {
+      setLoading(false);  // Desativa o loading após a resposta
     }
   };
 
@@ -148,7 +154,9 @@ export default function VoteList() {
           required
         />
         {cpfError && <p className={style.error}>CPF inválido. Corrija para continuar.</p>}
-        <button className={style.button} type="submit">CONFIRMAR</button>
+        <button className={style.button} type="submit" disabled={loading}>
+          {loading ? <div className={style.spinner}></div> : 'CONFIRMAR'}
+        </button>
         {locationError && (
           <p className={style.error}>
             Erro: Ative sua localização para continuar.

@@ -30,7 +30,7 @@ export default function Confirmeseuvoto() {
           <h2 className={style.h2}>MOSTRA COMPETITIVA</h2>
 
           <div className={style.date}>
-                      <h1 className={style.dia}>23</h1>
+                      <h1 className={style.dia}>25</h1>
                       <h2 className={style.mes}>NOV</h2>
                       <h1 className={style.dia}>2024</h1>
           </div>
