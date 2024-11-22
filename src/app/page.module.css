@@ -119,6 +119,25 @@
 }
 
 
+.aguarde{
+  font-family: var(--agradir-grandheavy);
+}
+
+.votacao{
+  font-family: var(--agradir-bold);
+  font-size: 1rem;
+  text-wrap: nowrap;
+  color: #fff;
+
+}
+
+.termino{
+  font-family: var(--agradir-bold);
+  font-size: 1rem;
+  text-wrap: nowrap;
+  color: #fff;
+}
+
 @media (min-width: 425px) and (max-width: 768px) {
 .body{
     display: flex;
