@@ -11,12 +11,18 @@ import logo from '../../assets/Mostra SMG - Logo 2024_Preto-01 1.svg';
 
 export function Header() {
   const [diaSemana, setDiaSemana] = useState('');
+  const [diaMes, setDiaMes] = useState('');
 
   useEffect(() => {
     const diasSemana = ['DOMINGO', 'SEGUNDA-FEIRA', 'TERÇA-FEIRA', 'QUARTA-FEIRA', 'QUINTA-FEIRA', 'SEXTA-FEIRA', 'SÁBADO'];
     const dataAtual = new Date();
+
+    // Define o dia da semana (ex: SEGUNDA-FEIRA)
     const diaAtualSemana = diasSemana[dataAtual.getDay()];
     setDiaSemana(diaAtualSemana);
+
+    // Define o dia do mês (ex: 25)
+    setDiaMes(dataAtual.getDate());
   }, []);
 
   return (
@@ -30,13 +36,13 @@ export function Header() {
       <div className={style.date_container}>
         <h1 className={style.mostra}>MOSTRA COMPETITIVA</h1>
         <div className={style.date}>
-          <h1 className={style.dia}>25</h1>
+          <h1 className={style.dia}>{diaMes}</h1>  {/* Atualizado dinamicamente */}
           <h2 className={style.mes}>NOV</h2>
           <h1 className={style.dia}>2024</h1>
         </div>
       </div>
 
-      <p className={style.diasemana}>{diaSemana} </p>
+      <p className={style.diasemana}>{diaSemana}</p>
     </header>
   );
 }

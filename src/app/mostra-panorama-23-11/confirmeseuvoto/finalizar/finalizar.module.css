@@ -105,6 +105,7 @@
 
 .error{
   color: #BA3368;
+  font-family: var(--agradir-bold);
 }
 
 
@@ -150,7 +151,7 @@
   object-fit: contain;
   left: 9%;
   bottom: 15%;
-  
+  z-index: 0;
 }
 
 .coral3{

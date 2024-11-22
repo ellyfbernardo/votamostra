@@ -153,15 +153,22 @@ export default function VoteList() {
           maxLength="14"
           required
         />
-        {cpfError && <p className={style.error}>CPF inválido. Corrija para continuar.</p>}
+        {locationError && (
+          <p className={style.error}>
+            ATIVE SUA LOCALIZAÇÃO PARA VOTAR.
+          </p>
+        )}
+
+        {cpfError && <p className={style.error}>CPF INVÁLIDO. VERIFIQUE PARA CONTINUAR.</p>}
         <button className={style.button} type="submit" disabled={loading}>
           {loading ? <div className={style.spinner}></div> : 'CONFIRMAR'}
         </button>
-        {locationError && (
+
+        {/* {locationError && (
           <p className={style.error}>
-            Erro: Ative sua localização para continuar.
+            ATIVE SUA LOCALIZAÇÃO PARA VOTAR.
           </p>
-        )}
+        )} */}
       </form>
     </div>
   );
