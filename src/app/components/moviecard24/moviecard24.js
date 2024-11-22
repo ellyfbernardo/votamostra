@@ -42,6 +42,8 @@ const MovieCard24 = (props) => {
 
       {/* FILME 1 */}
 
+      <h2 className={style.tipo}>CURTAS-METRAGEM</h2>
+
       <div className={style.container_flex}>
         {['filme1'].map((topico, index) => (
           <div key={index} className={style.container}>
@@ -177,7 +179,7 @@ const MovieCard24 = (props) => {
       </div>
 
           {/* FILME 5 */}
-
+        <h2 className={style.tipo}>LONGA-METRAGEM</h2>
 
       <div className={style.container_flex}>
         {['filme5'].map((topico, index) => (
