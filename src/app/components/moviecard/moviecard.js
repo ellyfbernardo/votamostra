@@ -51,7 +51,7 @@ const MovieCard = (props) => {
         // Tenta rolar o card para o próximo
         nextCard.scrollIntoView({
           behavior: 'smooth',
-          block: 'start', // Inicia no topo do próximo card
+          block: 'end', // Inicia no topo do próximo card
         });
         
         // Adiciona uma margem extra para compensar a barra de navegação (caso necessário)
