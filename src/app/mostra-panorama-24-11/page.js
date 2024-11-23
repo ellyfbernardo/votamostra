@@ -1,7 +1,7 @@
 "use client";
 
-import style from "./page.module.css";
 import MovieCard24 from "../components/moviecard24/moviecard24";
+import style from "./page.module.css";
 import filme1 from '../assets/BATI DA VILA.png';
 import filme2 from '../assets/HOJE EU SÓ VOLTO AMANHA.jpg';
 import filme3 from '../assets/CALUIM.png';
