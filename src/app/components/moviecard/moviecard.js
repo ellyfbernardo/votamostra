@@ -46,12 +46,19 @@ const MovieCard = (props) => {
       
       if (nextCard) {
         const isMobile = window.innerWidth <= 768;
+        console.log("Rodando em Mobile?", isMobile);
 
+        // Tenta rolar o card para o próximo
+        nextCard.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start', // Inicia no topo do próximo card
+        });
+        
+        // Adiciona uma margem extra para compensar a barra de navegação (caso necessário)
         if (isMobile) {
-          const offset = nextCard.offsetTop - 100; // Ajuste para o topo
-          window.scrollTo({ top: offset, behavior: 'smooth' });
-        } else {
-          nextCard.scrollIntoView({ behavior: 'smooth' });
+          setTimeout(() => {
+            window.scrollBy(0, -100); // Ajuste para compensar a barra de navegação
+          }, 300);
         }
       }
     }
