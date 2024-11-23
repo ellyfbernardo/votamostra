@@ -35,10 +35,13 @@ export default function Home() {
 
         <main className={styles.body}>
 
-            {/* /mostra-panorama-23-11
-            /mostra-panorama-24-11
-            /mostra-panorama-25-11 */}
+            {/*
+              /mostra-panorama-24-11
+              /mostra-panorama-25-11 
+            */}
             
+
+            {/* /mostra-panorama-23-11 */}
           <Link href="#" className={styles.link}>
             {/* <button className={styles.li}>INICIAR VOTAÇÃO</button>  */}
             <div className={styles.waiting}>
