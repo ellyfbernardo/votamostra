@@ -42,7 +42,18 @@ const MovieCard = (props) => {
     const nextIndex = currentIndex + 1;
 
     if (nextIndex < topicos.length) {
-      cardRefs[topicos[nextIndex]].current.scrollIntoView({ behavior: 'smooth' });
+      const nextCard = cardRefs[topicos[nextIndex]].current;
+      
+      if (nextCard) {
+        const isMobile = window.innerWidth <= 768;
+
+        if (isMobile) {
+          const offset = nextCard.offsetTop - 100; // Ajuste para o topo
+          window.scrollTo({ top: offset, behavior: 'smooth' });
+        } else {
+          nextCard.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     }
   };
 
@@ -110,8 +121,6 @@ const MovieCard = (props) => {
         </div>
       </div>
 
-      {/* Repita o mesmo padrão para o terceiro filme, adicionando a referência */}
-      {/* Exemplo: <div className={style.container_flex} ref={cardRefs.filme3}> */}
 
       <footer className={style.footer}>
         {hasVotes && (
