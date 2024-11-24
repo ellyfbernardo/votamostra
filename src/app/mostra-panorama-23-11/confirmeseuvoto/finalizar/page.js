@@ -19,7 +19,7 @@ export default function VoteList() {
   const [longitude, setLongitude] = useState(null);
   const [locationError, setLocationError] = useState(false);
   const [cpfError, setCpfError] = useState(false);
-  const [loading, setLoading] = useState(false); // Novo estado para controle do carregamento
+  const [loading, setLoading] = useState(false); // estado para controle do carregamento
 
   useEffect(() => {
     const storedVotes = JSON.parse(localStorage.getItem('votos')) || {
@@ -142,6 +142,7 @@ export default function VoteList() {
       <Image src={coral3} alt='' className={style.coral3} />
       <Image src={flor} alt='' className={style.flor} />
       <Image src={logo} alt='' className={style.logo} />
+      
       <h1 className={style.h1}>Informe seu CPF abaixo para validar a votação</h1>
       <form className={style.form} onSubmit={handleSubmit}>
         <input
@@ -163,12 +164,6 @@ export default function VoteList() {
         <button className={style.button} type="submit" disabled={loading}>
           {loading ? <div className={style.spinner}></div> : 'CONFIRMAR'}
         </button>
-
-        {/* {locationError && (
-          <p className={style.error}>
-            ATIVE SUA LOCALIZAÇÃO PARA VOTAR.
-          </p>
-        )} */}
       </form>
     </div>
   );

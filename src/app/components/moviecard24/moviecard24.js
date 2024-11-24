@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import style from './moviecard.module.css';
@@ -13,6 +13,18 @@ const MovieCard24 = (props) => {
     filme4: null,
     filme5: null,
   });
+
+  const cardRefs = {
+    filme1: useRef(null),
+    filme2: useRef(null),
+    filme3: useRef(null),
+    filme4: useRef(null),
+    filme5: useRef(null),
+  };
+
+
+
+
 
   const router = useRouter();
 
@@ -30,6 +42,33 @@ const MovieCard24 = (props) => {
     };
     setVotos(novosVotos);
     localStorage.setItem('votos', JSON.stringify(novosVotos));
+
+        // Move para o próximo card após o voto
+        const topicos = Object.keys(cardRefs);
+        const currentIndex = topicos.indexOf(topico);
+        const nextIndex = currentIndex + 1;
+    
+        if (nextIndex < topicos.length) {
+          const nextCard = cardRefs[topicos[nextIndex]].current;
+          
+          if (nextCard) {
+            const isMobile = window.innerWidth <= 768;
+            console.log("Rodando em Mobile?", isMobile);
+    
+            // Tenta rolar o card para o próximo
+            nextCard.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start', // Inicia no topo do próximo card
+            });
+            
+            // Adiciona uma margem extra para compensar a barra de navegação (caso necessário)
+            if (isMobile) {
+              setTimeout(() => {
+                window.scrollBy(0, -100); // Ajuste para compensar a barra de navegação
+              }, 300);
+            }
+          }
+        }
   };
 
   const handleSubmit = () => {
@@ -44,7 +83,7 @@ const MovieCard24 = (props) => {
 
       <h2 className={style.tipo}>CURTAS-METRAGEM</h2>
 
-      <div className={style.container_flex}>
+      <div className={style.container_flex} ref={cardRefs.filme1}>
         {['filme1'].map((topico, index) => (
           <div key={index} className={style.container}>
             <h3 className={style.title}>{props.title1}</h3>
@@ -78,7 +117,7 @@ const MovieCard24 = (props) => {
 
       {/* FILME 2 */}
 
-      <div className={style.container_flex}>
+      <div className={style.container_flex} ref={cardRefs.filme2}>
         {['filme2'].map((topico, index) => (
           <div key={index} className={style.container}>
             <h3 className={style.title}>{props.title2}</h3>
@@ -112,7 +151,7 @@ const MovieCard24 = (props) => {
 
           {/* FILME 3 */}
 
-      <div className={style.container_flex}>
+      <div className={style.container_flex} ref={cardRefs.filme3}>
         {['filme3'].map((topico, index) => (
           <div key={index} className={style.container}>
             <h3 className={style.title}>{props.title3}</h3>
@@ -146,7 +185,7 @@ const MovieCard24 = (props) => {
 
           {/* FILME 4 */}
       
-      <div className={style.container_flex}>
+      <div className={style.container_flex} ref={cardRefs.filme4}>
         {['filme4'].map((topico, index) => (
           <div key={index} className={style.container}>
             <h3 className={style.title}>{props.title4}</h3>
@@ -181,7 +220,7 @@ const MovieCard24 = (props) => {
           {/* FILME 5 */}
         <h2 className={style.tipo}>LONGA-METRAGEM</h2>
 
-      <div className={style.container_flex}>
+      <div className={style.container_flex} ref={cardRefs.filme5}>
         {['filme5'].map((topico, index) => (
           <div key={index} className={style.container}>
             <h3 className={style.title}>{props.title5}</h3>

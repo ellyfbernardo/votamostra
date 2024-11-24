@@ -1,6 +1,17 @@
 import axios from 'axios';
 import clientPromise from '../../mongodb'; // Ajuste o caminho conforme sua estrutura
 
+// Função para obter a data e hora no fuso horário de Brasília
+const getBrasiliaTime = () => {
+  const now = new Date();
+
+  // Obtém o timestamp em milissegundos, ajustando para o fuso horário de Brasília (-3 horas)
+  const brasiliaOffset = -3 * 60; // Brasília está em GMT-3
+  const adjustedTime = new Date(now.getTime() + brasiliaOffset * 60 * 1000);
+
+  return adjustedTime;
+};
+
 export async function POST(request) {
   try {
     const client = await clientPromise;
@@ -13,13 +24,13 @@ export async function POST(request) {
     const data = await request.json();
     const { cpf, latitude, longitude, colecao } = data; // Inclui CPF e Coleção para verificação
 
-    // Obter data atual (apenas ano, mês e dia para comparação)
-    const today = new Date();
+    // Obter data atual (horário de Brasília)
+    const today = getBrasiliaTime();
     const startOfDay = new Date(today.setHours(0, 0, 0, 0));
     const endOfDay = new Date(today.setHours(23, 59, 59, 999));
 
     // Verificar se o CPF já votou hoje na mesma coleção
-    const existingVote = await db.collection('votes-23-11').findOne({
+    const existingVote = await db.collection('votes-24-11-teste').findOne({
       cpf,
       colecao, // Verifica se votou na coleção específica
       horarioVoto: { $gte: startOfDay, $lte: endOfDay }, // Verifica votos no intervalo do dia
@@ -42,10 +53,10 @@ export async function POST(request) {
     }
 
     // Insere os dados no banco de dados, incluindo a cidade, horário do voto e coleção
-    const result = await db.collection('votes-23-11').insertOne({
+    const result = await db.collection('votes-24-11-teste').insertOne({
       ...data, // Inclui os dados do voto (CPF, filmes, etc.)
       cidade: city, // Adiciona o nome da cidade
-      horarioVoto: new Date(), // Adiciona o horário do voto
+      horarioVoto: getBrasiliaTime(), // Adiciona o horário do voto em horário de Brasília
     });
 
     return new Response(JSON.stringify(result), { status: 200 });
