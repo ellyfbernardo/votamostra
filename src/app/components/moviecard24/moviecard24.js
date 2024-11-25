@@ -23,9 +23,6 @@ const MovieCard24 = (props) => {
   };
 
 
-
-
-
   const router = useRouter();
 
   useEffect(() => {
