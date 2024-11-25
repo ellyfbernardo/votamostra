@@ -6,8 +6,6 @@
   
 }
 
-
-
 .container_flex{
  background-color: #FFFFFF;
  border-radius: 24px ;
@@ -165,6 +163,13 @@ align-items: center;
 justify-content: space-around;
 height: 2rem;
 margin-bottom: .5rem;
+}
+
+.tipo{
+  color: #FFF;
+  padding: 1rem;
+  text-align: center;
+  font-family: var(--agradir-bold);
 }
 
 @media (max-width: 320px){

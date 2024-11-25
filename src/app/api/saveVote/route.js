@@ -30,7 +30,7 @@ export async function POST(request) {
     const endOfDay = new Date(today.setHours(23, 59, 59, 999));
 
     // Verificar se o CPF já votou hoje na mesma coleção
-    const existingVote = await db.collection('votes-24-11').findOne({
+    const existingVote = await db.collection('votes-25-11-teste').findOne({
       cpf,
       colecao, // Verifica se votou na coleção específica
       horarioVoto: { $gte: startOfDay, $lte: endOfDay }, // Verifica votos no intervalo do dia
@@ -53,7 +53,7 @@ export async function POST(request) {
     }
 
     // Insere os dados no banco de dados, incluindo a cidade, horário do voto e coleção
-    const result = await db.collection('votes-24-11').insertOne({
+    const result = await db.collection('votes-25-11-teste').insertOne({
       ...data, // Inclui os dados do voto (CPF, filmes, etc.)
       cidade: city, // Adiciona o nome da cidade
       horarioVoto: getBrasiliaTime(), // Adiciona o horário do voto em horário de Brasília

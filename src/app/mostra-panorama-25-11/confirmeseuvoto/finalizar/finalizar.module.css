@@ -45,6 +45,8 @@
 
 .button {
  font-family: var(--agradir-bold);
+ display: flex;
+ justify-content: center;
   padding: .8rem .8rem .6rem .8rem;
   border: none; /* Remove a borda padrão do botão */
   border-radius: 18px; /* Bordas arredondadas */
@@ -67,6 +69,30 @@
  transform: scale(0.95); /* Reduz ligeiramente o botão */
  box-shadow: 1px 4px 8px -4px rgba(0, 0, 0, 0.75); /* Reduz a sombra */
 }
+/* Spinner */
+.spinner {
+width: 20px;
+height: 20px;
+border: 3px solid #fff;        /* Cor da borda externa */
+border-top: 3px solid #007BFF;
+border-radius: 50%;             
+animation: spin 1s linear infinite; 
+}
+
+/* Definição da animação */
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+/* Estilo do botão desativado */
+.button:disabled {
+background-color: #ba3369f9;
+cursor: not-allowed;
+opacity: 0.7;
+}
+
+
 
 .logo{
 width: 35%;
@@ -79,6 +105,7 @@ right: 4%;
 
 .error{
 color: #BA3368;
+font-family: var(--agradir-bold);
 }
 
 
@@ -124,7 +151,7 @@ width: 4rem;
 object-fit: contain;
 left: 9%;
 bottom: 15%;
-
+z-index: 0;
 }
 
 .coral3{
@@ -141,6 +168,82 @@ bottom: 0;
 z-index: 0;
 width: 10rem;
 }
+
+
+@media (max-height: 500px){
+  .flor{
+    position: absolute;
+    right: 15%;
+    bottom: 0;
+    z-index: 0;
+    width: 5rem;
+    }
+
+    .flor{
+      width: 6rem;
+      right: 24%;
+      bottom: -8%;
+    }
+    
+    .coral1{
+      width: 8rem;
+      top: -10%;
+    }
+
+    .coral2{
+      width: 7rem;
+
+    }
+
+    .coral3{
+      width: 10rem;
+      bottom: -2%;
+      
+    }
+
+    .logo{
+      width: 5rem;
+    }
+    .luneta1{
+      width: 3rem;
+      left: 10%;
+    }
+    .luneta2{
+      width: 5rem;
+
+    }
+    .luneta3{
+      width: 3rem;
+      top: 0;
+    }
+}
+
+@media  (min-height:501px) and (max-height: 580px){
+ .flor{
+  width: 7rem;
+  bottom: -6%;
+ }
+ .coral3{
+  width: 8rem;
+  bottom: -5%;
+ }
+ .coral2{
+  width: 6rem;
+ }
+ .luneta1{ 
+  width: 3rem;
+  bottom: 10%;
+ }
+ .luneta2{
+  width: 6rem;
+  left: 15%;
+  top: 12%;
+ }
+.luneta3{
+  width: 3.5rem;
+}
+}
+
 
 @media (max-width: 320px) {
 .h1 {
@@ -164,4 +267,33 @@ width: 10rem;
  text-align: center;
  font-family: var(--agradir-narrowgrandlight);
 }
+}
+
+@media (max-height: 423px) and (max-width: 410px){
+  .flor{
+    width: 3rem;
+    bottom: -15%;
+   }
+   .coral3{
+    width: 7rem;
+    bottom: -7%;
+   }
+   .coral2{
+    width: 6rem;
+   }
+   .luneta1{ 
+    width: 3rem;
+    bottom: 10%;
+   }
+   .luneta2{
+    width: 4rem;
+    left: 10%;
+    top: 12%;
+   }
+  .luneta3{
+    width: 3rem;
+  }
+  .input{
+    width: 14rem;
+  }
 }

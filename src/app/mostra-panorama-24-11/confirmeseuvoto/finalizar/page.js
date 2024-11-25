@@ -136,7 +136,7 @@ export default function VoteList() {
         // Redireciona o usuário para a página de agradecimento
         window.location.href = '/mostra-panorama-24-11/confirmeseuvoto/finalizar/agradecimento';
       } else if (res.status === 409) {
-        alert('Parece que você já votou hoje. Volte amanhã para mais : )');
+        alert('Opa! Parece que você já votou hoje. Espero te ver aqui no próximo ano : )');
       } else {
         alert('Erro ao Votar. Tente novamente em alguns instantes.');
       }

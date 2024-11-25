@@ -34,7 +34,7 @@ export default function Confirmeseuvoto() {
                       <h2 className={style.mes}>NOV</h2>
                       <h1 className={style.dia}>2024</h1>
           </div>
-          <p className={style.diasemana}>DOMINGO</p>
+          <p className={style.diasemana}>SEGUNDA-FEIRA</p>
 
         </header>
         

@@ -14,11 +14,12 @@ import flor from '../../../assets/Flor Lateral.svg';
 
 export default function VoteList() {
   const [cpf, setCpf] = useState('');
-  const [votos, setVotos] = useState({ filme1: '', filme2: '', filme3: '' });
+  const [votos, setVotos] = useState({ filme1: '', filme2: '', filme3: '', filme4: '', filme5: '' });
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [locationError, setLocationError] = useState(false);
   const [cpfError, setCpfError] = useState(false);
+  const [loading, setLoading] = useState(false); // estado para controle do carregamento
 
   useEffect(() => {
     // Carrega os votos do Local Storage
@@ -91,17 +92,20 @@ export default function VoteList() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);  // Ativa o loading
 
     const rawCpf = cpf.replace(/[^\d]/g, "");
     if (!validarCPF(rawCpf)) {
       setCpfError(true);
+      setLoading(false); // Desativa o loading se o CPF for inválido
       return;
     }
     setCpfError(false);
 
     // Verifica se a localização está disponível
     if (!latitude || !longitude) {
-      alert('Ative sua localização para votar.');
+      alert('Permita que nosso site use sua localização para para concluir seu voto.');
+      setLoading(false)
       return; // Impede o envio se a localização não estiver disponível
     }
 
@@ -130,14 +134,16 @@ export default function VoteList() {
         localStorage.setItem('votos', JSON.stringify({ filme1: '', filme2: '', filme3: '', filme4: '', filme5: '' }));
 
         // Redireciona o usuário para a página de agradecimento
-        window.location.href = '/mostra-panorama-24-11/confirmeseuvoto/finalizar/agradecimento';
+        window.location.href = '/mostra-panorama-25-11/confirmeseuvoto/finalizar/agradecimento';
       } else if (res.status === 409) {
-        alert('Parece que você já votou hoje. Volte amanhã para mais : )');
+        alert('Opa! Parece que você já votou hoje. Espero te ver aqui no próximo ano : )');
       } else {
         alert('Erro ao Votar. Tente novamente em alguns instantes.');
       }
     } catch (error) {
       console.error('Erro ao submeter o voto:', error);
+    } finally {
+      setLoading(false);// Desativa o loading após a resposta
     }
   };
 
@@ -150,8 +156,8 @@ export default function VoteList() {
       <Image src={luneta1} alt='' className={style.luneta1}/>
       <Image src={coral3} alt='' className={style.coral3}/>
       <Image src={flor} alt='' className={style.flor}/>
+      <Image src={logo} alt='' className={style.logo}/>
 
-      <Image src={logo} alt='' className={style.logo}/> 
       <h1 className={style.h1}>Informe seu CPF abaixo para validar a votação</h1>
       <form className={style.form} onSubmit={handleSubmit}>
         <input
@@ -163,13 +169,17 @@ export default function VoteList() {
           maxLength="14"
           required
         />
-        {cpfError && <p className={style.error}>CPF inválido. Corrija para continuar.</p>}
-        <button className={style.button} type="submit">CONFIRMAR</button>
+        
         {locationError && (
           <p className={style.error}>
-            Erro: Ative sua localização para continuar.
+            ATIVE SUA LOCALIZAÇÃO PARA VOTAR.
           </p>
         )}
+
+        {cpfError && <p className={style.error}>CPF INVÁLIDO. VERIFIQUE PARA CONTINUAR.</p>}
+        <button className={style.button} type="submit" disabled={loading}>
+          {loading ? <div className={style.spinner}></div> : 'CONFIRMAR'}
+        </button>
       </form>
     </div>
   );
