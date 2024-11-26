@@ -88,7 +88,7 @@ export default function Confirmeseuvoto() {
 
               {votos?.filme5 && (
                 <Prevote
-                  title="RAPOSA"
+                  title="MANAS"
                   description="FICÇÃO, 101 MIN, PE, 2024, 14 ANOS"
                   direction={"DIREÇÃO: Marianna Brennand"}
                   vote={votos?.filme5}
