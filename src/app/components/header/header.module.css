@@ -44,44 +44,28 @@
 }
 
 .art{
-     object-fit: cover;
-     margin-left: -10.6rem;
-}
-
-
-.luneta1{
-     position: absolute;
-     top: 4%;
-     left: 4%;
-     width: 6rem;
+     margin-top: 16rem;
      object-fit: contain;
 
-}
-
-.luneta2{
-     position: absolute;
-     top: 36%;
-     left: 2%;
-     width: 9rem;
-     object-fit: contain;
-}
-
-.flor{
-     position: absolute;
-     bottom: 35%;
-     right: 0;
-     width: 8rem;
-     object-fit: contain;
+;
      
 }
 
+
 .logo{
      position: absolute;
-     top: -2%;
+     top: 2%;
      right: -3%;
      padding: 1.2rem;
      width: 11rem;
      object-fit: contain;
+}
+
+.stars{
+     position: absolute;
+     top: 10%;
+     left: 10%;
+     z-index: 1;
 }
 
 .date{

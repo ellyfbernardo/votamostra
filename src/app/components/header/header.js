@@ -3,11 +3,9 @@
 import { useEffect, useState } from 'react';
 import style from './header.module.css';
 import Image from 'next/image';
-import art from '../../assets/Coral.svg';
-import luneta1 from '../../assets/Luneta 1.png';
-import luneta2 from '../../assets/Luneta 2.png';
-import flor from '../../assets/Flor.png';
-import logo from '../../assets/Mostra SMG - Logo 2024_Preto-01 1.svg';
+import art from '../../assets/mostra2025/PEIXE 2 1.png';
+import stars from '../../assets/mostra2025/ESTRELAS 1.png'
+import logo from '../../assets/mostra2025/logo-2025-branco.png';
 
 export function Header() {
   const [diaSemana, setDiaSemana] = useState('');
@@ -28,9 +26,8 @@ export function Header() {
   return (
     <header className={`${style.title}`}>
       <Image src={art} className={style.art} alt="#" />
-      <Image src={luneta1} className={style.luneta1} alt="#" />
-      <Image src={luneta2} className={style.luneta2} alt="#" />
-      <Image src={flor} className={style.flor} alt="#" />
+      <Image src={stars} className={style.stars} alt="#" />
+ 
       <Image src={logo} className={style.logo} alt="#" />
 
       <div className={style.date_container}>

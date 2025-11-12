@@ -8,8 +8,9 @@
 .link{
     display: flex;
     justify-content: center;
-    margin-top: 3rem;
     list-style: none;
+    margin-top: 15rem;
+
 }
 
 
@@ -42,11 +43,13 @@
   width: 200px;
   height: 200px;
   object-fit: contain;
+  position: absolute;
+  right: 0;
 
 }
 
 .container{
-  background-color: #2895d2;
+  background-color: #FF5576;
   height: 100%;
   position: relative;
 }
@@ -81,17 +84,31 @@
 }
 
 .arte{
-  width: 20rem;
+  width: 18rem;
   object-fit: contain;
   padding: 1rem;
   position: absolute;
-  top: 40%;
-  margin-left: .5rem;
+  top: 15%;
+  left: -8%;
 }
 
 .rodape{
-  margin-top: 12rem;
+  margin-top: 6rem;
   width: 100%;
+}
+
+.wave{
+  position: absolute;
+  top: 14%;
+}
+
+.star{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 60%;
 }
 
 @media (max-width: 320px) {

@@ -33,7 +33,7 @@
 .title{
     font-size: 1rem;
     text-align: center;
-    color: #2895d2;
+    color: #FF5474;
     font-family: var(--agradir-grandheavy);
 }
 
@@ -72,7 +72,7 @@
 }
 
 .opcao.selecionado {
-  background-color: #1f96db;
+  background-color: #FF587A;
   color: #FFF;            
 }
 

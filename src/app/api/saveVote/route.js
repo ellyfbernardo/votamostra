@@ -15,7 +15,7 @@ const getBrasiliaTime = () => {
 export async function POST(request) {
   try {
     const client = await clientPromise;
-    const db = client.db('votamostra');
+    const db = client.db('votos-2025');
 
     if (!db) {
       throw new Error('Banco de dados não definido.');
@@ -30,18 +30,18 @@ export async function POST(request) {
     const endOfDay = new Date(today.setHours(23, 59, 59, 999));
 
     // Verificar se o CPF já votou hoje na mesma coleção
-    const existingVote = await db.collection('votes-25-11').findOne({
+    const existingVote = await db.collection('20-11').findOne({
       cpf,
       colecao, // Verifica se votou na coleção específica
       horarioVoto: { $gte: startOfDay, $lte: endOfDay }, // Verifica votos no intervalo do dia
     });
 
     if (existingVote) {
-      return new Response("CPF já votou nesta coleção hoje", { status: 409 });
+      return new Response("CPF já votou nesta sessão hoje", { status: 409 });
     }
 
     // Chave de API da OpenCage (substitua pela sua chave)
-    const apiKey = '097f8b8e3eb84efb943bfc47259c32bf';
+    const apiKey = '5336e6530fa54435b5caa6e2b99ffc18';
 
     // Fazendo chamada para OpenCage Geocoder para obter o nome da cidade
     const response = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`);
@@ -53,7 +53,7 @@ export async function POST(request) {
     }
 
     // Insere os dados no banco de dados, incluindo a cidade, horário do voto e coleção
-    const result = await db.collection('votes-25-11').insertOne({
+    const result = await db.collection('20-11').insertOne({
       ...data, // Inclui os dados do voto (CPF, filmes, etc.)
       cidade: city, // Adiciona o nome da cidade
       horarioVoto: getBrasiliaTime(), // Adiciona o horário do voto em horário de Brasília

@@ -4,9 +4,11 @@ import { useEffect } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from 'next/image';
-import logo from './assets/Mostra SMG - Logo 2024_Preto-01 1.png';
+import logo from './assets/mostra2025/logo-2025-branco.png';
 import petro from './assets/Apresenta 2 linhas branco.svg';
-import arte from './assets/Ilustração.svg';
+import arte from './assets/mostra2025/sereia-tela-inicial.png';
+import wave from './assets/mostra2025/linhas.png';
+import star from './assets/mostra2025/estrela 1.png';
 import rodape from './assets/Rodapé (1).svg';
 
 
@@ -29,10 +31,11 @@ export default function Home() {
           <Image src={petro} className={styles.petro} alt=""/>
         </header>
 
+            <Image src={logo} className={styles.logo} alt=""/>
         <main className={styles.body}>
             
             {/* /mostra-panorama-25-11 */}
-          <Link href="/mostra-panorama-25-11" className={styles.link}>
+          <Link href="/mostra-competitiva-20-11" className={styles.link}>
             <button className={styles.li}>INICIAR VOTAÇÃO</button> 
             {/* <div className={styles.waiting}>
               <h2 className={styles.aguarde}>AGUARDE!</h2>
@@ -42,12 +45,12 @@ export default function Home() {
           </Link>
 
 
-          <Image src={logo} className={styles.logo} alt=""/>
 
         </main>
 
           <Image src={arte} className={styles.arte} alt=""/>
-
+          <Image src={wave} className={styles.wave} alt=""/>
+          <Image src={star} className={styles.star} alt=""/>
 
           <footer className={styles.footer}>
             <Image src={rodape} className={styles.rodape} alt=""/>

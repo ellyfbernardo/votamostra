@@ -14,11 +14,11 @@
 .title{
      font-size: .8rem;
      margin-left: .2rem;
-     color: #2895d2;
+     color: #FF5275;
      font-family: var(--agradir-grandheavy);
 }
 .square {
-     background-color: #2995CB;
+     background-color: #FF5275;
      padding: 1rem 1rem .7rem 1rem;
      color: #ffffff;
      border-radius: 8px;
