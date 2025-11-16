@@ -4,7 +4,6 @@ import style from "./page.module.css";
 import MovieCard from "../components/moviecard20/moviecard";
 import filme1 from '../assets/dia dos pais.png';
 import filme2 from '../assets/a natureza das coisas invisiveis.png';
-
 import { Header } from "../components/header/header";
 
 export default function VoteList() {

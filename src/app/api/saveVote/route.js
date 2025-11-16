@@ -22,7 +22,7 @@ export async function POST(request) {
     }
 
     const data = await request.json();
-    const { cpf, latitude, longitude, colecao } = data; // Inclui CPF e Coleção para verificação
+    const { cpf, latitude, longitude, colecao } = data;
 
     // Obter data atual (horário de Brasília)
     const today = getBrasiliaTime();
@@ -32,39 +32,47 @@ export async function POST(request) {
     // Verificar se o CPF já votou hoje na mesma coleção
     const existingVote = await db.collection('20-11').findOne({
       cpf,
-      colecao, // Verifica se votou na coleção específica
-      horarioVoto: { $gte: startOfDay, $lte: endOfDay }, // Verifica votos no intervalo do dia
+      colecao,
+      horarioVoto: { $gte: startOfDay, $lte: endOfDay },
     });
 
     if (existingVote) {
       return new Response("CPF já votou nesta sessão hoje", { status: 409 });
     }
 
-    // Chave de API da OpenCage (substitua pela sua chave)
+    // Chave de API da OpenCage
     const apiKey = '5336e6530fa54435b5caa6e2b99ffc18';
 
-    // Fazendo chamada para OpenCage Geocoder para obter o nome da cidade
-    const response = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`);
+    const response = await axios.get(
+      `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`
+    );
 
-    const city = response.data.results[0].components.city || response.data.results[0].components.town || response.data.results[0].components.village;
+    const city =
+      response.data.results[0].components.city ||
+      response.data.results[0].components.town ||
+      response.data.results[0].components.village;
 
     if (!city) {
       throw new Error('Não foi possível encontrar o nome da cidade.');
     }
 
-    // Insere os dados no banco de dados, incluindo a cidade, horário do voto e coleção
+    // Insere os dados no banco, incluindo cidade e horário
     const result = await db.collection('20-11').insertOne({
-      ...data, // Inclui os dados do voto (CPF, filmes, etc.)
-      cidade: city, // Adiciona o nome da cidade
-      horarioVoto: getBrasiliaTime(), // Adiciona o horário do voto em horário de Brasília
+      ...data,
+      cidade: city,
+      horarioVoto: getBrasiliaTime(),
+      form:null,
     });
 
     return new Response(JSON.stringify(result), { status: 200 });
+
   } catch (error) {
     console.error("Erro ao conectar ao MongoDB:", error);
+
     if (error.code === 11000) {
       return new Response("CPF já votou", { status: 409 });
     }
+
     return new Response("Erro ao salvar o voto", { status: 500 });
   }
-};
+}

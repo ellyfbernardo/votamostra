@@ -20,6 +20,11 @@ export default function VoteList() {
   const [cpfError, setCpfError] = useState(false);
   const [loading, setLoading] = useState(false); // estado para controle do carregamento
 
+
+
+
+
+
   useEffect(() => {
     const storedVotes = JSON.parse(localStorage.getItem('votos')) || {
       filme1: '',
@@ -48,6 +53,7 @@ export default function VoteList() {
     getLocation();
   }, []);
 
+  
   const validarCPF = (cpf) => {
     cpf = cpf.replace(/[^\d]/g, "");
     if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
@@ -127,6 +133,14 @@ export default function VoteList() {
     } finally {
       setLoading(false);  // Desativa o loading após a resposta
     }
+
+  
+
+  // Salvar no localStorage
+  localStorage.setItem("cpf", rawCpf);
+
+  // Aqui segue o resto da lógica da sua votação
+  console.log("CPF salvo:", rawCpf);
   };
 
   return (

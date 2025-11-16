@@ -8,8 +8,7 @@ import logo from './assets/mostra2025/logo-2025-branco.png';
 import arte from './assets/mostra2025/sereia-tela-inicial.png';
 import wave from './assets/mostra2025/linhas.png';
 import star from './assets/mostra2025/estrela 1.png';
-
-
+import rodape from './assets/mostra2025/regua.png';
 
 
 export default function Home() {
@@ -53,7 +52,7 @@ export default function Home() {
           <Image src={star} className={styles.star} alt=""/>
 
           <footer className={styles.footer}>
-            
+            <Image src={rodape} className={styles.rodape} alt=""/>
           </footer>
 
         </div>
