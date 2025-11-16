@@ -5,7 +5,7 @@
       overflow-y: hidden;
 }
 .body_container{
-      background-image: url("../../assets/textura-screen3.png");
+      /* background-image: url("../../assets/textura-screen3.png"); */
       position: absolute;
       width: 100%;
       /* background-color: #B93368; */
