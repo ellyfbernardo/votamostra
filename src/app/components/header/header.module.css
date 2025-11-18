@@ -54,11 +54,13 @@
 
 .logo{
      position: absolute;
-     top: 2%;
-     right: -3%;
-     padding: 1.2rem;
+     top: -80%;
+     right: 0;
+     padding: 1.4rem;
      width: 11rem;
      object-fit: contain;
+     filter: invert(100%) brightness(300%);
+
 }
 
 .stars{

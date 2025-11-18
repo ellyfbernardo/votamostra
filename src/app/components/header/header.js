@@ -5,7 +5,7 @@ import style from './header.module.css';
 import Image from 'next/image';
 import art from '../../assets/mostra2025/PEIXE 2 1.png';
 import stars from '../../assets/mostra2025/ESTRELAS 1.png'
-import logo from '../../assets/mostra2025/logo-2025-branco.png';
+import logo from '../../assets/mostra2025/12MCG_Logo.svg';
 
 export function Header() {
   const [diaSemana, setDiaSemana] = useState('');

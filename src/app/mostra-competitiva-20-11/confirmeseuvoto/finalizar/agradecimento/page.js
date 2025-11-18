@@ -5,6 +5,7 @@ import style from "./agradecimento.module.css";
 import Image from "next/image";
 import logo from "../../../../assets/mostra2025/12MCG_Logo.svg";
 import manganga from "../../../../assets/mostra2025/BICHAO 2 1.png";
+import sol from "../../../../assets/mostra2025/SOL.png";
 import Link from "next/link";
 
 export default function Agradecimento() {
@@ -90,19 +91,16 @@ export default function Agradecimento() {
   };
 
   return (
+    <>
     <main className={style.container}>
       <Image src={logo} alt="" className={style.logo} />
-      <Image src={manganga} alt="" className={style.manganga} />
 
       <div className={style.text}>
         <h1 className={style.title}>SUA VOTAÇÃO FOI</h1>
         <h2 className={style.subtitle}>CONFIRMADA!</h2>
       </div>
 
-      {/* BOTÃO QUE ABRE O POPUP */}
-      <button className={style.buttonForm} onClick={() => setOpenPopup(true)}>
-        RESPONDER PESQUISA RÁPIDA
-      </button>
+
 
       {/* POP-UP */}
       {openPopup && (
@@ -183,6 +181,30 @@ export default function Agradecimento() {
       )}
 
       <Link href="/" className={style.button}>INÍCIO</Link>
+      <Image src={manganga} alt="" className={style.manganga} />
+
+
     </main>
+      <footer className={style.footer}>
+        <h2 className={style.sorteio}>QUER CONCORRER A UM KIT DE PRODUTOS DA MOSTRA? BASTA RESPONDER A UMA RÁPIDA PESQUISA</h2>
+
+        <p className={style.paragrafo}>RESPONDA UMA RÁPIDA </p>
+        <p className={style.paragrafo}>PESQUISA E CONCORRRA </p>
+
+          {/* BOTÃO QUE ABRE O POPUP  */}
+        <button className={style.buttonForm} onClick={() => setOpenPopup(true)}>
+          RESPONDER
+        </button> 
+        <Image src={sol} alt="" className={style.sol} />
+
+        <ul className={style.lista}>
+          <li>- 1 camiseta</li>
+          <li>- 1 boné</li>
+          <li>- 1 caneca</li>
+          <li>- 1 bolsa</li>
+          <li>- 1 cartaz</li>
+        </ul>
+      </footer>
+</>
   );
 }

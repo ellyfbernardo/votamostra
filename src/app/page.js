@@ -4,10 +4,9 @@ import { useEffect } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from 'next/image';
-import logo from './assets/mostra2025/logo-2025-branco.png';
+import logo from './assets/mostra2025/12MCG_Logo.svg';
 import arte from './assets/mostra2025/sereia-tela-inicial.png';
 import wave from './assets/mostra2025/linhas.png';
-import star from './assets/mostra2025/estrela 1.png';
 import rodape from './assets/mostra2025/regua.png';
 
 
@@ -17,7 +16,7 @@ export default function Home() {
     // Limpa o localStorage apenas na primeira vez que o usuário visita a página inicial
     const votosArmazenados = localStorage.getItem('votos');
     if (votosArmazenados) {
-      localStorage.removeItem('votos');
+      localStorage.removeItem('votos','cpf');
     }
   }, []); // Esse efeito rodará apenas uma vez quando a página for carregada
 
@@ -27,7 +26,7 @@ export default function Home() {
     <div className={styles.container}>
 
         <header className={styles.container_header}>
-          
+          <h2 className={styles.headersubtitle}>MINISTÉRIO DA CULTURA, PETROBRAS E GOVERNO DO ESTADO DO RIO GRANDE DO NORTE APRESENTAM.</h2>
         </header>
 
             <Image src={logo} className={styles.logo} alt=""/>
@@ -49,7 +48,7 @@ export default function Home() {
 
           <Image src={arte} className={styles.arte} alt=""/>
           <Image src={wave} className={styles.wave} alt=""/>
-          <Image src={star} className={styles.star} alt=""/>
+         
 
           <footer className={styles.footer}>
             <Image src={rodape} className={styles.rodape} alt=""/>

@@ -55,15 +55,33 @@ const agrandirwl = localFont({
   weight: "100 900",
 });
 
+const titulosefrases = localFont({
+  src: "./fonts/Outfit-Bold.ttf",
+  variable: "--bold",
+  weight: "100 900",
+});
+
+const tecdirparagrafos = localFont({
+  src: "./fonts/NeueHaasUnica-Regular.ttf",
+  variable: "--neue-regular",
+  weight: "100 900",
+});
+
+const titulofilmebotoes = localFont({
+  src: "./fonts/NeueHaasUnica-Bold.ttf",
+  variable: "--neue-bold",
+  weight: "100 900",
+});
+
 export const metadata = {
   title: "VotaMostra",
-  description: "criado por Ellyf Bernardo",
+  description: "Site de votação para festivais de cinema - criado por Ellyf Bernardo",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
-      <body className={`${agrandirgl.variable} ${agrandirwl.variable} ${agrandirnglight.variable} ${agrandirregular.variable} ${agrandirbold.variable} ${agrandirthinitalic.variable} ${agrandirtight.variable} ${agrandirblackitalic.variable} ${agrandirheavy.variable} `}>
+      <body className={`${agrandirgl.variable} ${agrandirwl.variable} ${agrandirnglight.variable} ${agrandirregular.variable} ${agrandirbold.variable} ${agrandirthinitalic.variable} ${agrandirtight.variable} ${agrandirblackitalic.variable} ${agrandirheavy.variable} ${titulosefrases.variable} ${tecdirparagrafos.variable} ${titulofilmebotoes.variable}`}>
         {children}
       </body>
     </html>
