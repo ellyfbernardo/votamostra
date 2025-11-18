@@ -34,7 +34,7 @@
     font-size: 1rem;
     text-align: center;
     color: #FF5474;
-    font-family: var(--agradir-grandheavy);
+    font-family: var(--neue-bold);
 }
 
 .opcao {
@@ -49,7 +49,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: var(--agradir-grandheavy);
+  font-family: var(--bold);
 }
 
 .opcao:nth-child(1){
@@ -126,7 +126,7 @@
      border: none;
      opacity: 1;
      z-index: 10;
-     font-family: var(--agradir-bold);
+     font-family: var(--bold);
      -webkit-box-shadow: 0px 7px 25px -5px rgba(0,0,0,0.75);
      -moz-box-shadow: 0px 7px 25px -5px rgba(0,0,0,0.75);
      box-shadow: 0px 7px 25px -5px rgba(0,0,0,0.75);
@@ -147,7 +147,7 @@
 .subdescription{
   font-size: .6rem;
   text-align: center;
-  font-family: var(--agradir-regular);
+  font-family: var(--neue-regular);
   margin-bottom: .8rem;
 
 }
@@ -155,8 +155,8 @@
 .note{
   text-align: center;
   font-size: 1.4rem;
-  font-family: var(--agradir-grandheavy);
-  font-size: 1rem ;
+  font-family: var(--bold);
+  font-size: 1.4rem ;
   color: #1a3c34;
 }
 
@@ -164,7 +164,7 @@
   text-align: start;
   font-size: .77rem;
   padding: .5rem 1rem 1rem 1.4rem;
-  font-family: var(--agradir-regular);
+  font-family: var(--neue-regular);
 
 }
 
@@ -181,7 +181,7 @@
     font-size: .9rem;
     text-align: center;
     color: #2895d2;
-    font-family: var(--agradir-grandheavy);
+    font-family: var(--bold);
 }
 
 }

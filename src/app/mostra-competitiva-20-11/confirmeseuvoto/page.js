@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../../assets/mostra2025/logo-2025-branco.png';
 import stars from '../../assets/mostra2025/ESTRELAS 1.png';
-import snake from '../../assets/mostra2025/SERPENTE 4.png';
+import snake from '../../assets/mostra2025/SEREIA.png';
 import waves from '../../assets/mostra2025/ONDAS 2.png';
 
 

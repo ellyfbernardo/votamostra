@@ -14,15 +14,15 @@
 .title{
      font-size: .8rem;
      margin-left: .2rem;
-     color: #FF5275;
-     font-family: var(--agradir-grandheavy);
+     color: #fb5373;
+     font-family: var(--bold);
 }
 .square {
-     background-color: #FF5275;
+     background-color: #fb5373;
      padding: 1rem 1rem .7rem 1rem;
      color: #ffffff;
      border-radius: 8px;
-     font-family: var(--agradir-grandheavy);
+     font-family: var(--neue-bold);
      font-size: 1.3rem;
 
 }
@@ -31,14 +31,14 @@
 .description{
     /* margin-top: 1rem; */
     margin-left: .2rem;
-    font-family: var(--agradir-regular);
+    font-family: var(--neue-regular);
     font-size: .60rem;
     
 }
 
 .direction{
      font-size: .59rem;
-     font-family: var(--agradir-regular);
+     font-family: var(--neue-regular);
      margin-left: .2rem;
 
 
@@ -49,8 +49,8 @@
 .title{
      font-size: .7rem;
      margin-left: .2rem;
-     color: #2895d2;
-     font-family: var(--agradir-grandheavy);
+     color: #fb5373;
+     font-family: var(--neue-bold);
 }
 
 } 

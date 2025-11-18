@@ -4,7 +4,7 @@
      align-items: center;
      justify-content: center;
      height: 100%; 
-     background-color: #FF587A; 
+     background-color: #fb5373; 
      overflow: hidden;
    }
    
@@ -14,7 +14,7 @@
      color: #ffffff; /* Cor do texto do título */
      text-align: center;
      font-size: 1rem;
-     font-family: var(--agradir-bold);
+     font-family: var(--bold);
      text-wrap: balance;
      margin-top: 2rem;
      padding: 0 5rem 0 5rem;
@@ -36,15 +36,15 @@
      width: 300px; 
      font-size: 1rem;
      text-align: center;
-     font-family: var(--agradir-narrowgrandlight);
+     font-family: var(--neue-regular);
    }
    .input::placeholder{
     color: #000;
-    font-family: var(--agradir-bold);
+    font-family: var(--bold);
    }
    
    .button {
-    font-family: var(--agradir-bold);
+    font-family: var(--bold);
     display: flex;
     justify-content: center;
      padding: .8rem .8rem .6rem .8rem;
@@ -87,7 +87,7 @@
 
 /* Estilo do botão desativado */
 .button:disabled {
-  background-color: #ba3369f9;
+  background-color: #fb5373;
   cursor: not-allowed;
   opacity: 0.7;
 }
@@ -105,7 +105,7 @@
 
 .error{
   color: #BA3368;
-  font-family: var(--agradir-bold);
+  font-family: var(--bold);
 }
 
 
@@ -205,6 +205,13 @@
   z-index: 0;
 }
 
+.bichaosol{
+  position: absolute;
+  width: 14rem;
+  height: 10rem;
+  bottom: 10%;
+}
+
 @media (max-width: 320px) {
   .h1 {
     margin-bottom: 20px;
@@ -212,7 +219,7 @@
     color: #ffffff; /* Cor do texto do título */
     text-align: center;
     font-size: .9rem;
-    font-family: var(--agradir-bold);
+    font-family: var(--bold);
     text-wrap: balance;
     margin-top: 2rem;
     padding: 0 5rem 0 5rem;

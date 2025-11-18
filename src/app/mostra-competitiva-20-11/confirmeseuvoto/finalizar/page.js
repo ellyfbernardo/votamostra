@@ -3,10 +3,10 @@
 import { useState, useEffect } from 'react';
 import style from './finalizar.module.css';
 import Image from 'next/image';
-import logo from '../../../assets/mostra2025/logo-2025-verde.png';
+import logo from '../../../assets/mostra2025/12MCG_Logo.svg';
 import sereia from '../../../assets/mostra2025/PEIXE 1 1.png';
-import arvore1 from '../../../assets/mostra2025/arvore traçado 2.png';
-import arvore2 from '../../../assets/mostra2025/ARVORES 2.png';
+import bichaosol from '../../../assets/mostra2025/BICHAO SOL.png';
+
 
 
 
@@ -154,9 +154,7 @@ export default function VoteList() {
       <Image src={flor} alt='' className={style.flor} /> */}
       <Image src={logo} alt='' className={style.logo} />
       <Image src={sereia} alt='' className={style.sereia} />
-      <Image src={arvore1} alt='' className={style.arvore1} />
-      <Image src={arvore2} alt='' className={style.arvore2} />
-      <Image src={arvore1} alt='' className={style.arvore3} />
+
 
 
       
@@ -182,6 +180,8 @@ export default function VoteList() {
           {loading ? <div className={style.spinner}></div> : 'CONFIRMAR'}
         </button>
       </form>
+      <Image src={bichaosol} alt='' className={style.bichaosol} />
+        
     </div>
   );
 }
