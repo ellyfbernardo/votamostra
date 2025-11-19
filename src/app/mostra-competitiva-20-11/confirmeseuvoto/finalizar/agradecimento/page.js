@@ -137,17 +137,17 @@ export default function Agradecimento() {
   <h3 className={style.formTitle}>Pesquisa Rápida</h3>
 
   <label>
-    Nome Completo:
+    Nome Completo:<span className={style.asteristico}>*</span>
     <input type="text" name="nome" required />
   </label>
 
   <label>
-    Telefone:
+    Telefone:<span className={style.asteristico}>*</span>
     <input type="text" name="telefone" required />
   </label>
 
   <div className={style.group}>
-    <p>Faixa etária:</p>
+    <p>Faixa etária:<span className={style.asteristico}>*</span></p>
     <label><input type="radio" name="faixa" value="-18" required /> Menos de 18</label>
     <label><input type="radio" name="faixa" value="18-24" /> 18–24</label>
     <label><input type="radio" name="faixa" value="25-34" /> 25–34</label>
@@ -157,7 +157,7 @@ export default function Agradecimento() {
   </div>
 
   <label>
-    País de origem:
+    País de origem:<span className={style.asteristico}>*</span>
     <select
       name="pais"
       value={selectedCountry}
@@ -178,7 +178,7 @@ export default function Agradecimento() {
   </label>
 
   <label>
-    Estado:
+    Estado:<span className={style.asteristico}>*</span>
     <select
       name="estado"
       value={selectedState}
@@ -199,7 +199,7 @@ export default function Agradecimento() {
   </label>
 
   <label>
-    Cidade:
+    Cidade:<span className={style.asteristico}>*</span>
     <select
       name="cidade"
       value={selectedCity}
@@ -217,13 +217,13 @@ export default function Agradecimento() {
   </label>
 
   <div className={style.group}>
-    <p>É sua primeira vez em São Miguel do Gostoso?</p>
+    <p>É sua primeira vez em São Miguel do Gostoso?<span className={style.asteristico}>*</span></p>
     <label><input type="radio" name="primeiraVez" value="sim" required /> Sim</label>
     <label><input type="radio" name="primeiraVez" value="nao" /> Não</label>
   </div>
 
   <div className={style.group}>
-    <p>Você está hospedado(a) para:</p>
+    <p>Você está hospedado(a) para:<span className={style.asteristico}>*</span></p>
     <label><input type="radio" name="motivo" value="mostra" required /> A Mostra</label>
     <label><input type="radio" name="motivo" value="turismo" /> Turismo</label>
     <label><input type="radio" name="motivo" value="trabalho" /> Trabalho</label>
@@ -234,7 +234,7 @@ export default function Agradecimento() {
   </div>
 
   <div className={style.group}>
-    <p>Como ficou sabendo?</p>
+    <p>Como ficou sabendo?<span className={style.asteristico}>*</span></p>
     <label><input type="checkbox" name="soube" value="redes" /> Redes sociais</label>
     <label><input type="checkbox" name="soube" value="ads" /> Publicidade online</label>
     <label><input type="checkbox" name="soube" value="sites" /> Sites especializados</label>
@@ -248,12 +248,51 @@ export default function Agradecimento() {
   </div>
 
   <div className={style.group}>
-    <p>Avalie (1 a 5):</p>
-    <label>Estrutura:<input type="number" min="1" max="5" name="estrutura" required /></label>
-    <label>Organização:<input type="number" min="1" max="5" name="organizacao" required /></label>
-    <label>Programação:<input type="number" min="1" max="5" name="programacao" required /></label>
-    <label>Acessibilidade:<input type="number" min="1" max="5" name="acessibilidade" required /></label>
-    <label>Recomendaria:<input type="number" min="1" max="5" name="recomendacao" required /></label>
+    <p>Avalie (1 a 5):<span className={style.asteristico}>*</span></p>
+ <label>
+    Estrutura:
+    {[1,2,3,4,5].map((n) => (
+      <label key={n}>
+        <input type="radio" name="estrutura" value={n} required /> {n}
+      </label>
+    ))}
+  </label>
+
+  <label>
+    Organização:
+    {[1,2,3,4,5].map((n) => (
+      <label key={n}>
+        <input type="radio" name="organizacao" value={n} required /> {n}
+      </label>
+    ))}
+  </label>
+
+  <label>
+    Programação:
+    {[1,2,3,4,5].map((n) => (
+      <label key={n}>
+        <input type="radio" name="programacao" value={n} required /> {n}
+      </label>
+    ))}
+  </label>
+
+  <label>
+    Acessibilidade:
+    {[1,2,3,4,5].map((n) => (
+      <label key={n}>
+        <input type="radio" name="acessibilidade" value={n} required /> {n}
+      </label>
+    ))}
+  </label>
+
+  <label>
+    Recomendaria:
+    {[1,2,3,4,5].map((n) => (
+      <label key={n}>
+        <input type="radio" name="recomendacao" value={n} required /> {n}
+      </label>
+    ))}
+  </label>
   </div>
 
 
