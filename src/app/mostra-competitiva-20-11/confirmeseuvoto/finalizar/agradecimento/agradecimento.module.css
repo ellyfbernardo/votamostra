@@ -262,3 +262,7 @@
 .asteristico{
   color: red;
 }
+
+.fontlabel{
+  font-family: var(--neue-regular);
+}

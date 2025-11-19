@@ -145,12 +145,12 @@ export default function Agradecimento() {
   <h3 className={style.formTitle}>Pesquisa Rápida</h3>
 
   <label>
-    <p>Nome Completo:<span className={style.asteristico}>*</span></p>
+    <p className={style.fontlabel}>Nome Completo:<span className={style.asteristico}>*</span></p>
     <input type="text" name="nome" required />
   </label>
 
   <label>
-    <p>Telefone:<span className={style.asteristico}>*</span></p>
+    <p className={style.fontlabel}>Telefone:<span className={style.asteristico}>*</span></p>
     <input type="text" name="telefone" required />
   </label>
 
@@ -165,7 +165,7 @@ export default function Agradecimento() {
   </div>
 
   <label>
-    <p>País de origem:<span className={style.asteristico}>*</span></p>
+    <p className={style.fontlabel}>País de origem:<span className={style.asteristico}>*</span></p>
     <select
       name="pais"
       value={selectedCountry}
@@ -186,7 +186,7 @@ export default function Agradecimento() {
   </label>
 
   <label>
-    Estado:<span className={style.asteristico}>*</span>
+    <p className={style.fontlabel}>Estado:<span className={style.asteristico}>*</span></p>
     <select
       name="estado"
       value={selectedState}
@@ -207,7 +207,7 @@ export default function Agradecimento() {
   </label>
 
   <label>
-    Cidade:<span className={style.asteristico}>*</span>
+    <p className={style.fontlabel}>Cidade:<span className={style.asteristico}>*</span></p>
     <select
       name="cidade"
       value={selectedCity}
