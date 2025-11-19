@@ -200,12 +200,12 @@
             text-align: start;
             font-size: .8rem;
             padding-top: 4rem;
-            font-family: var(--agradir-grandheavy);
+            font-family: var(--neue-bold);
       }
       
       .h2{
             color: #FF5275;
-            font-family: var(--agradir-grandheavy);
+            font-family: var(--neue-bold);
             font-size: .65rem;
             margin-top: 1.2rem;
       }
@@ -214,7 +214,7 @@
             font-size: .9rem;
             color: #fff;
             height: 2.9rem;
-            font-family: var(--agradir-bold);
+            font-family: var(--bold);
             height: 0;
             
       }
@@ -222,7 +222,7 @@
       .mes{
             font-size: .9rem;
             color: #F8FCFC;
-            font-family: var(--agradir-widelight);
+            font-family: var(--neue-regular);
             height: 0;
             padding-top: .5rem;
       
@@ -230,7 +230,7 @@
       
       .diasemana{
             color: #F8FCFC;
-            font-family: var(--agradir-bold);
+            font-family: var(--bold);
             font-size: .9rem;
             padding-top: 1rem;
        }
