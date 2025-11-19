@@ -1,19 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import style from "./agradecimento.module.css";
 import Image from "next/image";
 import logo from "../../../../assets/mostra2025/12MCG_Logo.svg";
 import manganga from "../../../../assets/mostra2025/BICHAO 2 1.png";
 import sol from "../../../../assets/mostra2025/SOL.png";
 import Link from "next/link";
+import countries from "@/app/public/countries+states+cities.json"
+
+
 
 export default function Agradecimento() {
   const [openPopup, setOpenPopup] = useState(false);
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
+ 
 
+    const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedState, setSelectedState] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
 
+  // País selecionado
+  const country = countries.find((c) => c.id == selectedCountry);
+
+  // Estados do país selecionado
+  const states = country?.states || [];
+
+  // Estado selecionado
+  const state = states.find((s) => s.id == selectedState);
+
+  // Cidades do estado selecionado
+  const cities = state?.cities || [];
 
 
 
@@ -130,9 +148,68 @@ export default function Agradecimento() {
                 <label><input type="radio" name="faixa" value="55+" /> 55+</label>
               </div>
 
-              <label>Estado:<input type="text" name="estado" /></label>
-              <label>Cidade:<input type="text" name="cidade" /></label>
-              <label>País de origem:<input type="text" name="pais" /></label>
+                <label>
+                        País de origem:
+                        <select
+                          name="pais"
+                          value={selectedCountry}
+                          onChange={(e) => {
+                            setSelectedCountry(e.target.value);
+                            setSelectedState("");
+                            setSelectedCity("");
+                          }}
+                          required
+                        >
+                          <option value="">Selecione um país</option>
+
+                          {countries.map((c) => (
+                            <option key={c.id} value={c.id}>
+                              {c.name}
+                            </option>
+                          ))}
+                        </select>
+                  </label>
+
+                    <label>
+                      Estado:
+                      <select
+                        name="estado"
+                        value={selectedState}
+                        onChange={(e) => {
+                          setSelectedState(e.target.value);
+                          setSelectedCity("");
+                        }}
+                        disabled={!selectedCountry}
+                        required
+                      >
+                        <option value="">Selecione um estado</option>
+
+                        {states.map((s) => (
+                          <option key={s.id} value={s.id}>
+                            {s.name}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+              
+                    <label>
+                      Cidade:
+                      <select
+                        name="cidade"
+                        value={selectedCity}
+                        onChange={(e) => setSelectedCity(e.target.value)}
+                        disabled={!selectedState}
+                        required
+                      >
+                        <option value="">Selecione uma cidade</option>
+
+                        {cities.map((city) => (
+                          <option key={city.id} value={city.name}>
+                            {city.name}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
 
               <div className={style.group}>
                 <p>É sua primeira vez em São Miguel do Gostoso?</p>
