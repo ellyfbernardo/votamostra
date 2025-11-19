@@ -163,7 +163,7 @@ export default function Agradecimento() {
                           <option value="">Selecione um país</option>
 
                           {countries.map((c) => (
-                            <option key={c.id} value={c.name}>
+                            <option key={c.id} value={c.id}>
                               {c.name}
                             </option>
                           ))}
@@ -185,7 +185,7 @@ export default function Agradecimento() {
                         <option value="">Selecione um estado</option>
 
                         {states.map((s) => (
-                          <option key={s.id} value={s.name}>
+                          <option key={s.id} value={s.id}>
                             {s.name}
                           </option>
                         ))}
