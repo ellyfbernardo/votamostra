@@ -5,6 +5,7 @@
      height: 90%;
      flex-direction: column;
      background-color: #00A343;
+     position: relative;
 }
 
 .title{
@@ -53,8 +54,8 @@
 
 .manganga{
      position: sticky;
-     bottom: 0;
-     width: 18eem;
+     bottom: 6%;
+     width: 18em;
      object-fit: cover;
      padding: 3rem;
 }

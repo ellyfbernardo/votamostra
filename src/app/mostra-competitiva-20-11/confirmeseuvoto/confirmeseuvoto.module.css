@@ -150,6 +150,8 @@
       top: 5%;
       height: auto;
       padding: 1rem;
+      filter: invert(100%) brightness(300%);
+
  }
  .stars{
       position: absolute;

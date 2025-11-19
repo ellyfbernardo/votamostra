@@ -109,66 +109,6 @@
 }
 
 
-.coral1{
-  position: absolute;
-  top: -5%;
-  left: -2%;
-  z-index: 0;
-  width: 10rem;
-}
-
-.luneta2{
-  position: absolute;
-  top: 8%;
-  left: 10%;
-  width: 7rem;
-  object-fit: contain;
-  z-index: 1;
-}
-
-.luneta3{
-  position: absolute;
-  top: 2%;
-  left: 25%;
-  width: 4rem;
-  object-fit: contain;
-  z-index: 1;
-
-}
-
-.coral2{
-  position: absolute;
-  left: -6%;
-  bottom: 0;
-  z-index: 0;
-  width: 8rem;
-  height: auto;
-}
-
-.luneta1{
-  position: absolute;
-  width: 4rem;
-  object-fit: contain;
-  left: 9%;
-  bottom: 15%;
-  z-index: 0;
-}
-
-.coral3{
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-}
-
-.flor{
-  position: absolute;
-  right: 15%;
-  bottom: 0;
-  z-index: 0;
-  width: 10rem;
-}
-
 .sereia{
   position: absolute;
   width: 12rem;
@@ -178,14 +118,6 @@
   z-index: 1;
 }
 
-.arvore1{
-  position: absolute;
-  width: 4em;
-  height: auto;
-  left: 11%;
-  bottom: 0;
-  z-index: 1;
-}
 
 .arvore2{
   position: absolute;
