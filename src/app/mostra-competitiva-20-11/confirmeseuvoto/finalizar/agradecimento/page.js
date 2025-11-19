@@ -8,7 +8,8 @@ import manganga from "../../../../assets/mostra2025/BICHAO 2 1.png";
 import sol from "../../../../assets/mostra2025/SOL.png";
 import Link from "next/link";
 import countries from "@/app/public/countries+states+cities.json"
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 export default function Agradecimento() {
@@ -93,8 +94,11 @@ export default function Agradecimento() {
       const data = await response.text();
 
       if (response.ok) {
-        setSuccessMessage("Obrigado! Sua pesquisa foi enviada.");
-        
+        toast.success("Pesquisa enviada com sucesso!", {
+        position: "top-center",
+        autoClose: 3000,
+        theme: "colored",
+        });
         // Limpa o localStorage se quiser
         localStorage.removeItem("cpf");
         localStorage.removeItem("filme1");
@@ -107,7 +111,11 @@ export default function Agradecimento() {
       }
     } catch (err) {
       console.log(err);
-      alert("Erro ao enviar.");
+          toast.error("Ocorreu um erro ao enviar a pesquisa.", {
+          position: "top-center",
+          autoClose: 3000,
+          theme: "colored",
+    });
     }
 
     setLoading(false);
@@ -137,12 +145,12 @@ export default function Agradecimento() {
   <h3 className={style.formTitle}>Pesquisa Rápida</h3>
 
   <label>
-    Nome Completo:<span className={style.asteristico}>*</span>
+    <p>Nome Completo:<span className={style.asteristico}>*</span></p>
     <input type="text" name="nome" required />
   </label>
 
   <label>
-    Telefone:<span className={style.asteristico}>*</span>
+    <p>Telefone:<span className={style.asteristico}>*</span></p>
     <input type="text" name="telefone" required />
   </label>
 
@@ -157,7 +165,7 @@ export default function Agradecimento() {
   </div>
 
   <label>
-    País de origem:<span className={style.asteristico}>*</span>
+    <p>País de origem:<span className={style.asteristico}>*</span></p>
     <select
       name="pais"
       value={selectedCountry}
