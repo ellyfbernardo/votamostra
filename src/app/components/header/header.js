@@ -27,8 +27,8 @@ export function Header() {
     <header className={`${style.title}`}>
       <Image src={art} className={style.art} alt="#" />
       <Image src={stars} className={style.stars} alt="#" />
- 
       <Image src={logo} className={style.logo} alt="#" />
+ 
 
       <div className={style.date_container}>
         <h1 className={style.mostra}>MOSTRA COMPETITIVA</h1>

@@ -1,7 +1,6 @@
 
 .body{
   display: flex;
-  padding: 3rem;
   justify-content: center;
 }
 
@@ -111,7 +110,6 @@
 .link{
     display: flex;
     justify-content: center;
-    margin-top: 3rem;
     list-style: none;
     margin-left: .9rem;
 }
@@ -125,11 +123,12 @@
 
 }
 .arte{
-  width: 20rem;
+  width: 14rem;
   object-fit: contain;
-  padding: 1rem;
   position: absolute;
-  top: 35%;
+  top: 16%;
+  left: .2%;
+  
 }
 }
 
@@ -159,7 +158,6 @@
 @media (min-width: 425px) and (max-width: 768px) {
 .body{
     display: flex;
-    padding: 3rem;
     justify-content: center;
     
   }
@@ -167,7 +165,7 @@
 .link{
     display: flex;
     justify-content: center;
-    margin-top: 3rem;
+    /* margin-top: 3rem; */
     list-style: none;
 }
 
@@ -189,6 +187,8 @@
   width: 140px;
   height: auto;
   object-fit: contain;
+  position: absolute;
+  right: 10%;
 
 }
 .arte{
@@ -196,7 +196,7 @@
   object-fit: contain;
   padding: 1rem;
   position: absolute;
-  top: 40%;
+  top: 16%;
   right: 18%;
 }
 }

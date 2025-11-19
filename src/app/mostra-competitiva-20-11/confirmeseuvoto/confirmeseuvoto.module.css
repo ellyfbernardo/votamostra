@@ -128,7 +128,7 @@
 
  .container{
       height: 80%;
-      background-color: #003F31;
+      background-color: #1a3c34;
  }
 
  .body2{
@@ -161,6 +161,7 @@
       top: 20%;
       height: auto;
       padding: 1rem;
+      z-index: 0;
 
  }
 
