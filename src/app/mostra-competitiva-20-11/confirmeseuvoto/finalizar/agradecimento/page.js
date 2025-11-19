@@ -22,13 +22,13 @@ export default function Agradecimento() {
   const [selectedCity, setSelectedCity] = useState("");
 
   // País selecionado
-  const country = countries.find((c) => c.id == selectedCountry);
+  const country = countries.find((c) => c.name == selectedCountry);
 
   // Estados do país selecionado
   const states = country?.states || [];
 
   // Estado selecionado
-  const state = states.find((s) => s.id == selectedState);
+  const state = states.find((s) => s.name == selectedState);
 
   // Cidades do estado selecionado
   const cities = state?.cities || [];
