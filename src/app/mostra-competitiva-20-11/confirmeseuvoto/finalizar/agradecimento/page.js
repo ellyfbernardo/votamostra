@@ -133,124 +133,132 @@ export default function Agradecimento() {
               ✕
             </button>
 
-            <form className={style.formulario} onSubmit={handleSubmit}>
-              <h3 className={style.formTitle}>Pesquisa Rápida</h3>
+<form className={style.formulario} onSubmit={handleSubmit}>
+  <h3 className={style.formTitle}>Pesquisa Rápida</h3>
 
-              <label>Nome Completo:<input type="text" name="nome" required /></label>
-              
-              <label>Telefone:<input type="text" name="nome" required /></label>
+  <label>
+    Nome Completo:
+    <input type="text" name="nome" required />
+  </label>
 
-              <div className={style.group}>
-                <p>Faixa etária:</p>
-                <label><input type="radio" name="faixa" value="-18" /> Menos de 18</label>
-                <label><input type="radio" name="faixa" value="18-24" /> 18–24</label>
-                <label><input type="radio" name="faixa" value="25-34" /> 25–34</label>
-                <label><input type="radio" name="faixa" value="35-44" /> 35–44</label>
-                <label><input type="radio" name="faixa" value="45-54" /> 45–54</label>
-                <label><input type="radio" name="faixa" value="55+" /> 55+</label>
-              </div>
+  <label>
+    Telefone:
+    <input type="text" name="telefone" required />
+  </label>
 
-                <label>
-                        País de origem:
-                        <select
-                          name="pais"
-                          value={selectedCountry}
-                          onChange={(e) => {
-                            setSelectedCountry(e.target.value);
-                            setSelectedState("");
-                            setSelectedCity("");
-                          }}
-                          required
-                        >
-                          <option value="">Selecione um país</option>
+  <div className={style.group}>
+    <p>Faixa etária:</p>
+    <label><input type="radio" name="faixa" value="-18" required /> Menos de 18</label>
+    <label><input type="radio" name="faixa" value="18-24" /> 18–24</label>
+    <label><input type="radio" name="faixa" value="25-34" /> 25–34</label>
+    <label><input type="radio" name="faixa" value="35-44" /> 35–44</label>
+    <label><input type="radio" name="faixa" value="45-54" /> 45–54</label>
+    <label><input type="radio" name="faixa" value="55+" /> 55+</label>
+  </div>
 
-                          {countries.map((c) => (
-                            <option key={c.id} value={c.name}>
-                              {c.name}
-                            </option>
-                          ))}
-                        </select>
-                  </label>
+  <label>
+    País de origem:
+    <select
+      name="pais"
+      value={selectedCountry}
+      onChange={(e) => {
+        setSelectedCountry(e.target.value);
+        setSelectedState("");
+        setSelectedCity("");
+      }}
+      required
+    >
+      <option value="">Selecione um país</option>
+      {countries.map((c) => (
+        <option key={c.id} value={c.name}>
+          {c.name}
+        </option>
+      ))}
+    </select>
+  </label>
 
-                    <label>
-                      Estado:
-                      <select
-                        name="estado"
-                        value={selectedState}
-                        onChange={(e) => {
-                          setSelectedState(e.target.value);
-                          setSelectedCity("");
-                        }}
-                        disabled={!selectedCountry}
-                        required
-                      >
-                        <option value="">Selecione um estado</option>
+  <label>
+    Estado:
+    <select
+      name="estado"
+      value={selectedState}
+      onChange={(e) => {
+        setSelectedState(e.target.value);
+        setSelectedCity("");
+      }}
+      disabled={!selectedCountry}
+      required
+    >
+      <option value="">Selecione um estado</option>
+      {states.map((s) => (
+        <option key={s.id} value={s.name}>
+          {s.name}
+        </option>
+      ))}
+    </select>
+  </label>
 
-                        {states.map((s) => (
-                          <option key={s.id} value={s.name}>
-                            {s.name}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
-              
-                    <label>
-                      Cidade:
-                      <select
-                        name="cidade"
-                        value={selectedCity}
-                        onChange={(e) => setSelectedCity(e.target.value)}
-                        disabled={!selectedState}
-                        required
-                      >
-                        <option value="">Selecione uma cidade</option>
+  <label>
+    Cidade:
+    <select
+      name="cidade"
+      value={selectedCity}
+      onChange={(e) => setSelectedCity(e.target.value)}
+      disabled={!selectedState}
+      required
+    >
+      <option value="">Selecione uma cidade</option>
+      {cities.map((city) => (
+        <option key={city.id} value={city.name}>
+          {city.name}
+        </option>
+      ))}
+    </select>
+  </label>
 
-                        {cities.map((city) => (
-                          <option key={city.id} value={city.name}>
-                            {city.name}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
+  <div className={style.group}>
+    <p>É sua primeira vez em São Miguel do Gostoso?</p>
+    <label><input type="radio" name="primeiraVez" value="sim" required /> Sim</label>
+    <label><input type="radio" name="primeiraVez" value="nao" /> Não</label>
+  </div>
 
-              <div className={style.group}>
-                <p>É sua primeira vez em São Miguel do Gostoso?</p>
-                <label><input type="radio" name="primeiraVez" value="sim" /> Sim</label>
-                <label><input type="radio" name="primeiraVez" value="nao" /> Não</label>
-              </div>
+  <div className={style.group}>
+    <p>Você está hospedado(a) para:</p>
+    <label><input type="radio" name="motivo" value="mostra" required /> A Mostra</label>
+    <label><input type="radio" name="motivo" value="turismo" /> Turismo</label>
+    <label><input type="radio" name="motivo" value="trabalho" /> Trabalho</label>
+    <label>
+      <input type="radio" name="motivo" value="outro" /> Outro:
+      <input type="text" name="motivoOutro" className={style.outroInput} />
+    </label>
+  </div>
 
-              <div className={style.group}>
-                <p>Você está hospedado(a) para:</p>
-                <label><input type="radio" name="motivo" value="mostra" /> A Mostra</label>
-                <label><input type="radio" name="motivo" value="turismo" /> Turismo</label>
-                <label><input type="radio" name="motivo" value="trabalho" /> Trabalho</label>
-                <label>
-                  <input type="radio" name="motivo" value="outro" /> Outro:
-                  <input type="text" name="motivoOutro" className={style.outroInput} />
-                </label>
-              </div>
+  <div className={style.group}>
+    <p>Como ficou sabendo?</p>
+    <label><input type="checkbox" name="soube" value="redes" /> Redes sociais</label>
+    <label><input type="checkbox" name="soube" value="ads" /> Publicidade online</label>
+    <label><input type="checkbox" name="soube" value="sites" /> Sites especializados</label>
+    <label><input type="checkbox" name="soube" value="indicacao" /> Indicação</label>
+    <label><input type="checkbox" name="soube" value="midia" /> Mídia tradicional</label>
+    <label>
+      <input type="checkbox" name="soube" value="outros" /> Outros:
+      <input type="text" name="soubeOutro" className={style.outroInput} />
+    </label>
+    {/* OBS: checkbox não pode ser required individualmente — se quiser obrigar pelo menos 1, posso te passar JS para validar */}
+  </div>
 
-              <div className={style.group}>
-                <p>Como ficou sabendo?</p>
-                <label><input type="checkbox" name="soube" value="redes" /> Redes sociais</label>
-                <label><input type="checkbox" name="soube" value="ads" /> Publicidade online</label>
-                <label><input type="checkbox" name="soube" value="sites" /> Sites especializados</label>
-                <label><input type="checkbox" name="soube" value="indicacao" /> Indicação</label>
-                <label><input type="checkbox" name="soube" value="midia" /> Mídia tradicional</label>
-                <label>
-                  <input type="checkbox" name="soube" value="outros" /> Outros:
-                  <input type="text" name="soubeOutro" className={style.outroInput} />
-                </label>
-              </div>
+  <div className={style.group}>
+    <p>Avalie (1 a 5):</p>
+    <label>Estrutura:<input type="number" min="1" max="5" name="estrutura" required /></label>
+    <label>Organização:<input type="number" min="1" max="5" name="organizacao" required /></label>
+    <label>Programação:<input type="number" min="1" max="5" name="programacao" required /></label>
+    <label>Acessibilidade:<input type="number" min="1" max="5" name="acessibilidade" required /></label>
+    <label>Recomendaria:<input type="number" min="1" max="5" name="recomendacao" required /></label>
+  </div>
 
-              <div className={style.group}>
-                <p>Avalie (1 a 5):</p>
-                <label>Estrutura:<input type="number" min="1" max="5" name="estrutura" /></label>
-                <label>Organização:<input type="number" min="1" max="5" name="organizacao" /></label>
-                <label>Programação:<input type="number" min="1" max="5" name="programacao" /></label>
-                <label>Acessibilidade:<input type="number" min="1" max="5" name="acessibilidade" /></label>
-                <label>Recomendaria:<input type="number" min="1" max="5" name="recomendacao" /></label>
-              </div>
+
+
+
 
               <label>Comentário:<textarea name="comentario" rows="4"></textarea></label>
 
