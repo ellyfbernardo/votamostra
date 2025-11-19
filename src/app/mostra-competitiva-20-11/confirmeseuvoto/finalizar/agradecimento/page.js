@@ -137,6 +137,8 @@ export default function Agradecimento() {
               <h3 className={style.formTitle}>Pesquisa Rápida</h3>
 
               <label>Nome Completo:<input type="text" name="nome" required /></label>
+              
+              <label>Telefone:<input type="text" name="nome" required /></label>
 
               <div className={style.group}>
                 <p>Faixa etária:</p>
