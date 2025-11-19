@@ -344,6 +344,7 @@ export default function Agradecimento() {
           <li>- 1 cartaz</li>
         </ul>
       </footer>
+      <ToastContainer />
 </>
   );
 }
