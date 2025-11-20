@@ -134,8 +134,9 @@
   text-align: center;
   font-size: 1.6rem;
   font-weight: bold;
-  margin-bottom: 10px;
-   font-family: var(--neue-bold);
+  font-family: var(--neue-bold);
+  color:#1a3c34;
+  text-align: center;
 }
 
 .group {

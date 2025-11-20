@@ -142,8 +142,8 @@ export default function Agradecimento() {
             </button>
 
 <form className={style.formulario} onSubmit={handleSubmit}>
-  <h3 className={style.formTitle}>Pesquisa de Público
-12ª Mostra de Cinema de Gostoso</h3>
+  <h3 className={style.formTitle}>Pesquisa de Público</h3>
+  <h3 className={style.formTitle}>12ª Mostra de Cinema de Gostoso</h3>
 
   <label>
     <p className={style.fontlabel}>Nome Completo:<span className={style.asteristico}>*</span></p>
