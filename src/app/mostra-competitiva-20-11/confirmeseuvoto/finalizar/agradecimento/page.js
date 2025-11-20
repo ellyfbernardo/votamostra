@@ -334,13 +334,7 @@ export default function Agradecimento() {
       <footer className={style.footer}>
         <h2 className={style.sorteio}>QUER CONCORRER A UM KIT DE PRODUTOS DA MOSTRA?</h2>
 
-        <p className={style.paragrafo}>BASTA RESPONDER A UMA RÁPIDA PESQUISA </p>
 
-          {/* BOTÃO QUE ABRE O POPUP  */}
-        <button className={style.buttonForm} onClick={() => setOpenPopup(true)}>
-          RESPONDER
-        </button> 
-        <Image src={sol} alt="" className={style.sol} />
 
         <ul className={style.lista}>
           <li>1 CAMISETA</li>
@@ -349,6 +343,15 @@ export default function Agradecimento() {
           <li>1 BOLSA</li>
           <li>1 CARTAZ</li>
         </ul>
+
+          {/* BOTÃO QUE ABRE O POPUP  */}
+
+        <button className={style.buttonForm} onClick={() => setOpenPopup(true)}>
+          RESPONDER
+        </button> 
+
+        <p className={style.paragrafo}>BASTA RESPONDER A UMA RÁPIDA PESQUISA </p>
+        <Image src={sol} alt="" className={style.sol} />
       </footer>
       <ToastContainer />
 </>

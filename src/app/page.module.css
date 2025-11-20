@@ -49,7 +49,7 @@
 }
 
 .container{
-  background-color: #FF5576;
+  background-color: #fb5373;
   height: 100%;
   position: relative;
 }
@@ -65,14 +65,14 @@
   font-size: .5rem;
   color: #fff;
   text-wrap: nowrap;
-  font-family: var(--agradir-regular);
+  font-family: var(--neue-regular);
   
 }
 
 .p2{
   font-size: .5rem;
   color: #fff;
-  font-family: var(--agradir-regular);
+  font-family: var(--neue-regular);
   position: absolute;
   top: 65%;
 }
@@ -143,11 +143,11 @@
 }
 
 .aguarde{
-  font-family: var(--agradir-grandheavy);
+  font-family: var(--bold);
 }
 
 .votacao{
-  font-family: var(--agradir-bold);
+  font-family: var(--bold);
   font-size: 1rem;
   text-wrap: nowrap;
   color: #fff;
@@ -155,7 +155,7 @@
 }
 
 .termino{
-  font-family: var(--agradir-bold);
+  font-family: var(--bold);
   font-size: 1rem;
   text-wrap: nowrap;
   color: #fff;
@@ -186,7 +186,7 @@
   width: 11.68rem;
   height: 2.81rem;
   font-size: 1rem;
-  font-family: var(--agradir-bold);
+  font-family: var(--bold);
 }
 
 .logo{

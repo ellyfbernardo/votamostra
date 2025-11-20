@@ -241,6 +241,7 @@
 }
 
 .paragrafo{
+  margin-top: 2rem;
   text-align: center;
   font-family: var(--neue-regular);
   color: #1a3c34;
