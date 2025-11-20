@@ -35,7 +35,7 @@ export function Header() {
         <div className={style.date}>
           <h1 className={style.dia}>{diaMes}</h1>  {/* Atualizado dinamicamente */}
           <h2 className={style.mes}>NOV</h2>
-          <h1 className={style.dia}>2024</h1>
+          <h1 className={style.dia}>2025</h1>
         </div>
       </div>
 

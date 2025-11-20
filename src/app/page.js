@@ -26,7 +26,7 @@ export default function Home() {
     <div className={styles.container}>
 
         <header className={styles.container_header}>
-          <h2 className={styles.headersubtitle}>MINISTÉRIO DA CULTURA, PETROBRAS E GOVERNO DO ESTADO DO RIO GRANDE DO NORTE APRESENTAM.</h2>
+          <h2 className={styles.headersubtitle}>MINISTÉRIO DA CULTURA, PETROBRAS E GOVERNO DO ESTADO DO RIO GRANDE DO NORTE <span className={styles.apresenta}>APRESENTA</span></h2>
         </header>
 
             <Image src={logo} className={styles.logo} alt=""/>

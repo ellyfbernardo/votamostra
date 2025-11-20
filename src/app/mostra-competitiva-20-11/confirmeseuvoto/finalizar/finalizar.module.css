@@ -14,7 +14,7 @@
      color: #ffffff; /* Cor do texto do título */
      text-align: center;
      font-size: 1rem;
-     font-family: var(--bold);
+     font-family: var(--neue-bold);
      text-wrap: balance;
      margin-top: 2rem;
      padding: 0 5rem 0 5rem;

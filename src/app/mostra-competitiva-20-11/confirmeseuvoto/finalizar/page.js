@@ -158,7 +158,7 @@ export default function VoteList() {
 
 
       
-      <h1 className={style.h1}>Informe seu CPF abaixo para validar a votação</h1>
+      <h1 className={style.h1}>INFORME SEU CPF ABAIXO PARA VALIDAR A VOTAÇÃO</h1>
       <form className={style.form} onSubmit={handleSubmit}>
         <input
           className={style.input}

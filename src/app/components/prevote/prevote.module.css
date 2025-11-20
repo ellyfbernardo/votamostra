@@ -12,7 +12,7 @@
 }
 
 .title{
-     font-size: .8rem;
+     font-size: .9rem;
      margin-left: .2rem;
      color: #fb5373;
      font-family: var(--bold);
@@ -47,10 +47,11 @@
 @media (max-width: 320px){
 
 .title{
-     font-size: .7rem;
+     font-size: .8rem;
      margin-left: .2rem;
      color: #fb5373;
      font-family: var(--neue-bold);
+     padding: 0 0 0.3rem 0;
 }
 
 } 

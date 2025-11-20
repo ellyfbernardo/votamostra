@@ -89,7 +89,9 @@
 .rodape{
   margin-top: 6rem;
   width: 100%;
+  object-fit: contain;
   border-radius: 8px;
+  height: 80%;
 }
 
 .wave{
@@ -104,6 +106,10 @@
   font-family: var(--bold);
   font-size: 1rem;
   padding-top: .5rem;
+}
+
+.apresenta{
+  font-family: var(--neue-regular);
 }
 
 @media (max-width: 320px) {

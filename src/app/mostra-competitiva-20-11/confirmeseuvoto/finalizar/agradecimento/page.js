@@ -142,7 +142,8 @@ export default function Agradecimento() {
             </button>
 
 <form className={style.formulario} onSubmit={handleSubmit}>
-  <h3 className={style.formTitle}>Pesquisa Rápida</h3>
+  <h3 className={style.formTitle}>Pesquisa de Público
+12ª Mostra de Cinema de Gostoso</h3>
 
   <label>
     <p className={style.fontlabel}>Nome Completo:<span className={style.asteristico}>*</span></p>
@@ -293,14 +294,20 @@ export default function Agradecimento() {
     ))}
   </label>
 
-  <label>
-    Recomendaria:
-    {[1,2,3,4,5].map((n) => (
-      <label key={n}>
-        <input type="radio" name="recomendacao" value={n} required /> {n}
-      </label>
-    ))}
-  </label>
+<label>
+  Recomendaria:
+  {["Sim", "Não"].map((opcao) => (
+    <label key={opcao}>
+      <input
+        type="radio"
+        name="recomendacao"
+        value={opcao}
+        required
+      />{" "}
+      {opcao}
+    </label>
+  ))}
+</label>
   </div>
 
 
@@ -325,10 +332,9 @@ export default function Agradecimento() {
 
     </main>
       <footer className={style.footer}>
-        <h2 className={style.sorteio}>QUER CONCORRER A UM KIT DE PRODUTOS DA MOSTRA? BASTA RESPONDER A UMA RÁPIDA PESQUISA</h2>
+        <h2 className={style.sorteio}>QUER CONCORRER A UM KIT DE PRODUTOS DA MOSTRA?</h2>
 
-        <p className={style.paragrafo}>RESPONDA UMA RÁPIDA </p>
-        <p className={style.paragrafo}>PESQUISA E CONCORRRA </p>
+        <p className={style.paragrafo}>BASTA RESPONDER A UMA RÁPIDA PESQUISA </p>
 
           {/* BOTÃO QUE ABRE O POPUP  */}
         <button className={style.buttonForm} onClick={() => setOpenPopup(true)}>
@@ -337,11 +343,11 @@ export default function Agradecimento() {
         <Image src={sol} alt="" className={style.sol} />
 
         <ul className={style.lista}>
-          <li>- 1 camiseta</li>
-          <li>- 1 boné</li>
-          <li>- 1 caneca</li>
-          <li>- 1 bolsa</li>
-          <li>- 1 cartaz</li>
+          <li>1 CAMISETA</li>
+          <li>1 BONÉ</li>
+          <li>1 CANECA</li>
+          <li>1 BOLSA</li>
+          <li>1 CARTAZ</li>
         </ul>
       </footer>
       <ToastContainer />

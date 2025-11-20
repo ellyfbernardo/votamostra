@@ -13,10 +13,10 @@
 }
 
 .mostra{
-     color: #ffffff;
+     color: #fb5373;
      font-size: 1.2rem;
      font-family: var(--bold);
-     margin-bottom: 1rem;
+     /* margin-bottom: 1rem; */
 }
 
 .dia{
@@ -25,14 +25,14 @@
      height: 2.9rem;
      font-family: var(--bold);
      height: 0;
+     
 }
 
 .mes{
      font-size: 1.55rem;
      color: #F8FCFC;
-     font-family: var(--neue-regular);
+     font-family: var(--bold);
      height: 0;
-     margin-top: .4rem;
 }
 
 
@@ -42,6 +42,7 @@
      font-family: var(--bold);
      padding-top: 1.4rem;
      font-size: 1.55rem;
+     margin-bottom: 2rem;
 }
 
 .art{
