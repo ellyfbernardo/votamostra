@@ -32,14 +32,14 @@ export default function Home() {
             <Image src={logo} className={styles.logo} alt=""/>
         <main className={styles.body}>
             
-            {/* /mostra-panorama-25-11 */}
-          <Link href="#" className={styles.link}>
-            {/* <button className={styles.li}>INICIAR VOTAÇÃO</button>  */}
-            <div className={styles.waiting}>
+            {/* /mostra-competitiva-20-11 */}
+          <Link href="/mostra-competitiva-20-11" className={styles.link}>
+            <button className={styles.li}>INICIAR VOTAÇÃO</button> 
+            {/* <div className={styles.waiting}>
               <h2 className={styles.aguarde}>AGUARDE!</h2>
               <h3 className={styles.votacao}>A VOTAÇÃO COMEÇARÁ</h3>
               <h3 className={styles.termino}>AO TÉRMINO DA SESSÃO</h3>
-            </div>
+            </div> */}
           </Link>
 
 
