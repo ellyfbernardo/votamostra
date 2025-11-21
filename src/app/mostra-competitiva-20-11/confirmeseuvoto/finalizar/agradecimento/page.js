@@ -48,6 +48,7 @@ export default function Agradecimento() {
     // Coleta dos campos do formulário
     const formData = {
       nome: form.nome.value,
+      telefone:form.telefone.value,
       faixa: form.faixa.value,
       estado: form.estado.value,
       cidade: form.cidade.value,
