@@ -3,13 +3,13 @@
 import style from "./page.module.css";
 import MovieCard from "../components/moviecard20/moviecard";
 import filme1 from '../assets/filmes-21-11/pupa.jpg';
-import filme2 from '../assets/filmes-21-11/';
-import filme3 from '../assets/filmes-21-11/';
-import filme4 from '../assets/filmes-21-11/';
-import filme5 from '../assets/filmes-21-11/';
+import filme2 from '../assets/filmes-21-11/pupa.jpg';
+import filme3 from '../assets/filmes-21-11/pupa.jpg';
+import filme4 from '../assets/filmes-21-11/pupa.jpg';
+import filme5 from '../assets/filmes-21-11/pupa.jpg';
 import { Header } from "../components/header/header";
 
-export default function VoteList() {
+export default function VoteList21() {
 
 
   return (
