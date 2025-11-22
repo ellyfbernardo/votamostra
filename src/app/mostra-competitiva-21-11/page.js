@@ -1,15 +1,15 @@
 "use client";
 
 import style from "./page.module.css";
-import MovieCard from "../components/moviecard20/moviecard";
+import MovieCard21 from "../components/moviecard21/moviecard21";
 import filme1 from '../assets/filmes-21-11/pupa.jpg';
-import filme2 from '../assets/filmes-21-11/pupa.jpg';
-import filme3 from '../assets/filmes-21-11/pupa.jpg';
-import filme4 from '../assets/filmes-21-11/pupa.jpg';
-import filme5 from '../assets/filmes-21-11/pupa.jpg';
+import filme2 from '../assets/filmes-21-11/buenosaires.png';
+import filme3 from '../assets/filmes-21-11/presepio.png';
+import filme4 from '../assets/filmes-21-11/queimando.jpg';
+import filme5 from '../assets/filmes-21-11/mortevida.png';
 import { Header } from "../components/header/header";
 
-export default function VoteList21() {
+export default function VoteList() {
 
 
   return (
@@ -18,7 +18,7 @@ export default function VoteList21() {
       <Header/>
       <main className={style.main}>
 
-        <MovieCard
+        <MovieCard21
           title1={"PUPÁ"}
           subdescription1={"DOCUMENTÁRIO, 14 MIN, RN, 2024, LIVRE"}
           description1={"DIREÇÃO: OSANI"}

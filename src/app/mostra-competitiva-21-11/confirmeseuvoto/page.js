@@ -35,7 +35,7 @@ export default function Confirmeseuvoto() {
           <h2 className={style.h2}>MOSTRA COMPETITIVA</h2>
 
           <div className={style.date}>
-                      <h1 className={style.dia}>20</h1>
+                      <h1 className={style.dia}>21</h1>
                       <h2 className={style.mes}>NOV</h2>
                       <h1 className={style.dia}>2025</h1>
           </div>
@@ -43,9 +43,8 @@ export default function Confirmeseuvoto() {
 
         </header>
 
-          <Image src={snake} className={style.snake} alt=''/>
+
           <Image src={stars} className={style.stars} alt=''/>
-          <Image src={waves} className={style.waves} alt=''/>
           <Image src={logo} className={style.logo} alt=''/>
         
       
@@ -57,27 +56,56 @@ export default function Confirmeseuvoto() {
           {!votos ? (
             <p className={style.paragraph}>Carregando votos...</p>
           ) : (
-            <div className={style.body2}>
+            <div className={style.movies}>
               {votos?.filme1 && (
                 <Prevote
-                  title="DIA DOS PAIS"
-                  description="FICÇÃO, 19 MIN, AM, 2025, 14 ANOS"
+                  title="PUPÁ"
+                  description="DOCUMENTÁRIO, 14 MIN, RN, 2024, LIVRE"
                   vote={votos?.filme1}
-                  direction={"DIREÇÃO: Bernardo Ale Abinader"}
+                  direction={"DIREÇÃO: OSANI"}
                   
                 />
               )}
 
               {votos?.filme2 && (
                 <Prevote
-                  title="A NATUREZA DAS COISAS INVISÍVEIS"
-                  description="FICÇÃO, 90 MIN, DF, 2025, 12 ANOS"
+                  title="BUENOSAIRES"
+                  description="DOCUMENTÁRIO, 70 MIN, PE, 2025, 12 ANOS"
+                  vote={votos?.filme2}
+                  direction={"DIREÇÃO: TUCA SIQUEIRA"}
+                  
+                />
+              )}
+
+              {votos?.filme3 &&(
+                <Prevote
+                  title="PRESÉPIO"
+                  description="FICÇÃO, 18MIN, RJ, 2025, 12 ANOS"
+                  vote={votos?.filme2}
+                  direction={"DIREÇÃO: FELIPE BIBIAN"}
+                  
+                />
+              )}
+
+              {votos?.filme4 &&(
+                <Prevote
+                  title="QUEIMANDO POR DENTRO"
+                  description="FFICÇÃO, 16MIN, PE, 2024, LIVRE"
+                  vote={votos?.filme4}
+                  direction={"DIREÇÃO: ENOCK CARVALHO E MATHEUS FARIAS"}
+                  
+                />
+              )}
+
+              {votos?.filme5 &&(
+                <Prevote
+                  title="MORTE E VIDA MADALENA"
+                  description="FICÇÃO, 85 MIN, CE, 2025, 14 ANOS"
                   vote={votos?.filme2}
                   direction={"DIREÇÃO: Rafaela Camelo"}
                   
                 />
               )}
-
               
 
 
@@ -88,15 +116,16 @@ export default function Confirmeseuvoto() {
           <footer className={style.footer}>
 
           {(votos?.filme1 || votos?.filme2) && (
-              <Link className={style.button} href="/mostra-competitiva-20-11/confirmeseuvoto/finalizar">
+              <Link className={style.button} href="/mostra-competitiva-21-11/confirmeseuvoto/finalizar">
                 CONFIRMAR
               </Link>
             )}
           
-            <Link className={style.button2} href="/mostra-competitiva-20-11">
+            <Link className={style.button2} href="/mostra-competitiva-21-11">
               REVISAR VOTOS
             </Link>
-
+          <Image src={snake} className={style.snake} alt=''/>
+          <Image src={waves} className={style.waves} alt=''/>
             
           </footer>
 

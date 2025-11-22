@@ -48,6 +48,7 @@ export default function Agradecimento() {
     // Coleta dos campos do formulário
     const formData = {
       nome: form.nome.value,
+      telefone: form.telefone.value,
       faixa: form.faixa.value,
       estado: form.estado.value,
       cidade: form.cidade.value,
@@ -64,7 +65,6 @@ export default function Agradecimento() {
       programacao: form.programacao.value,
       acessibilidade: form.acessibilidade.value,
       recomendacao: form.recomendacao.value,
-
       comentario: form.comentario.value,
     };
 
@@ -103,6 +103,9 @@ export default function Agradecimento() {
         localStorage.removeItem("cpf");
         localStorage.removeItem("filme1");
         localStorage.removeItem("filme2");
+        localStorage.removeItem("filme3");
+        localStorage.removeItem("filme4");
+        localStorage.removeItem("filme5");
        
 
         setTimeout(() => setOpenPopup(false), 1500);

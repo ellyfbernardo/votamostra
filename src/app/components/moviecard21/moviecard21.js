@@ -3,12 +3,15 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import style from './moviecard.module.css';
+import style from './moviecard21.module.css';
 
 const MovieCard21 = (props) => {
   const [votos, setVotos] = useState({
     filme1: null,
     filme2: null,
+    filme3: null,
+    filme4: null,
+    filme5: null,
   });
 
   const router = useRouter();
@@ -17,6 +20,9 @@ const MovieCard21 = (props) => {
   const cardRefs = {
     filme1: useRef(null),
     filme2: useRef(null),
+    filme3: useRef(null),
+    filme4: useRef(null),
+    filme5: useRef(null),
   };
 
   useEffect(() => {
@@ -63,7 +69,7 @@ const MovieCard21 = (props) => {
   };
 
   const handleSubmit = () => {
-    router.push('/mostra-competitiva-20-11/confirmeseuvoto');
+    router.push('/mostra-competitiva-21-11/confirmeseuvoto');
   };
 
   const hasVotes = Object.values(votos).some(voto => voto !== null);
@@ -126,6 +132,89 @@ const MovieCard21 = (props) => {
         </div>
       </div>
 
+<div className={style.container_flex} ref={cardRefs.filme3}>
+        <div className={style.container}>
+          <h3 className={style.title}>{props.title3}</h3>
+          <p className={style.subdescription}>{props.subdescription3}</p>
+          <Image src={props.filme3} alt="" className={style.movie_image} />
+          <p className={style.description}>{props.description3}</p>
+          <p className={style.sinopse}>{props.sinopse3}</p>
+
+          <div className={style.notecontainer}>
+            <h2 className={style.note}>SUA NOTA</h2>
+          </div>
+
+          <div className={style.opcoes}>
+            {[1, 2, 3, 4, 5].map((voto) => (
+              <div
+                key={voto}
+                className={`${style.opcao} ${votos.filme3 === voto ? style.selecionado : ''} ${votos.filme3 && votos.filme3 !== voto ? style.esmaecido : ''}`}
+                onClick={() => handleVote('filme3', voto)}
+              >
+                <div className={style.square}>
+                  {voto}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+<div className={style.container_flex} ref={cardRefs.filme4}>
+        <div className={style.container}>
+          <h3 className={style.title}>{props.title4}</h3>
+          <p className={style.subdescription}>{props.subdescription4}</p>
+          <Image src={props.filme4} alt="" className={style.movie_image} />
+          <p className={style.description}>{props.description4}</p>
+          <p className={style.sinopse}>{props.sinopse4}</p>
+
+          <div className={style.notecontainer}>
+            <h2 className={style.note}>SUA NOTA</h2>
+          </div>
+
+          <div className={style.opcoes}>
+            {[1, 2, 3, 4, 5].map((voto) => (
+              <div
+                key={voto}
+                className={`${style.opcao} ${votos.filme4 === voto ? style.selecionado : ''} ${votos.filme4 && votos.filme4 !== voto ? style.esmaecido : ''}`}
+                onClick={() => handleVote('filme4', voto)}
+              >
+                <div className={style.square}>
+                  {voto}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+<div className={style.container_flex} ref={cardRefs.filme5}>
+        <div className={style.container}>
+          <h3 className={style.title}>{props.title5}</h3>
+          <p className={style.subdescription}>{props.subdescription5}</p>
+          <Image src={props.filme5} alt="" className={style.movie_image} />
+          <p className={style.description}>{props.description5}</p>
+          <p className={style.sinopse}>{props.sinopse5}</p>
+
+          <div className={style.notecontainer}>
+            <h2 className={style.note}>SUA NOTA</h2>
+          </div>
+
+          <div className={style.opcoes}>
+            {[1, 2, 3, 4, 5].map((voto) => (
+              <div
+                key={voto}
+                className={`${style.opcao} ${votos.filme5 === voto ? style.selecionado : ''} ${votos.filme5 && votos.filme5 !== voto ? style.esmaecido : ''}`}
+                onClick={() => handleVote('filme5', voto)}
+              >
+                <div className={style.square}>
+                  {voto}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       <footer className={style.footer}>
         {hasVotes && (

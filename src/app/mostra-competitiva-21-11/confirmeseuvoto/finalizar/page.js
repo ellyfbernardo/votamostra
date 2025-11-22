@@ -13,7 +13,7 @@ import bichaosol from '../../../assets/mostra2025/BICHAO SOL.png';
 
 export default function VoteList() {
   const [cpf, setCpf] = useState('');
-  const [votos, setVotos] = useState({ filme1: '', filme2: ''});
+  const [votos, setVotos] = useState({ filme1: '', filme2: '', filme3: '', filme4: '', filme5:''});
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [locationError, setLocationError] = useState(false);
@@ -29,6 +29,9 @@ export default function VoteList() {
     const storedVotes = JSON.parse(localStorage.getItem('votos')) || {
       filme1: '',
       filme2: '',
+      filme3: '',
+      filme4: '',
+      filme5: '',
     };
     setVotos(storedVotes);
 
@@ -114,6 +117,9 @@ export default function VoteList() {
           cpf: rawCpf,
           filme1: votos.filme1,
           filme2: votos.filme2,
+          filme3: votos.filme3,
+          filme4: votos.filme4,
+          filme5: votos.filme5,
           latitude,
           longitude
         }),
@@ -121,8 +127,8 @@ export default function VoteList() {
 
       if (res.ok) {
         setCpf('');
-        setVotos({ filme1: '', filme2: '' });
-        window.location.href = '/mostra-competitiva-20-11/confirmeseuvoto/finalizar/agradecimento';
+        setVotos({ filme1: '', filme2: '', filme3: '', filme4: '', filme5: '', });
+        window.location.href = '/mostra-competitiva-21-11/confirmeseuvoto/finalizar/agradecimento';
       } else if (res.status === 409) {
         alert('Parece que você já votou hoje. Volte amanhã para mais : )');
       } else {
