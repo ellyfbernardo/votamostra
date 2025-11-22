@@ -81,7 +81,7 @@ export default function Confirmeseuvoto() {
                 <Prevote
                   title="PRESÉPIO"
                   description="FICÇÃO, 18MIN, RJ, 2025, 12 ANOS"
-                  vote={votos?.filme2}
+                  vote={votos?.filme3}
                   direction={"DIREÇÃO: FELIPE BIBIAN"}
                   
                 />
@@ -101,7 +101,7 @@ export default function Confirmeseuvoto() {
                 <Prevote
                   title="MORTE E VIDA MADALENA"
                   description="FICÇÃO, 85 MIN, CE, 2025, 14 ANOS"
-                  vote={votos?.filme2}
+                  vote={votos?.filme5}
                   direction={"DIREÇÃO: Rafaela Camelo"}
                   
                 />
