@@ -33,13 +33,13 @@ export default function Home() {
         <main className={styles.body}>
             
             {/* /mostra-competitiva-22-11 */}
-          <Link href="/mostra-competitiva-22-11" className={styles.link}>
-            <button className={styles.li}>INICIAR VOTAÇÃO</button> 
-            {/* <div className={styles.waiting}>
+          <Link href="#" className={styles.link}>
+            {/* <button className={styles.li}>INICIAR VOTAÇÃO</button>  */}
+            <div className={styles.waiting}>
               <h2 className={styles.aguarde}>AGUARDE!</h2>
               <h3 className={styles.votacao}>A VOTAÇÃO COMEÇARÁ</h3>
               <h3 className={styles.termino}>AO TÉRMINO DA SESSÃO</h3>
-            </div> */}
+            </div>
           </Link>
 
 
