@@ -3,12 +3,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import style from './moviecard.module.css';
+import style from './moviecard22.module.css';
 
-const MovieCard = (props) => {
+const MovieCard22 = (props) => {
   const [votos, setVotos] = useState({
     filme1: null,
-    filme2: null,
+    filme2: null
   });
 
   const router = useRouter();
@@ -17,6 +17,7 @@ const MovieCard = (props) => {
   const cardRefs = {
     filme1: useRef(null),
     filme2: useRef(null),
+
   };
 
   useEffect(() => {
@@ -63,7 +64,7 @@ const MovieCard = (props) => {
   };
 
   const handleSubmit = () => {
-    router.push('/mostra-competitiva-21-11/confirmeseuvoto');
+    router.push('/mostra-competitiva-22-11/confirmeseuvoto');
   };
 
   const hasVotes = Object.values(votos).some(voto => voto !== null);
@@ -126,34 +127,6 @@ const MovieCard = (props) => {
         </div>
       </div>
 
-<div className={style.container_flex} ref={cardRefs.filme2}>
-        <div className={style.container}>
-          <h3 className={style.title}>{props.title2}</h3>
-          <p className={style.subdescription}>{props.subdescription2}</p>
-          <Image src={props.filme2} alt="" className={style.movie_image} />
-          <p className={style.description}>{props.description2}</p>
-          <p className={style.sinopse}>{props.sinopse2}</p>
-
-          <div className={style.notecontainer}>
-            <h2 className={style.note}>SUA NOTA</h2>
-          </div>
-
-          <div className={style.opcoes}>
-            {[1, 2, 3, 4, 5].map((voto) => (
-              <div
-                key={voto}
-                className={`${style.opcao} ${votos.filme2 === voto ? style.selecionado : ''} ${votos.filme3 && votos.filme2 !== voto ? style.esmaecido : ''}`}
-                onClick={() => handleVote('filme3', voto)}
-              >
-                <div className={style.square}>
-                  {voto}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       <footer className={style.footer}>
         {hasVotes && (
           <button onClick={handleSubmit} className={style.submitButton}>
@@ -165,4 +138,4 @@ const MovieCard = (props) => {
   );
 };
 
-export default MovieCard;
+export default MovieCard22;

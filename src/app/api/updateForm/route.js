@@ -13,7 +13,7 @@ export async function POST(request) {
     }
 
     // Atualiza apenas o campo "form", filtrando pelo CPF
-    const update = await db.collection("21-11").updateOne(
+    const update = await db.collection("22-11").updateOne(
       { cpf },             // filtro
       { $set: { form } }   // atualização do campo
     );
