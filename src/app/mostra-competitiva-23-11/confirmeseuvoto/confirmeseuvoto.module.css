@@ -1,0 +1,249 @@
+.body{
+      background-color: #003F31;
+      height: 100dvh;
+      position: relative;
+      overflow-y: auto;
+}
+.body_container{
+     
+      position: absolute;
+      width: 100%;
+      height: 100dvh;
+
+} 
+
+
+.header{
+      padding-left: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+}
+
+.date{
+      display: flex;
+      align-items: baseline;
+      color: #fff;
+      gap: .3rem;
+}
+
+
+.title{
+      text-align: start;
+      font-size: 1rem;
+      padding-top: 4rem;
+      font-family: var(--bold);
+      color: #fff;
+}
+
+.h2{
+      color: #fb5373;
+      font-family: var(--bold);
+      font-size: .9rem;
+      margin-top: 1.2rem;
+}
+
+.dia{
+      font-size: 1rem;
+      color: #fff;
+      height: 2.9rem;
+      font-family: var(--bold);
+      height: 0;
+      
+}
+
+.mes{
+      font-size: 1rem;
+      color: #F8FCFC;
+      font-family: var(--bold);
+      height: 0;
+      padding-top: .3rem;
+
+}
+
+.diasemana{
+      color: #F8FCFC;
+      font-family: var(--bold);
+      font-size: 1rem;
+      padding-top: 1rem;
+ }
+
+.paragraph{
+      text-align: center;
+     /* margin-top: 50vh; */
+     color: #FFF;
+}
+
+.footer{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #003F31;
+      position: relative;
+
+}
+
+.button{
+
+      border-style: none;
+      font-size: 1rem;
+      width: 40%;
+      background-color: #fb5373;
+      color: #fff;
+      border-radius: 18px;
+      padding: .8rem .8rem .6rem .8rem;
+      font-family: var(--neue-bold);
+      text-align: center;
+      -webkit-box-shadow: 2px 9px 14px -7px rgba(0,0,0,0.75);
+      -moz-box-shadow: 2px 9px 14px -7px rgba(0,0,0,0.75);
+      box-shadow: 2px 9px 14px -7px rgba(0,0,0,0.75);
+      z-index: 1000;
+}
+
+
+.button2{
+
+      border-style: none;
+      width: 35%;
+      font-size: .7rem;
+      color: #ffffff;
+      font-weight: bold;
+      border-radius: 1.5rem;
+      text-align: center;
+      text-decoration: none;
+      padding: .5rem .5rem .4rem .5rem;
+      border: .16rem #fb5373 solid;
+      background-color: #1a3c34;
+      margin-top: 1.1rem;
+      margin-bottom: 1.5rem;
+      font-family: var(--neue-bold);
+      -webkit-box-shadow: 2px 9px 14px -7px rgba(0,0,0,0.75);
+      -moz-box-shadow: 2px 9px 14px -7px rgba(0,0,0,0.75);
+      box-shadow: 2px 9px 14px -7px rgba(0,0,0,0.75);
+      z-index: 1000;
+}
+
+
+
+
+ /* .container{
+      height: 90%;
+      background-color: #1a3c34;
+ } */
+
+ .movies{
+      /* height: 100dvh; */
+      padding: 6rem 1.8rem 1.8rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      /* background-image: url("../../assets/Textura 0.75x.png"); */
+      background-repeat: round;
+      background-color: #003F31;
+      
+ }
+
+ .logo{
+      position: absolute;
+      width: 7rem;
+      right: 0;
+      top: 5%;
+      height: auto;
+      padding: 1rem;
+      filter: invert(100%) brightness(300%);
+
+ }
+ .stars{
+      position: absolute;
+      width: 8rem;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 18%;
+      height: auto;
+      padding: 1rem;
+      z-index: 0;
+
+ }
+
+ .snake{
+      position: absolute;
+      width: 12rem;
+      right: 4%;
+      bottom: -28%;
+      height: auto;
+      object-fit: fill;
+      z-index: 0;
+ }
+ .waves{
+      position: absolute;
+      width: 8rem;
+      left: 2%;
+      bottom: -24%;
+      height: auto;
+      object-fit: fill;
+
+ }
+
+ @media (max-width: 320px){
+      
+      .header{
+            padding-left: 2.5rem;
+      }
+      
+      .date{
+            display: flex;
+            align-items: baseline;
+            color: #fff;
+            gap: .3rem;
+      }
+      
+      
+      .title{
+            text-align: start;
+            font-size: .8rem;
+            padding-top: 4rem;
+            font-family: var(--neue-bold);
+      }
+      
+      .h2{
+            color: #FF5275;
+            font-family: var(--neue-bold);
+            font-size: .65rem;
+            margin-top: 1.2rem;
+      }
+      
+      .dia{
+            font-size: .9rem;
+            color: #fff;
+            height: 2.9rem;
+            font-family: var(--bold);
+            height: 0;
+            
+      }
+      
+      .mes{
+            font-size: .9rem;
+            color: #F8FCFC;
+            font-family: var(--neue-regular);
+            height: 0;
+            padding-top: .5rem;
+      
+      }
+      
+      .diasemana{
+            color: #F8FCFC;
+            font-family: var(--bold);
+            font-size: .9rem;
+            padding-top: 1rem;
+       }
+    
+
+       .logo{
+            position: absolute;
+            width: 7rem;
+            right: 0;
+            top: 5%;
+            height: auto;;
+            padding: 1rem;
+       }
+    }
