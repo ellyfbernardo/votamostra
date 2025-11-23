@@ -2,7 +2,7 @@
 
 import style from "./page.module.css";
 import MovieCard22 from "../components/moviecard22/moviecard22";
-import filme1 from '../assets/filmes-22-11/Laudelina.jpg';
+import filme1 from '../assets/filmes-22-11/laudelina.jpg';
 import filme2 from '../assets/filmes-22-11/cais.jpg';
 
 import { Header } from "../components/header/header";
