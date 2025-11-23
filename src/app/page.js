@@ -12,8 +12,8 @@ import rodape from './assets/mostra2025/regua.png';
 
 export default function Home() {
 
+
   useEffect(() => {
-    // Limpa o localStorage apenas na primeira vez que o usuário visita a página inicial
     const votosArmazenados = localStorage.getItem('votos');
     if (votosArmazenados) {
       localStorage.removeItem('votos','cpf');
