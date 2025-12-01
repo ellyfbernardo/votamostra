@@ -34,7 +34,7 @@ export default function Home() {
             
             {/* /mostra-competitiva-23-11 */}
           <Link href="/pesquisa" className={styles.link}>
-            <button className={styles.li}>INICIAR VOTAÇÃO</button> 
+            <button className={styles.li}>INICIAR</button> 
             {/* <div className={styles.waiting}>
               <h2 className={styles.aguarde}>AGUARDE!</h2>
               <h3 className={styles.votacao}>A VOTAÇÃO COMEÇARÁ</h3>
