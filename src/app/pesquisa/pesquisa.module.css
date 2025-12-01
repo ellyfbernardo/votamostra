@@ -1,0 +1,328 @@
+/* ===== CONTAINER GERAL ===== */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: "Inter", sans-serif;
+  color: #222;
+}
+
+/* ===== HEADER ===== */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 16px;
+  opacity: 0.75;
+}
+
+/* ===== PROGRESS BAR ===== */
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.progressFill {
+  height: 100%;
+  background: #ff3c00;
+  transition: width 0.3s;
+}
+
+/* ===== FORM ===== */
+.form {
+  background: #fff;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stepTitle {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* ===== LABELS E INPUTS ===== */
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.labelText {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.input {
+  padding: 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.inputSmall {
+  margin-top: 8px;
+  padding: 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* SELECT */
+.select {
+  padding: 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 15px;
+  background: #fff;
+}
+
+/* ===== GRID ===== */
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* ===== FIELDSETS ===== */
+.fieldset {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.legend {
+  font-weight: 600;
+  padding: 0 6px;
+}
+
+/* ===== OPTIONS ===== */
+.optionsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.optionsRow {
+  display: flex;
+  gap: 16px;
+}
+
+.option {
+  display: flex;
+  align-items: center; /* 🔥 ALINHA INPUT + TEXTO */
+  gap: 8px; /* espaço entre o input e o texto */
+}
+
+.option input {
+  margin: 0; /* remove margin vertical padrão */
+  transform: translateY(1px); /* opcional — melhora alinhamento no iOS/macOS */
+}
+
+
+.option input[type="radio"],
+.option input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+/* ===== GROUP (faixa etária) ===== */
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.buttonNext,
+.buttonBack,
+.buttonSubmit {
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 16px;
+}
+
+.buttonNext {
+  background: #ff3c00;
+  color: white;
+}
+
+.buttonNext:hover {
+  background: #e03600;
+}
+
+.buttonBack {
+  background: #e5e5e5;
+}
+
+.buttonBack:hover {
+  background: #d8d8d8;
+}
+
+.buttonSubmit {
+  background: #008f3c;
+  color: white;
+}
+
+.buttonSubmit:hover {
+  background: #007b34;
+}
+
+/* DESABILITADO */
+.buttonSubmit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* --- Container da etapa --- */
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 20px;
+}
+
+.stepTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+/* --- Fieldset padrão --- */
+.fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legend {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+/* --- Opções (radios/checkboxes) --- */
+.optionsRow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.option input {
+  width: 18px;
+  height: 18px;
+  accent-color: #000;
+}
+
+/* --- Linha horizontal de dois elementos (selects) --- */
+.row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Labels padrão */
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.labelText {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #222;
+}
+
+/* --- Selects das notas --- */
+.select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: #fff;
+}
+
+/* --- Textareas para comentários --- */
+.textarea {
+  width: 100%;
+  padding: 12px;
+  min-height: 90px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  font-size: 1rem;
+}
+
+
+
+/* --- Responsividade --- */
+@media (max-width: 620px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .option {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .optionsRow {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
