@@ -412,40 +412,42 @@ setSelectedCity("");
               Agora queremos saber se você veio para a Mostra
             </h2>
 
-            <fieldset className={style.fieldset}>
-              <legend className={style.legend}>Você se hospedou em Gostoso para: *</legend>
+<fieldset className={style.fieldset}>
+  <legend className={style.legend}>Você se hospedou em Gostoso para: *</legend>
 
-              <div className={style.optionsColumn}>
-                {[
-                  ["mostra", "A Mostra de Cinema de Gostoso"],
-                  ["turismo", "Turismo em geral"],
-                  ["trabalho", "Trabalho"],
-                  ["outro", "Outro"],
-                ].map(([v, t]) => (
-                  <label key={v} className={style.option}>
-                    <input
-                      type="radio"
-                      name="hospedagem"
-                      value={v}
-                      checked={form.hospedagem === v}
-                      onChange={handleChange}
-                    />
-                    <span>{t}</span>
+  <div className={style.optionsColumn}>
+    {[
+      ["mostra", "A Mostra de Cinema de Gostoso"],
+      ["turismo", "Turismo em geral"],
+      ["trabalho", "Trabalho"],
+      ["outro", "Outro"],
+    ].map(([v, t]) => (
+      <div key={v}>
+        <label className={style.option}>
+          <input
+            type="radio"
+            name="hospedagem"
+            value={v}
+            checked={form.hospedagem === v}
+            onChange={handleChange}
+          />
+          <span>{t}</span>
+        </label>
 
-                    {v === "outro" && form.hospedagem === "outro" && (
-                      <input
-                        type="text"
-                        name="hospedagemOutro"
-                        value={form.hospedagemOutro}
-                        onChange={handleChange}
-                        className={style.inputSmall}
-                        placeholder="Especifique"
-                      />
-                    )}
-                  </label>
-                ))}
-              </div>
-            </fieldset>
+        {v === "outro" && form.hospedagem === "outro" && (
+          <input
+            type="text"
+            name="hospedagemOutro"
+            value={form.hospedagemOutro}
+            onChange={handleChange}
+            className={style.inputSmall}
+            placeholder="Especifique"
+          />
+        )}
+      </div>
+    ))}
+  </div>
+</fieldset>
 
             <fieldset className={style.fieldset}>
               <legend className={style.legend}>Como você ficou sabendo da Mostra? *</legend>
@@ -570,42 +572,50 @@ setSelectedCity("");
       </div>
     </fieldset>
 
-    {/* Notas das salas */}
-    <div className={style.row}>
-      <legend className={style.legend}>
-        Com base na sua resposta anterior, como você avalia a experiência geral na sala?
-      </legend>
+    {/* Notas das salas - aparecem condicionalmente */}
+    {form.salaFrequentada && (
+      <div className={style.row}>
+        <legend className={style.legend}>
+          Com base na sua resposta anterior, como você avalia a experiência geral na sala?
+        </legend>
 
-      <label className={style.label}>
-        <span className={style.labelText}>Sala principal — Nota (1–5) *</span>
-        <select
-          name="avaliacaoSalaPrincipal"
-          value={form.avaliacaoSalaPrincipal}
-          onChange={handleChange}
-          className={style.select}
-        >
-          <option value="">Nota</option>
-          {[1, 2, 3, 4, 5].map((n) => (
-            <option key={n} value={n}>{n}</option>
-          ))}
-        </select>
-      </label>
+        {/* Sala ao ar livre - mostra se escolheu "aoArLivre" ou "ambas" */}
+        {(form.salaFrequentada === "aoArLivre" || form.salaFrequentada === "ambas") && (
+          <label className={style.label}>
+            <span className={style.labelText}>Sala ao ar livre — Nota (1–5) *</span>
+            <select
+              name="avaliacaoSalaPrincipal"
+              value={form.avaliacaoSalaPrincipal}
+              onChange={handleChange}
+              className={style.select}
+            >
+              <option value="">Nota</option>
+              {[1, 2, 3, 4, 5].map((n) => (
+                <option key={n} value={n}>{n}</option>
+              ))}
+            </select>
+          </label>
+        )}
 
-      <label className={style.label}>
-        <span className={style.labelText}>Sala Petrobras — Nota (1–5) *</span>
-        <select
-          name="avaliacaoSalaPetrobras"
-          value={form.avaliacaoSalaPetrobras}
-          onChange={handleChange}
-          className={style.select}
-        >
-          <option value="">Nota</option>
-          {[1, 2, 3, 4, 5].map((n) => (
-            <option key={n} value={n}>{n}</option>
-          ))}
-        </select>
-      </label>
-    </div>
+        {/* Sala Petrobras - mostra se escolheu "petrobras" ou "ambas" */}
+        {(form.salaFrequentada === "petrobras" || form.salaFrequentada === "ambas") && (
+          <label className={style.label}>
+            <span className={style.labelText}>Sala Petrobras — Nota (1–5) *</span>
+            <select
+              name="avaliacaoSalaPetrobras"
+              value={form.avaliacaoSalaPetrobras}
+              onChange={handleChange}
+              className={style.select}
+            >
+              <option value="">Nota</option>
+              {[1, 2, 3, 4, 5].map((n) => (
+                <option key={n} value={n}>{n}</option>
+              ))}
+            </select>
+          </label>
+        )}
+      </div>
+    )}
 
     {/* Comentário sobre a nota */}
     <label className={style.label}>
@@ -621,15 +631,15 @@ setSelectedCity("");
 
 {/* O que mais se destacou */}
 <fieldset className={style.fieldset}>
-  <legend className={style.legend}>Qual ponto mais se destacou na Mostra? *</legend>
+  <legend className={style.legend}>Qual ponto mais se destaca na Mostra de Cinema de Gostoso? *</legend>
 
   <div className={style.optionsColumn}>
     {[
-      ["programacao", "A programação"],
-      ["estrutura", "A estrutura do evento"],
-      ["organizacao", "A organização"],
-      ["convidados", "Convidados / Debates"],
-      ["outro", "Outro"],
+      ["programacao", "(Programação dos filmes, debates e seminários)"],
+      ["estrutura", "Estrutura (Sala, projeção, som, praça de alimentação, banheiros)"],
+      ["organizacao", "Equipe (Orientação, retirada de dúvidas, cordialidade, organização)"],
+      ["sistema", "⁠Sistema de votação (Online ou cartão entregue no fim da sessão)"],
+  
     ].map(([v, t]) => (
       <label key={v} className={style.option}>
         <input
@@ -658,15 +668,14 @@ setSelectedCity("");
 
 {/* O que menos se destacou */}
 <fieldset className={style.fieldset}>
-  <legend className={style.legend}>Qual ponto menos se destacou? *</legend>
+  <legend className={style.legend}>Qual ponto menos se destaca na Mostra de Cinema de Gostoso? *</legend>
 
   <div className={style.optionsColumn}>
     {[
-      ["programacao", "A programação"],
-      ["estrutura", "A estrutura do evento"],
-      ["organizacao", "A organização"],
-      ["convidados", "Convidados / Debates"],
-      ["outro", "Outro"],
+      ["programacao", "(Programação dos filmes, debates e seminários)"],
+      ["estrutura", "Estrutura (Sala, projeção, som, praça de alimentação, banheiros)"],
+      ["organizacao", "Equipe (Orientação, retirada de dúvidas, cordialidade, organização)"],
+      ["sistema", "Sistema de votação (Online ou cartão entregue no fim da sessão)"],
     ].map(([v, t]) => (
       <label key={v} className={style.option}>
         <input
@@ -695,15 +704,13 @@ setSelectedCity("");
 
 {/* O que pode melhorar */}
 <fieldset className={style.fieldset}>
-  <legend className={style.legend}>O que poderia melhorar para a próxima edição? *</legend>
+  <legend className={style.legend}>Se você pudesse escolher uma próxima melhoria, qual seria? *</legend>
 
   <div className={style.optionsColumn}>
     {[
-      ["estrutura", "Melhorar a estrutura"],
-      ["programacao", "Melhorar programação"],
-      ["organizacao", "Melhorar organização"],
-      ["som", "Melhorar som / projeção"],
-      ["outro", "Outro"],
+      ["estrutura", "⁠Ampliar sala principal (Cadeiras, entrada, estrutura da fila)"],
+      ["programacao", "Programação (Mais sessões)"],
+      ["organizacao", "Aumentar equipe (Suporte, dúvidas, auxílio)"],
     ].map(([v, t]) => (
       <label key={v} className={style.option}>
         <input
@@ -745,7 +752,7 @@ setSelectedCity("");
 
     {/* Recomendaria (1–5) */}
     <label className={style.label}>
-      <span className={style.labelText}>Você recomenda a Mostra de Cinema de Gostoso? *</span>
+      <span className={style.labelText}>Você recomenda a Mostra de Cinema de Gostoso? Nota de 1 a 5 *</span>
       <select
         name="recomendacao"
         value={form.recomendacao}
