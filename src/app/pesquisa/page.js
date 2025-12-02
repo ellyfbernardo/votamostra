@@ -635,7 +635,7 @@ setSelectedCity("");
 
   <div className={style.optionsColumn}>
     {[
-      ["programacao", "(Programação dos filmes, debates e seminários)"],
+      ["programacao", "Curadoria (Programação dos filmes, debates e seminários)"],
       ["estrutura", "Estrutura (Sala, projeção, som, praça de alimentação, banheiros)"],
       ["organizacao", "Equipe (Orientação, retirada de dúvidas, cordialidade, organização)"],
       ["sistema", "⁠Sistema de votação (Online ou cartão entregue no fim da sessão)"],
@@ -672,7 +672,7 @@ setSelectedCity("");
 
   <div className={style.optionsColumn}>
     {[
-      ["programacao", "(Programação dos filmes, debates e seminários)"],
+      ["programacao", "Curadoria (Programação dos filmes, debates e seminários)"],
       ["estrutura", "Estrutura (Sala, projeção, som, praça de alimentação, banheiros)"],
       ["organizacao", "Equipe (Orientação, retirada de dúvidas, cordialidade, organização)"],
       ["sistema", "Sistema de votação (Online ou cartão entregue no fim da sessão)"],
