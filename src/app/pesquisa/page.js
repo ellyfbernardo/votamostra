@@ -449,42 +449,46 @@ setSelectedCity("");
   </div>
 </fieldset>
 
-            <fieldset className={style.fieldset}>
-              <legend className={style.legend}>Como você ficou sabendo da Mostra? *</legend>
+           <fieldset className={style.fieldset}>
+  <legend className={style.legend}>Como você ficou sabendo da Mostra? *</legend>
 
-              <div className={style.optionsColumn}>
-                {[
-                  ["instagram", "Instagram da Mostra"],
-                  ["redes", "Outros perfis em redes sociais"],
-                  ["indicacao", "Indicação de amigos ou familiares"],
-                  ["midia", "Mídia tradicional"],
-                  ["outros", "Outros"],
-                ].map(([v, t]) => (
-                  <label key={v} className={style.option}>
-                    <input
-                      type="checkbox"
-                      name="soube"
-                      value={v}
-                      checked={form.soube.includes(v)}
-                      onChange={handleChange}
-                    />
-                    <span>{t}</span>
+  <div className={style.optionsColumn}>
+    {[
+      ["instagram", "Instagram da Mostra"],
+      ["redes", "Outros perfis em redes sociais"],
+      ["indicacao", "Indicação de amigos ou familiares"],
+      ["midia", "Mídia tradicional"],
+      ["outros", "Outros"],
+    ].map(([v, t]) => (
+      <div key={v} className={style.optionWrapper}>
+        <label className={style.option}>
+          <input
+            type="checkbox"
+            name="soube"
+            value={v}
+            checked={form.soube.includes(v)}
+            onChange={handleChange}
+          />
+          <span>{t}</span>
+        </label>
 
-                    {v === "outros" && form.soube.includes("outros") && (
-                      <input
-                        type="text"
-                        name="soubeOutro"
-                        value={form.soubeOutro}
-                        onChange={handleChange}
-                        className={style.inputSmall}
-                        placeholder="Especifique"
-                      />
-                    )}
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-
+        {v === "outros" && form.soube.includes("outros") && (
+          <input
+            type="text"
+            name="soubeOutro"
+            value={form.soubeOutro}
+            onChange={handleChange}
+            onFocus={(e) => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
+            onTouchStart={(e) => e.stopPropagation()}
+            className={style.inputSmall}
+            placeholder="Especifique"
+          />
+        )}
+      </div>
+    ))}
+  </div>
+</fieldset>
             <fieldset className={style.fieldset}>
               <legend className={style.legend}>É sua primeira vez na Mostra? *</legend>
 
