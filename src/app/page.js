@@ -33,7 +33,7 @@ export default function Home() {
         <main className={styles.body}>
             
             {/* /mostra-competitiva-23-11 */}
-          <Link href="/pesquisa" className={styles.link}>
+          <Link href="/mostra-competitiva-23-11" className={styles.link}>
             <button className={styles.li}>INICIAR</button> 
             {/* <div className={styles.waiting}>
               <h2 className={styles.aguarde}>AGUARDE!</h2>
