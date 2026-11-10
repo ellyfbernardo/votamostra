@@ -1,0 +1,44 @@
+.notas {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.nota {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  transition: opacity 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.nota:active {
+  transform: scale(0.94);
+}
+
+.n1 { background: var(--off-white); color: var(--preto); }
+.n2 { background: #b3b3b3; color: var(--preto); }
+.n3 { background: #808080; color: var(--preto); }
+.n4 { background: #4d4d4d; color: var(--off-white); }
+.n5 { background: var(--preto); color: var(--off-white); }
+
+.selecionada {
+  box-shadow: 0 0 0 3px var(--roxo-claro), 0 0 0 6px var(--verde);
+  transform: scale(1.05);
+}
+
+.esmaecida {
+  opacity: 0.35;
+}
+
+.pequeno {
+  gap: 8px;
+  max-width: 260px;
+}
+
+.pequeno .nota {
+  font-size: 1rem;
+  border-radius: 6px;
+}

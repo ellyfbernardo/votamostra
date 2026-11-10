@@ -1,0 +1,106 @@
+.inseto {
+  position: absolute !important;
+  z-index: 2 !important;
+  top: 112px;
+  right: 5%;
+  width: 19%;
+  height: auto;
+  transform: rotate(-28deg);
+  pointer-events: none;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 56px 24px 0;
+}
+
+.vazio {
+  text-align: center;
+  font-family: var(--font-elza), sans-serif;
+  font-size: 1rem;
+  margin-top: 40px;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: 5%;
+  background: var(--roxo-claro);
+  border-radius: 12px;
+  padding: 26px 16px 22px 9%;
+}
+
+.selo {
+  position: absolute;
+  top: -14px;
+  left: -5%;
+  background: var(--verde);
+  color: var(--preto);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-family: var(--font-elza), sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.texto {
+  flex: 1;
+  min-width: 0;
+}
+
+.titulo {
+  color: var(--verde);
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  hyphens: auto;
+}
+
+.info {
+  margin-top: 8px;
+  font-family: var(--font-elza), sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.direcao {
+  margin-top: 2px;
+  font-family: var(--font-elza), sans-serif;
+  font-size: 0.85rem;
+}
+
+.nota {
+  flex: 0 0 64px;
+  height: 64px;
+  border-radius: 8px;
+  background: var(--preto);
+  color: var(--off-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+}
+
+.acoes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 56px 24px 0;
+}
+
+.peixe {
+  width: 112%;
+  height: auto;
+  margin: 16px 0 -8px -6%;
+  pointer-events: none;
+}

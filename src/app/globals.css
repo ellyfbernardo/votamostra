@@ -1,31 +1,14 @@
-
-
+/* Identidade visual da 13ª Mostra de Cinema de Gostoso */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --verde: #c5da4b;
+  --roxo: #923f94;
+  --roxo-claro: #a064a5;
+  --off-white: #faf7fb;
+  --vermelho: #ed2a36;
+  --preto: #000000;
 
-
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  height: 100%;
-
-}
-
-body {
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --largura-app: 480px;
+  color-scheme: light;
 }
 
 * {
@@ -34,13 +17,104 @@ body {
   margin: 0;
 }
 
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  min-height: 100%;
+}
+
+body {
+  background: var(--roxo);
+  color: var(--off-white);
+  font-family: var(--font-lexend), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid var(--verde);
+  outline-offset: 3px;
+}
+
+/* Botões da marca */
+.btn-verde,
+.btn-preto,
+.btn-claro {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-verde:active,
+.btn-preto:active,
+.btn-claro:active {
+  transform: scale(0.97);
+}
+
+.btn-verde:disabled,
+.btn-preto:disabled,
+.btn-claro:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-verde {
+  background: var(--verde);
+  color: var(--preto);
+  border-radius: 10px;
+  min-height: 60px;
+  padding: 0 28px;
+  font-size: 1.15rem;
+  letter-spacing: 0.14em;
+}
+
+.btn-preto {
+  background: var(--preto);
+  color: var(--verde);
+  border-radius: 8px;
+  min-height: 36px;
+  padding: 0 18px;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+}
+
+.btn-claro {
+  background: var(--off-white);
+  color: var(--roxo);
+  border-radius: 8px;
+  min-height: 44px;
+  padding: 0 22px;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
   }
-} */
+}

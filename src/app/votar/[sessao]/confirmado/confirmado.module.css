@@ -1,0 +1,72 @@
+.tranca {
+  position: absolute !important;
+  top: 4%;
+  left: -2%;
+  width: 26%;
+  height: auto;
+  transform: rotate(22deg);
+  transform-origin: top center;
+  pointer-events: none;
+}
+
+.marca {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 26vh 12% 0 24px;
+}
+
+.nome {
+  width: 62%;
+  height: auto;
+}
+
+.data {
+  width: 52%;
+  height: auto;
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 64px 24px 0;
+}
+
+.titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  font-family: var(--font-giga), sans-serif;
+}
+
+.titulo span {
+  font-weight: 400;
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+}
+
+.titulo strong {
+  color: var(--verde);
+  font-weight: 700;
+  font-size: 1.85rem;
+  letter-spacing: 0.08em;
+}
+
+.obrigado {
+  font-family: var(--font-elza), sans-serif;
+  font-weight: 500;
+  color: var(--verde);
+}
+
+.ilustracao {
+  width: 96%;
+  height: auto;
+  margin: auto 0 0 2%;
+  padding-top: 48px;
+  pointer-events: none;
+}
