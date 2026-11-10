@@ -1,0 +1,173 @@
+.carrossel {
+  position: relative;
+  margin-top: 28px;
+}
+
+/* Trilho com rolagem horizontal que "encaixa" em cada filme */
+.trilho {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.trilho::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  padding: 18px 24px 0;
+  display: flex;
+}
+
+/* Todos os cards com a mesma altura; as notas ficam sempre no rodapé do card */
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: var(--roxo-claro);
+  border-radius: 12px;
+  padding: 32px 20px 24px;
+}
+
+.selo {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--preto);
+  color: var(--off-white);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-family: var(--font-elza), sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.imagem {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagem img {
+  object-fit: cover;
+}
+
+.semImagem {
+  width: 28%;
+  height: auto;
+  opacity: 0.45;
+  transform: rotate(64deg);
+}
+
+.titulo {
+  margin-top: 24px;
+  color: var(--verde);
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.info {
+  margin-top: 10px;
+  font-family: var(--font-elza), sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.direcao {
+  margin-top: 2px;
+  font-family: var(--font-elza), sans-serif;
+  font-size: 0.95rem;
+}
+
+.direcao strong {
+  font-weight: 700;
+}
+
+.sinopse {
+  flex: 1;
+  margin: 20px 0 24px;
+  font-family: var(--font-elza), sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Setas pretas na lateral do card, na altura da imagem para não cobrir o texto */
+.seta {
+  position: absolute;
+  top: calc(50px + (min(100vw, var(--largura-app)) - 88px) * 9 / 32);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--preto);
+  color: var(--off-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+}
+
+.proxima {
+  right: 4px;
+}
+
+.anterior {
+  left: 4px;
+}
+
+.anterior svg {
+  transform: rotate(180deg);
+}
+
+.pontos {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.ponto {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  background: var(--off-white);
+  padding: 0;
+  transition: background 0.2s ease;
+}
+
+.pontoAtivo {
+  background: var(--verde);
+}
+
+.rodape {
+  margin-top: auto;
+  padding: 36px 24px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.dica {
+  font-family: var(--font-elza), sans-serif;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}

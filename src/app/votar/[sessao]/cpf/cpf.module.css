@@ -1,0 +1,118 @@
+.conteudo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 72px 24px 40px;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.instrucao {
+  text-align: center;
+  font-family: var(--font-lexend), sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.campo {
+  width: min(100%, 340px);
+  height: 58px;
+  border: none;
+  border-radius: 999px;
+  background: var(--off-white);
+  color: var(--roxo);
+  text-align: center;
+  font-family: var(--font-lexend), sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+}
+
+.campo::placeholder {
+  color: var(--roxo);
+  opacity: 1;
+  letter-spacing: 0;
+}
+
+.campo[aria-invalid='true'] {
+  box-shadow: 0 0 0 3px var(--vermelho);
+}
+
+.opcao {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--verde);
+  font-family: var(--font-elza), sans-serif;
+  font-size: 1rem;
+  line-height: 1.3;
+  cursor: pointer;
+}
+
+.opcao input {
+  appearance: none;
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  background: var(--off-white);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+.opcao input::after {
+  content: '';
+  width: 12px;
+  height: 7px;
+  border: solid var(--roxo);
+  border-width: 0 0 3px 3px;
+  transform: translateY(-2px) rotate(-45deg);
+  opacity: 0;
+}
+
+.opcao input:checked {
+  background: var(--verde);
+}
+
+.opcao input:checked::after {
+  opacity: 1;
+}
+
+.erro {
+  background: var(--vermelho);
+  color: var(--off-white);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: var(--font-elza), sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.carregando {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.25);
+  border-top-color: var(--preto);
+  animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.pessoas {
+  width: 118%;
+  height: auto;
+  margin: 0 0 -6px -9%;
+  pointer-events: none;
+}

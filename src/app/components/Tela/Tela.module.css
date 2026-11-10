@@ -1,0 +1,35 @@
+.tela {
+  position: relative;
+  max-width: var(--largura-app);
+  min-height: 100svh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tela > * {
+  position: relative;
+  z-index: 1;
+}
+
+.tela > .geodesica {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  height: auto;
+}
+
+/* Arco de traços atrás do conteúdo (telas de votação e confirmação) */
+.meio {
+  width: 190%;
+  left: -45%;
+  top: 46%;
+}
+
+/* Arco de traços no alto da tela (finalização) */
+.topo {
+  width: 200%;
+  left: -50%;
+  top: -4%;
+}

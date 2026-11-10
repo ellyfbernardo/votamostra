@@ -1,0 +1,181 @@
+.fundo {
+  position: fixed !important;
+  inset: 0;
+  z-index: 50 !important;
+  background: rgba(146, 63, 148, 0.7);
+  overflow-y: auto;
+  padding: 48px 16px 32px;
+}
+
+.cartao {
+  position: relative;
+  max-width: 440px;
+  margin: 0 auto;
+  background: var(--roxo-claro);
+  border: 3px solid var(--off-white);
+  border-radius: 26px;
+  padding: 36px 22px 28px;
+}
+
+.fechar {
+  position: absolute;
+  top: -22px;
+  right: -12px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: var(--preto);
+  color: var(--off-white);
+  font-size: 1.35rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cabecalho {
+  text-align: center;
+}
+
+.titulo {
+  color: var(--preto);
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 400;
+  font-size: clamp(0.72rem, 3.4vw, 1rem);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.subtitulo {
+  margin-top: 6px;
+  color: var(--verde);
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.etapa {
+  margin-top: 32px;
+  text-align: center;
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+}
+
+.grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: none;
+  min-width: 0;
+}
+
+.rotulo {
+  padding: 0 8px;
+  font-family: var(--font-lexend), sans-serif;
+  font-size: 1.05rem;
+}
+
+/* legend não aceita gap do fieldset; espaçamento manual */
+legend.rotulo {
+  margin-bottom: 12px;
+}
+
+.campo {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 999px;
+  background: var(--off-white);
+  color: var(--roxo);
+  padding: 0 20px;
+  font-family: var(--font-lexend), sans-serif;
+  font-size: 1rem;
+}
+
+.areaTexto {
+  height: auto;
+  border-radius: 20px;
+  padding: 14px 20px;
+  resize: vertical;
+}
+
+.opcoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+  gap: 14px 10px;
+  padding: 0 8px 0 20px;
+}
+
+.opcao {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--verde);
+  font-family: var(--font-elza), sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.opcao input {
+  appearance: none;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background: var(--off-white);
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.opcao input:checked {
+  background: var(--verde);
+  box-shadow: inset 0 0 0 4px var(--off-white);
+}
+
+.erro {
+  background: var(--vermelho);
+  color: var(--off-white);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: var(--font-elza), sans-serif;
+  font-weight: 500;
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+.navegacao {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.progresso {
+  text-align: center;
+  font-family: var(--font-elza), sans-serif;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.concluida {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 8px;
+}
+
+.textoFinal {
+  font-family: var(--font-lexend), sans-serif;
+}

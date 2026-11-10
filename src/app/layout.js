@@ -1,38 +1,54 @@
-import localFont from "next/font/local";
-import "./globals.css";
+import localFont from 'next/font/local';
+import './globals.css';
 
-
-const titulosefrases = localFont({
-  src: "./fonts/Outfit-Bold.ttf",
-  variable: "--bold",
-  weight: "100 900",
+// Títulos, botões e chamadas
+const lexendGiga = localFont({
+  src: [
+    { path: './fonts/LexendGiga-Regular.ttf', weight: '400' },
+    { path: './fonts/LexendGiga-SemiBold.ttf', weight: '600' },
+    { path: './fonts/LexendGiga-Bold.ttf', weight: '700' },
+  ],
+  variable: '--font-giga',
+  display: 'swap',
 });
 
-const tecdirparagrafos = localFont({
-  src: "./fonts/NeueHaasUnica-Regular.ttf",
-  variable: "--neue-regular",
-  weight: "100 900",
+// Data da sessão, textos de apoio e rótulos de formulário
+const lexend = localFont({
+  src: [
+    { path: './fonts/Lexend-Regular.ttf', weight: '400' },
+    { path: './fonts/Lexend-SemiBold.ttf', weight: '600' },
+  ],
+  variable: '--font-lexend',
+  display: 'swap',
 });
 
-const titulofilmebotoes = localFont({
-  src: "./fonts/NeueHaasUnica-Bold.ttf",
-  variable: "--neue-bold",
-  weight: "100 900",
+// Fichas técnicas e sinopses
+const elza = localFont({
+  src: [
+    { path: './fonts/elza-text.otf', weight: '400' },
+    { path: './fonts/elza-text-medium.otf', weight: '500' },
+    { path: './fonts/elza-text-bold.otf', weight: '700' },
+  ],
+  variable: '--font-elza',
+  display: 'swap',
 });
 
 export const metadata = {
-  title: "VotaMostra",
-  description: "Site de votação para festivais de cinema - criado por Ellyf Bernardo",  
+  title: 'VotaMostra – 13ª Mostra de Cinema de Gostoso',
+  description: 'Votação do público da Mostra Competitiva – criado por Ellyf Bernardo',
   icons: {
-    icon: "/favicon.ico?v=2",
+    icon: '/favicon.ico?v=3',
   },
 };
 
+export const viewport = {
+  themeColor: '#923F94',
+};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
-      <body className={`${titulosefrases.variable} ${tecdirparagrafos.variable} ${titulofilmebotoes.variable}`}>
+      <body className={`${lexendGiga.variable} ${lexend.variable} ${elza.variable}`}>
         {children}
       </body>
     </html>
