@@ -36,9 +36,7 @@ const elza = localFont({
 export const metadata = {
   title: 'VotaMostra – 13ª Mostra de Cinema de Gostoso',
   description: 'Votação do público da Mostra Competitiva – criado por Ellyf Bernardo',
-  icons: {
-    icon: '/favicon.ico?v=3',
-  },
+  // Favicon: src/app/favicon.ico, icon.svg e apple-icon.png (o Next gera as tags sozinho)
 };
 
 export const viewport = {

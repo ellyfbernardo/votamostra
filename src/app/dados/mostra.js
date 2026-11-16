@@ -5,8 +5,7 @@
 // somando a duração dos filmes ao horário de início — ajuste se a sessão atrasar.
 // A votação fica aberta por HORAS_DE_VOTACAO a partir daí.
 //
-// imagem: still do filme. Coloque o arquivo em /public/mostra2026/filmes/ e
-// preencha com o caminho, ex.: '/mostra2026/filmes/lagoa-do-abandono.jpg'.
+// imagem: still do filme, em /public/mostra2026/filmes/ (1280x720, recortado em 16:9).
 
 export const HORAS_DE_VOTACAO = 3;
 
@@ -28,7 +27,7 @@ export const SESSOES = [
         direcao: 'Diego Maia',
         sinopse:
           'Em 2040, na degradada Lagoa de Messejana, um casal de garças luta para encontrar um lugar para construir um ninho, enquanto a aproximação de trabalhadores e máquinas se torna uma ameaça crescente.',
-        imagem: null,
+        imagem: '/mostra2026/filmes/lagoa-do-abandono.jpg',
       },
       {
         id: 'irma',
@@ -40,7 +39,7 @@ export const SESSOES = [
         direcao: 'Anderson Bardot',
         sinopse:
           'Iara e Elisa estão conectadas pelas águas de uma cachoeira ancestral — as mesmas águas que um dia batizaram seus pais na fé evangélica.',
-        imagem: null,
+        imagem: '/mostra2026/filmes/irma.jpg',
       },
       {
         id: 'revelacao',
@@ -52,7 +51,7 @@ export const SESSOES = [
         direcao: 'Gabriela I. Gaia',
         sinopse:
           'Um disco rígido encontrado em um sítio arqueológico do Méier, antigo subúrbio de um território conhecido como Rio de Janeiro, revela imagens inéditas da preparação de um ritual festivo celebrado nos Anos de Surto: o chá de revelação de gênero.',
-        imagem: null,
+        imagem: '/mostra2026/filmes/revelacao.jpg',
       },
       {
         id: 'disciplina',
@@ -64,7 +63,7 @@ export const SESSOES = [
         direcao: 'Affonso Uchôa',
         sinopse:
           'Kelly, jovem professora de Português, começa a dar aulas em uma escola pública. Durante uma aula, ela discute com Nicolas, aluno do segundo ano, e os dois têm de resolver o conflito diante do diretor. A discussão traz ensinamentos: Kelly aprende que, na periferia do Brasil, a exceção é a regra.',
-        imagem: null,
+        imagem: '/mostra2026/filmes/disciplina.jpg',
       },
     ],
   },
@@ -85,7 +84,7 @@ export const SESSOES = [
         direcao: 'Evelyn Freitas',
         sinopse:
           'No sertão potiguar, entre fendas, cavernas e pinturas rupestres milenares, ecoa a história de Dodora Maia, que dedicou sua vida à defesa e preservação do Lajedo de Soledade, importante sítio arqueológico do Rio Grande do Norte.',
-        imagem: null,
+        imagem: '/mostra2026/filmes/a-voz-das-rochas.jpg',
       },
       {
         id: 'almeidinha-e-o-sertao-gelado',
@@ -98,7 +97,7 @@ export const SESSOES = [
         codirecao: 'Julio Castro',
         sinopse:
           'Almeidinha vive na pacata Seridozinho, a cidade mais quente do país, e trabalha no frigorífico municipal. Sonhador e visionário, é fascinado pelo frio e tem um grande desejo: conhecer a neve! Influenciador digital, faz vídeos sobre o clima. Mas tudo pode mudar com um bilhete premiado e um patrão corrupto.',
-        imagem: null,
+        imagem: '/mostra2026/filmes/almeidinha-e-o-sertao-gelado.jpg',
       },
     ],
   },
@@ -119,7 +118,7 @@ export const SESSOES = [
         direcao: 'Alexandre Américo e Pedro Vitor',
         sinopse:
           'Nas dunas de Santa Rita, onde o vento desenha o tempo, Dona Zefa e Oliveira habitam um território em que memória, rito e paisagem se confundem. Entre o silêncio e o barro, suas existências se tensionam em uma batalha a ferro e fogo, movidas pelo desejo de permanência.',
-        imagem: null,
+        imagem: '/mostra2026/filmes/mariposa.jpg',
       },
       {
         id: 'olhe-para-mim',
@@ -131,7 +130,7 @@ export const SESSOES = [
         direcao: 'Rafhael Barbosa',
         sinopse:
           'Marcelo embarca numa viagem com uma feiticeira e seu misterioso filho. Em meio a monstros e aberrações, ele finalmente se sente em casa.',
-        imagem: null,
+        imagem: '/mostra2026/filmes/olhe-para-mim.jpg',
       },
     ],
   },
@@ -152,7 +151,7 @@ export const SESSOES = [
         direcao: 'Higor Gomes',
         sinopse:
           'Com a fatura do cartão de crédito prestes a vencer, dois irmãos cruzam a cidade tentando vender colchões magnéticos fornecidos com um assistente virtual. Thaís não crê no sonho de fazer marketing multinível, mas Jeison passa a questionar o negócio e a própria relação dos dois.',
-        imagem: null,
+        imagem: '/mostra2026/filmes/madorna.jpg',
       },
       {
         id: 'adeus-verao',
@@ -164,7 +163,7 @@ export const SESSOES = [
         direcao: 'Diego de Jesus',
         sinopse:
           'Espírito Santo, verão de 2017. Kenia, uma das líderes da Primavera Secundarista, resolve destruir o país depois de frustrações pessoais e políticas. Para isso, ela tem um plano sonoro que conta com a ajuda de Yuri, um youtuber decadente que se tornará seu namorado.',
-        imagem: null,
+        imagem: '/mostra2026/filmes/adeus-verao.jpg',
       },
     ],
   },
@@ -185,7 +184,7 @@ export const SESSOES = [
         direcao: 'Janaína Marques',
         sinopse:
           'No zumbido hipnótico de uma ressonância magnética, Rosa é orientada a evocar uma lembrança feliz. Nessa odisseia pelo subconsciente, ela reencontra sua mãe, Dalva, e juntas inventam memórias que nunca existiram.',
-        imagem: null,
+        imagem: '/mostra2026/filmes/fiz-um-foguete-imaginando-que-voce-vinha.jpg',
       },
     ],
   },
