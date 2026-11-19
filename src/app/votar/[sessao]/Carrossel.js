@@ -10,6 +10,7 @@ import { BotoesNota } from '../../components/BotoesNota/BotoesNota';
 import { buscarSessao, infoFilme } from '../../dados/mostra';
 import { lerVotos, salvarVotos } from '../../lib/votosLocais';
 import olhoFlor from '../../assets/mostra2026/olho-flor.svg';
+import geodesica from '../../assets/mostra2026/geodesica.svg';
 
 // Tela 2: um card por filme, passando para o lado.
 export function Carrossel({ sessaoId }) {
@@ -57,10 +58,13 @@ export function Carrossel({ sessaoId }) {
   const temVoto = Object.keys(votos).length > 0;
 
   return (
-    <Tela>
+    <Tela posicaoGeodesica={null}>
       <Cabecalho sessao={sessao} />
 
       <section className={style.carrossel} aria-roledescription="carrossel" aria-label="Filmes da sessão">
+        {/* Traços da Geodésica: começam atrás da parte de baixo do card, como no layout */}
+        <Image src={geodesica} alt="" aria-hidden="true" className={style.geodesica} />
+
         <div className={style.trilho} ref={trilhoRef} onScroll={aoRolar}>
           {filmes.map((filme, i) => (
             <article

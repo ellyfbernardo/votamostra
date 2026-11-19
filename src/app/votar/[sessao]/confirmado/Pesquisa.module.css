@@ -14,7 +14,7 @@
   background: var(--roxo-claro);
   border: 3px solid var(--off-white);
   border-radius: 26px;
-  padding: 36px 22px 28px;
+  padding: 36px 16px 28px;
 }
 
 .fechar {
@@ -38,12 +38,13 @@
   text-align: center;
 }
 
+/* Maior e em negrito, ocupando a largura do cartão sem quebrar linha */
 .titulo {
   color: var(--preto);
   font-family: var(--font-giga), sans-serif;
-  font-weight: 400;
-  font-size: clamp(0.72rem, 3.4vw, 1rem);
-  letter-spacing: 0.06em;
+  font-weight: 700;
+  font-size: min(1.125rem, 4.5vw);
+  letter-spacing: 0;
   white-space: nowrap;
 }
 
@@ -52,8 +53,8 @@
   color: var(--verde);
   font-family: var(--font-giga), sans-serif;
   font-weight: 700;
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
+  font-size: min(0.75rem, 3vw);
+  letter-spacing: 0;
 }
 
 .form {
@@ -68,7 +69,7 @@
   font-family: var(--font-giga), sans-serif;
   font-weight: 700;
   font-size: 0.95rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0;
 }
 
 .grupo {
@@ -100,6 +101,23 @@ legend.rotulo {
   padding: 0 20px;
   font-family: var(--font-lexend), sans-serif;
   font-size: 1rem;
+}
+
+/* Menu de seleção (estado/cidade) com setinha roxa */
+.selecao {
+  appearance: none;
+  padding-right: 48px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' fill='none' stroke='%23923F94' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 20px;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.selecao:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .areaTexto {

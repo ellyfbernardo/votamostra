@@ -139,7 +139,7 @@ export default function Cpf() {
             </p>
           )}
 
-          <button type="submit" className="btn-verde" disabled={enviando}>
+          <button type="submit" className="btn-verde" disabled={enviando} aria-busy={enviando}>
             {enviando ? <span className={style.carregando} aria-label="Enviando" /> : 'CONFIRMAR'}
           </button>
 

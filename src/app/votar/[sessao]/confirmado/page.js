@@ -12,7 +12,7 @@ import { lerCpf, pesquisaRespondida } from '../../../lib/votosLocais';
 import tranca from '../../../assets/mostra2026/tranca.svg';
 import nomeMostra from '../../../assets/mostra2026/nome-mostra.svg';
 import dataFestival from '../../../assets/mostra2026/data.svg';
-import peixe from '../../../assets/mostra2026/peixe.svg';
+import mao from '../../../assets/mostra2026/mao.svg';
 
 // Tela 5.1: voto registrado + acesso à pesquisa de satisfação (5.2).
 export default function Confirmado() {
@@ -57,7 +57,7 @@ export default function Confirmado() {
         </Link>
       </main>
 
-      <Image src={peixe} alt="" aria-hidden="true" className={style.ilustracao} />
+      <Image src={mao} alt="" aria-hidden="true" className={style.ilustracao} />
 
       {aberta && (
         <Pesquisa

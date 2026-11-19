@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { buscarSessao, votacaoAberta } from '../../dados/mostra';
+import { buscarSessao } from '../../dados/mostra';
+import { votacaoAberta } from '../../lib/controle';
 import { cpfValido, notaValida, coordenadaValida, objetoSimples } from '../../lib/validacao';
 import { modoTeste, votoExiste, inserirVoto } from '../../lib/armazenamento';
 
@@ -34,7 +35,7 @@ export async function POST(request) {
   if (!sessao) {
     return new Response('Sessão inválida', { status: 400 });
   }
-  if (!votacaoAberta(sessao)) {
+  if (!(await votacaoAberta(sessao))) {
     return new Response('A votação desta sessão não está aberta', { status: 403 });
   }
   if (!cpfValido(cpf)) {

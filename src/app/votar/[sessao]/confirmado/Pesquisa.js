@@ -40,6 +40,18 @@ const AVALIACOES = [
 
 const ETAPAS = ['QUEREMOS TE CONHECER!', 'SUA VISITA', 'AVALIE A MOSTRA'];
 
+// Lista de estados e cidades do Brasil (public/dados/estados-cidades.json)
+const URL_LOCAIS = '/dados/estados-cidades.json';
+
+const semAcento = (s) =>
+  s
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .trim()
+    .toLowerCase();
+
+const ehBrasil = (pais) => ['brasil', 'brazil', 'br'].includes(semAcento(pais));
+
 const INICIAL = {
   nome: '',
   faixa: '',
@@ -85,7 +97,20 @@ export function Pesquisa({ sessaoId, cpf, aoFechar, aoEnviar }) {
   const [erro, setErro] = useState('');
   const [enviando, setEnviando] = useState(false);
   const [concluida, setConcluida] = useState(false);
+  const [locais, setLocais] = useState(null); // null = ainda carregando ou sem lista (usa campo de texto)
   const cartaoRef = useRef(null);
+
+  // Carrega estados e cidades só quando a pesquisa abre
+  useEffect(() => {
+    let ativo = true;
+    fetch(URL_LOCAIS)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((dados) => ativo && Array.isArray(dados) && setLocais(dados))
+      .catch(() => {});
+    return () => {
+      ativo = false;
+    };
+  }, []);
 
   // Fecha com Esc e trava a rolagem da página por trás
   useEffect(() => {
@@ -104,6 +129,20 @@ export function Pesquisa({ sessaoId, cpf, aoFechar, aoEnviar }) {
   }, [etapa]);
 
   const alterar = (campo, valor) => setForm((f) => ({ ...f, [campo]: valor }));
+
+  // Ao trocar entre Brasil e outro país, limpa estado e cidade (muda de menu para texto)
+  const alterarPais = (valor) =>
+    setForm((f) => ({
+      ...f,
+      pais: valor,
+      ...(ehBrasil(f.pais) !== ehBrasil(valor) && { estado: '', cidade: '' }),
+    }));
+
+  // Trocar o estado limpa a cidade escolhida
+  const alterarEstado = (valor) => setForm((f) => ({ ...f, estado: valor, cidade: '' }));
+
+  const usarMenus = Boolean(locais) && ehBrasil(form.pais);
+  const cidadesDoEstado = usarMenus ? locais.find((e) => e.nome === form.estado)?.cidades ?? [] : [];
 
   const alternarSoube = (valor) =>
     setForm((f) => ({
@@ -191,9 +230,33 @@ export function Pesquisa({ sessaoId, cpf, aoFechar, aoEnviar }) {
               <>
                 <Campo numero={1} rotulo="Nome e Sobrenome" valor={form.nome} aoMudar={(v) => alterar('nome', v)} autoComplete="name" />
                 <Opcoes numero={2} rotulo="Faixa Etária" nome="faixa" opcoes={FAIXAS} valor={form.faixa} aoMudar={(v) => alterar('faixa', v)} />
-                <Campo numero={3} rotulo="País" valor={form.pais} aoMudar={(v) => alterar('pais', v)} autoComplete="country-name" />
-                <Campo numero={4} rotulo="Estado" valor={form.estado} aoMudar={(v) => alterar('estado', v)} autoComplete="address-level1" />
-                <Campo numero={5} rotulo="Cidade" valor={form.cidade} aoMudar={(v) => alterar('cidade', v)} autoComplete="address-level2" />
+                <Campo numero={3} rotulo="País" valor={form.pais} aoMudar={alterarPais} autoComplete="country-name" />
+                {usarMenus ? (
+                  <>
+                    <Selecao
+                      numero={4}
+                      rotulo="Estado"
+                      valor={form.estado}
+                      aoMudar={alterarEstado}
+                      vazio="Selecione o estado"
+                      opcoes={locais.map((e) => e.nome)}
+                    />
+                    <Selecao
+                      numero={5}
+                      rotulo="Cidade"
+                      valor={form.cidade}
+                      aoMudar={(v) => alterar('cidade', v)}
+                      vazio={form.estado ? 'Selecione a cidade' : 'Escolha o estado primeiro'}
+                      opcoes={cidadesDoEstado}
+                      desativado={!form.estado}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <Campo numero={4} rotulo="Estado" valor={form.estado} aoMudar={(v) => alterar('estado', v)} autoComplete="address-level1" />
+                    <Campo numero={5} rotulo="Cidade" valor={form.cidade} aoMudar={(v) => alterar('cidade', v)} autoComplete="address-level2" />
+                  </>
+                )}
               </>
             )}
 
@@ -291,6 +354,30 @@ function Campo({ numero, rotulo, valor, aoMudar, autoComplete }) {
         {numero}. {rotulo}
       </span>
       <input className={style.campo} value={valor} onChange={(e) => aoMudar(e.target.value)} autoComplete={autoComplete} />
+    </label>
+  );
+}
+
+// Menu de seleção com o mesmo visual dos campos de texto
+function Selecao({ numero, rotulo, valor, aoMudar, opcoes, vazio, desativado = false }) {
+  return (
+    <label className={style.grupo}>
+      <span className={style.rotulo}>
+        {numero}. {rotulo}
+      </span>
+      <select
+        className={`${style.campo} ${style.selecao}`}
+        value={valor}
+        onChange={(e) => aoMudar(e.target.value)}
+        disabled={desativado}
+      >
+        <option value="">{vazio}</option>
+        {opcoes.map((opcao) => (
+          <option key={opcao} value={opcao}>
+            {opcao}
+          </option>
+        ))}
+      </select>
     </label>
   );
 }

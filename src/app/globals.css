@@ -8,6 +8,8 @@
   --preto: #000000;
 
   --largura-app: 480px;
+  /* 1 px do layout (feito em 393 px de largura), proporcional à tela */
+  --u: calc(min(100vw, var(--largura-app)) / 393);
   color-scheme: light;
 }
 
@@ -81,34 +83,47 @@ img {
   transform: none;
 }
 
+/* Botão inativo (ex.: FINALIZAR sem nenhuma nota) fica cinza.
+   Enquanto envia (aria-busy), mantém a cor normal. */
+.btn-verde:disabled:not([aria-busy='true']) {
+  opacity: 1;
+  background: #b3b3b3;
+  color: #5c5c5c;
+}
+
+.btn-verde[aria-busy='true'] {
+  opacity: 1;
+}
+
+/* Tamanhos e espaçamento entre letras seguem o layout (Lexend Giga sem tracking extra) */
 .btn-verde {
   background: var(--verde);
   color: var(--preto);
-  border-radius: 10px;
-  min-height: 60px;
-  padding: 0 28px;
-  font-size: 1.15rem;
-  letter-spacing: 0.14em;
+  border-radius: 8px;
+  min-height: 48px;
+  padding: 0 18px;
+  font-size: 1rem;
+  letter-spacing: 0;
 }
 
 .btn-preto {
   background: var(--preto);
   color: var(--verde);
-  border-radius: 8px;
-  min-height: 36px;
-  padding: 0 18px;
-  font-size: 0.8rem;
-  letter-spacing: 0.14em;
+  border-radius: 6px;
+  min-height: 32px;
+  padding: 0 12px;
+  font-size: 0.75rem;
+  letter-spacing: 0;
 }
 
 .btn-claro {
   background: var(--off-white);
   color: var(--roxo);
-  border-radius: 8px;
-  min-height: 44px;
-  padding: 0 22px;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
+  border-radius: 6px;
+  min-height: 36px;
+  padding: 0 14px;
+  font-size: 0.8125rem;
+  letter-spacing: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

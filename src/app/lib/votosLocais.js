@@ -31,6 +31,10 @@ export const limparVotos = (sessao) => remover(`votos:${sessao}`);
 export const lerCpf = (sessao) => ler(`cpf:${sessao}`, null);
 export const salvarCpf = (sessao, cpf) => gravar(`cpf:${sessao}`, cpf);
 
-// Se a pesquisa de satisfação já foi respondida nessa sessão
-export const pesquisaRespondida = (sessao) => ler(`pesquisa:${sessao}`, false);
-export const marcarPesquisaRespondida = (sessao) => gravar(`pesquisa:${sessao}`, true);
+// Se a pesquisa de satisfação já foi respondida. Ela é sobre a Mostra como um todo,
+// então basta responder uma vez (e não a cada votação de curtas e de longas).
+export const pesquisaRespondida = (sessao) => ler('pesquisa:respondida', false) || ler(`pesquisa:${sessao}`, false);
+export const marcarPesquisaRespondida = (sessao) => {
+  gravar('pesquisa:respondida', true);
+  gravar(`pesquisa:${sessao}`, true);
+};

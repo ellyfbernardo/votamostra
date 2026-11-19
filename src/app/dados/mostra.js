@@ -1,22 +1,26 @@
 // Programação da Mostra Competitiva da 13ª Mostra de Cinema de Gostoso (2026).
-// Cada sessão tem a sua própria votação: o público vota nos filmes que acabou de ver.
 //
-// votacaoAbre: horário (de Brasília) em que a votação da sessão abre. Foi estimado
-// somando a duração dos filmes ao horário de início — ajuste se a sessão atrasar.
-// A votação fica aberta por HORAS_DE_VOTACAO a partir daí.
+// Cada dia tem DUAS votações separadas:
+//   - curtas: aberta no intervalo, logo depois dos curtas;
+//   - longas: aberta depois que o(s) longa(s) terminar(em).
+// Quem abre e encerra cada votação é a equipe, pelo painel /admin
+// (não há mais horário automático). Na votação de curtas só aparecem
+// os curtas do dia, e na de longas só os longas.
 //
 // imagem: still do filme, em /public/mostra2026/filmes/ (1280x720, recortado em 16:9).
 
-export const HORAS_DE_VOTACAO = 3;
+const MESES = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
 
-export const SESSOES = [
+export const CATEGORIAS = {
+  curtas: { nome: 'Curtas', singular: 'Curta-metragem' },
+  longas: { nome: 'Longas', singular: 'Longa-metragem' },
+};
+
+const DIAS = [
   {
-    id: 'sessao-1',
     data: '2026-11-21',
     diaSemana: 'Sábado',
-    horario: '20h',
-    votacaoAbre: '2026-11-21T21:40:00-03:00',
-    filmes: [
+    curtas: [
       {
         id: 'lagoa-do-abandono',
         titulo: 'Lagoa do Abandono',
@@ -65,15 +69,6 @@ export const SESSOES = [
           'Kelly, jovem professora de Português, começa a dar aulas em uma escola pública. Durante uma aula, ela discute com Nicolas, aluno do segundo ano, e os dois têm de resolver o conflito diante do diretor. A discussão traz ensinamentos: Kelly aprende que, na periferia do Brasil, a exceção é a regra.',
         imagem: '/mostra2026/filmes/disciplina.jpg',
       },
-    ],
-  },
-  {
-    id: 'sessao-2',
-    data: '2026-11-21',
-    diaSemana: 'Sábado',
-    horario: '22h12',
-    votacaoAbre: '2026-11-21T23:50:00-03:00',
-    filmes: [
       {
         id: 'a-voz-das-rochas',
         titulo: 'A Voz das Rochas',
@@ -86,6 +81,8 @@ export const SESSOES = [
           'No sertão potiguar, entre fendas, cavernas e pinturas rupestres milenares, ecoa a história de Dodora Maia, que dedicou sua vida à defesa e preservação do Lajedo de Soledade, importante sítio arqueológico do Rio Grande do Norte.',
         imagem: '/mostra2026/filmes/a-voz-das-rochas.jpg',
       },
+    ],
+    longas: [
       {
         id: 'almeidinha-e-o-sertao-gelado',
         titulo: 'Almeidinha & O Sertão Gelado',
@@ -102,12 +99,9 @@ export const SESSOES = [
     ],
   },
   {
-    id: 'sessao-3',
     data: '2026-11-22',
     diaSemana: 'Domingo',
-    horario: '20h',
-    votacaoAbre: '2026-11-22T21:45:00-03:00',
-    filmes: [
+    curtas: [
       {
         id: 'mariposa',
         titulo: 'Mariposa',
@@ -120,6 +114,8 @@ export const SESSOES = [
           'Nas dunas de Santa Rita, onde o vento desenha o tempo, Dona Zefa e Oliveira habitam um território em que memória, rito e paisagem se confundem. Entre o silêncio e o barro, suas existências se tensionam em uma batalha a ferro e fogo, movidas pelo desejo de permanência.',
         imagem: '/mostra2026/filmes/mariposa.jpg',
       },
+    ],
+    longas: [
       {
         id: 'olhe-para-mim',
         titulo: 'Olhe Para Mim',
@@ -135,12 +131,9 @@ export const SESSOES = [
     ],
   },
   {
-    id: 'sessao-4',
     data: '2026-11-23',
     diaSemana: 'Segunda',
-    horario: '20h',
-    votacaoAbre: '2026-11-23T21:50:00-03:00',
-    filmes: [
+    curtas: [
       {
         id: 'madorna',
         titulo: 'Madorna',
@@ -153,6 +146,8 @@ export const SESSOES = [
           'Com a fatura do cartão de crédito prestes a vencer, dois irmãos cruzam a cidade tentando vender colchões magnéticos fornecidos com um assistente virtual. Thaís não crê no sonho de fazer marketing multinível, mas Jeison passa a questionar o negócio e a própria relação dos dois.',
         imagem: '/mostra2026/filmes/madorna.jpg',
       },
+    ],
+    longas: [
       {
         id: 'adeus-verao',
         titulo: 'Adeus, Verão!',
@@ -165,15 +160,6 @@ export const SESSOES = [
           'Espírito Santo, verão de 2017. Kenia, uma das líderes da Primavera Secundarista, resolve destruir o país depois de frustrações pessoais e políticas. Para isso, ela tem um plano sonoro que conta com a ajuda de Yuri, um youtuber decadente que se tornará seu namorado.',
         imagem: '/mostra2026/filmes/adeus-verao.jpg',
       },
-    ],
-  },
-  {
-    id: 'sessao-5',
-    data: '2026-11-23',
-    diaSemana: 'Segunda',
-    horario: '22h23',
-    votacaoAbre: '2026-11-23T23:55:00-03:00',
-    filmes: [
       {
         id: 'fiz-um-foguete-imaginando-que-voce-vinha',
         titulo: 'Fiz um Foguete Imaginando que Você Vinha',
@@ -190,35 +176,35 @@ export const SESSOES = [
   },
 ];
 
+// Uma sessão de votação por dia e categoria. id: "21-nov-curtas", "21-nov-longas"...
+export const SESSOES = DIAS.flatMap(({ data, diaSemana, ...categorias }) => {
+  const [, mes, dia] = data.split('-');
+  return Object.keys(CATEGORIAS).map((categoria) => ({
+    id: `${Number(dia)}-${MESES[Number(mes) - 1].toLowerCase()}-${categoria}`,
+    data,
+    diaSemana,
+    categoria,
+    filmes: categorias[categoria],
+  }));
+});
+
 export function buscarSessao(id) {
   return SESSOES.find((sessao) => sessao.id === id) ?? null;
 }
 
-// Só funciona no servidor. Para testar fora do horário, defina no .env:
-// VOTACAO_FORCAR_SESSAO=sessao-1
-export function votacaoAberta(sessao, agora = new Date()) {
-  if (!sessao) return false;
-  if (process.env.VOTACAO_FORCAR_SESSAO === sessao.id) return true;
-
-  const abre = new Date(sessao.votacaoAbre).getTime();
-  const fecha = abre + HORAS_DE_VOTACAO * 60 * 60 * 1000;
-  const t = agora.getTime();
-  return t >= abre && t < fecha;
-}
-
-// Sessão cuja votação está aberta agora (a mais recente, se houver mais de uma).
-export function sessaoEmVotacao(agora = new Date()) {
-  const abertas = SESSOES.filter((sessao) => votacaoAberta(sessao, agora));
-  return abertas.at(-1) ?? null;
-}
-
-// "21.11" e "Sábado"
+// "21 NOV." e "Sábado"
 export function dataCurta(sessao) {
   const [, mes, dia] = sessao.data.split('-');
-  return { diaMes: `${dia}.${mes}`, diaSemana: sessao.diaSemana };
+  return { diaMes: `${Number(dia)} ${MESES[Number(mes) - 1]}.`, diaSemana: sessao.diaSemana };
 }
 
-// "10 min., CE, 2026, Livre"
+// "10 min, CE, 2026, Livre"
 export function infoFilme(filme) {
-  return `${filme.duracao} min., ${filme.uf}, ${filme.ano}, ${filme.classificacao}`;
+  return `${filme.duracao} min, ${filme.uf}, ${filme.ano}, ${filme.classificacao}`;
+}
+
+// "Curtas · 21 NOV. Sábado" (painel e mensagens)
+export function nomeSessao(sessao) {
+  const { diaMes, diaSemana } = dataCurta(sessao);
+  return `${CATEGORIAS[sessao.categoria].nome} · ${diaMes} ${diaSemana}`;
 }

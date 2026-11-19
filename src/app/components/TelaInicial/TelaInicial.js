@@ -5,12 +5,14 @@ import chancela from '../../assets/mostra2026/chancela.svg';
 import nomeMostra from '../../assets/mostra2026/nome-mostra.svg';
 import olhoFlor from '../../assets/mostra2026/olho-flor.svg';
 import reguaLogos from '../../assets/mostra2026/regua-logos.svg';
+import { AcompanharVotacao } from './AcompanharVotacao';
 
 // Telas 1.1 (Aguarde) e 1.2 (Abertura).
 // Com sessaoId mostra o botão VOTAR; sem, mostra o aviso de espera.
 export function TelaInicial({ sessaoId }) {
   return (
     <>
+      <AcompanharVotacao sessaoId={sessaoId ?? null} />
       <main className={style.topo}>
         <Image src={chancela} alt="Ministério da Cultura, Petrobras e Governo do Estado do Rio Grande do Norte apresentam" className={style.chancela} priority />
         <Image src={nomeMostra} alt="13ª Mostra de Cinema de Gostoso" className={style.nomeMostra} priority />

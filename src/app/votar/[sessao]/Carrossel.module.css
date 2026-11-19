@@ -3,6 +3,19 @@
   margin-top: 28px;
 }
 
+/* Medidas do layout (393 px): traços com 1071 px de largura, começando
+   176 px acima do fim do card e 227 px à esquerda da tela */
+.geodesica {
+  position: absolute;
+  z-index: -1;
+  top: calc(100% - 176 * var(--u));
+  left: -57.8%;
+  width: 272.6%;
+  max-width: none;
+  height: auto;
+  pointer-events: none;
+}
+
 /* Trilho com rolagem horizontal que "encaixa" em cada filme */
 .trilho {
   display: flex;
@@ -79,7 +92,7 @@
   font-weight: 700;
   font-size: 1.3rem;
   line-height: 1.2;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 

@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
-import { buscarSessao, votacaoAberta } from '../../dados/mostra';
+import { buscarSessao } from '../../dados/mostra';
+import { sessaoEmVotacao } from '../../lib/controle';
 import { TelaInicial } from '../../components/TelaInicial/TelaInicial';
 import { Carrossel } from './Carrossel';
 
@@ -10,9 +11,10 @@ export default async function Votacao({ params }) {
   const sessao = buscarSessao(sessaoId);
   if (!sessao) notFound();
 
-  // Fora do horário da votação, mostra a tela "Aguarde"
-  if (!votacaoAberta(sessao)) {
-    return <TelaInicial />;
+  // Votação desta sessão fechada: mostra "Aguarde" ou o botão da votação que estiver aberta
+  const aberta = await sessaoEmVotacao();
+  if (aberta?.id !== sessao.id) {
+    return <TelaInicial sessaoId={aberta?.id} />;
   }
 
   return <Carrossel sessaoId={sessao.id} />;

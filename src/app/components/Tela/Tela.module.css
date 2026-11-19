@@ -27,9 +27,12 @@
   top: 46%;
 }
 
-/* Arco de traços no alto da tela (finalização) */
+/* Arco de traços no alto da tela (finalização), medidas do layout em 393 px */
 .topo {
-  width: 200%;
-  left: -50%;
-  top: -4%;
+  width: 272%;
+  max-width: none;
+  left: -132.7%;
+  top: calc(-102 * var(--u));
+  /* No layout só aparece a parte de cima do arco */
+  clip-path: inset(0 0 40% 0);
 }

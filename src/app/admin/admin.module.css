@@ -1,0 +1,473 @@
+/* Painel da equipe: legível no celular dentro do cinema e no computador */
+
+.pagina {
+  min-height: 100svh;
+  padding: 24px 16px 48px;
+  color: var(--preto);
+}
+
+/* ---------- Login ---------- */
+
+.caixaLogin {
+  max-width: 380px;
+  margin: 12vh auto 0;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--off-white);
+  border-radius: 20px;
+}
+
+.tituloLogin {
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--roxo);
+}
+
+.textoLogin {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.textoLogin code {
+  font-size: 0.9em;
+  background: #ece3ee;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.rotuloLogin {
+  font-weight: 600;
+}
+
+.campoLogin {
+  height: 48px;
+  border: 2px solid #d8c6da;
+  border-radius: 10px;
+  padding: 0 14px;
+  font: inherit;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.campoLogin:focus {
+  border-color: var(--roxo);
+  outline: none;
+}
+
+.erro {
+  background: var(--vermelho);
+  color: var(--off-white);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 0.92rem;
+}
+
+.carregando {
+  text-align: center;
+  color: var(--off-white);
+  margin-top: 30vh;
+}
+
+/* ---------- Painel ---------- */
+
+.painel {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  color: var(--off-white);
+}
+
+.titulo {
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.subtitulo {
+  color: var(--verde);
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+.sair {
+  background: transparent;
+  border: 2px solid var(--off-white);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+}
+
+.faixaTeste {
+  background: var(--verde);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+}
+
+/* Situação atual (bem visível no topo) */
+.status {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--off-white);
+  border: 3px solid transparent;
+}
+
+.statusAberta {
+  border-color: var(--verde);
+  box-shadow: 0 0 0 4px rgba(197, 218, 75, 0.35);
+}
+
+.statusRotulo {
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--roxo);
+}
+
+.statusSessao {
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-top: 4px;
+}
+
+.statusDesde {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+
+.atualizacao {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--off-white);
+  font-size: 0.8rem;
+}
+
+.ponto {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--verde);
+  animation: pulsar 1.6s ease-in-out infinite;
+}
+
+.pontoFalha {
+  background: var(--vermelho);
+  animation: none;
+}
+
+@keyframes pulsar {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.numeros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.numero {
+  background: var(--off-white);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.numero strong {
+  font-family: var(--font-giga), sans-serif;
+  font-size: 1.6rem;
+  color: var(--roxo);
+}
+
+.numero span {
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+
+.legenda {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  color: var(--off-white);
+  font-size: 0.8rem;
+}
+
+.itemLegenda {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.itemLegenda > span {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Cores das notas, da 1 (clara) à 5 (forte) */
+.nota1 {
+  background: #e4d6e5;
+}
+.nota2 {
+  background: #c9a9cb;
+}
+.nota3 {
+  background: #ad7caf;
+}
+.nota4 {
+  background: #923f94;
+}
+.nota5 {
+  background: #4f1f51;
+}
+
+.dia {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tituloDia {
+  color: var(--off-white);
+  font-family: var(--font-lexend), sans-serif;
+  font-weight: 400;
+  font-size: 1.15rem;
+}
+
+.tituloDia strong {
+  font-weight: 600;
+}
+
+.sessoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+.cartao {
+  background: var(--off-white);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border: 3px solid transparent;
+}
+
+.cartaoAberto {
+  border-color: var(--verde);
+}
+
+.cabecalhoCartao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.tituloCartao {
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--roxo);
+}
+
+.selo {
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  font-size: 0.68rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e4dfe5;
+  color: #5c5c5c;
+}
+
+.seloAberto {
+  background: var(--verde);
+  color: var(--preto);
+}
+
+.resumo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.resumo dt {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.resumo dd {
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.filmes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filme {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.linhaFilme {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+
+.nomeFilme {
+  min-width: 0;
+}
+
+.mediaFilme {
+  flex-shrink: 0;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.mediaFilme small {
+  font-weight: 400;
+  opacity: 0.7;
+  font-size: 0.8rem;
+}
+
+.barra {
+  display: flex;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #ece6ed;
+  gap: 1px;
+}
+
+.botaoAbrir,
+.botaoEncerrar {
+  min-height: 48px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.botaoAbrir {
+  background: var(--verde);
+  color: var(--preto);
+}
+
+.botaoEncerrar {
+  background: var(--vermelho);
+  color: var(--off-white);
+}
+
+.botaoAbrir:disabled,
+.botaoEncerrar:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+.ranking {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemRanking {
+  display: grid;
+  grid-template-columns: 32px 1fr auto;
+  grid-template-areas:
+    'pos nome media'
+    'pos nome votos';
+  column-gap: 10px;
+  align-items: center;
+  padding: 8px 0;
+  border-top: 1px solid #e4dfe5;
+  font-size: 0.9rem;
+}
+
+.itemRanking:first-child {
+  border-top: none;
+}
+
+.posicao {
+  grid-area: pos;
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  color: var(--roxo);
+}
+
+.nomeRanking {
+  grid-area: nome;
+}
+
+.mediaRanking {
+  grid-area: media;
+  text-align: right;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.votosRanking {
+  grid-area: votos;
+  text-align: right;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 520px) {
+  .numeros {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .numeros > :first-child {
+    grid-column: 1 / -1;
+  }
+
+  .sessoes {
+    grid-template-columns: 1fr;
+  }
+
+  .status > button {
+    width: 100%;
+  }
+}

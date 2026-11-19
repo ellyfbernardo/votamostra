@@ -11,6 +11,7 @@ import { buscarSessao, infoFilme } from '../../../dados/mostra';
 import { lerVotos } from '../../../lib/votosLocais';
 import inseto from '../../../assets/mostra2026/inseto.svg';
 import peixe from '../../../assets/mostra2026/peixe.svg';
+import geodesica from '../../../assets/mostra2026/geodesica.svg';
 
 // Tela 3: resumo das notas antes de informar o CPF.
 export default function Confirmar() {
@@ -29,11 +30,13 @@ export default function Confirmar() {
     .filter((item) => item.nota);
 
   return (
-    <Tela>
+    <Tela posicaoGeodesica={null}>
       <Cabecalho sessao={sessao} />
       <Image src={inseto} alt="" aria-hidden="true" className={style.inseto} />
 
       <main className={style.lista}>
+        {/* Traços da Geodésica atrás dos cards, como no layout */}
+        <Image src={geodesica} alt="" aria-hidden="true" className={style.geodesica} />
         {votos === null ? null : votados.length === 0 ? (
           <p className={style.vazio}>Você ainda não deu nota a nenhum filme.</p>
         ) : (

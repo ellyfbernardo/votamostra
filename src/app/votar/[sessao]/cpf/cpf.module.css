@@ -1,8 +1,9 @@
+/* Espaço embaixo reservado para a multidão (ocupa ~310 px do layout) */
 .conteudo {
   flex: 1;
   display: flex;
-  align-items: center;
-  padding: 72px 24px 40px;
+  align-items: flex-start;
+  padding: calc(120 * var(--u)) 24px calc(330 * var(--u));
 }
 
 .form {
@@ -10,7 +11,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
+}
+
+/* No layout o VOLTAR fica mais perto do CONFIRMAR */
+.form > :global(.btn-preto) {
+  margin-top: -6px;
 }
 
 .instrucao {
@@ -110,9 +116,15 @@
   }
 }
 
+/* Multidão do layout (393 px): 1204 px de largura, 462 px para a esquerda,
+   presa ao pé da tela (a parte de baixo do desenho fica para fora) */
 .pessoas {
-  width: 118%;
+  position: absolute !important;
+  z-index: 0 !important;
+  left: -117.6%;
+  bottom: calc(-414 * var(--u));
+  width: 306.4%;
+  max-width: none;
   height: auto;
-  margin: 0 0 -6px -9%;
   pointer-events: none;
 }

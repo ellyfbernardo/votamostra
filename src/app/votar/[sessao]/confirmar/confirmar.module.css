@@ -1,11 +1,11 @@
+/* Posição do layout (393 px): x 305, y 101, 69 px de largura, sem rotação */
 .inseto {
   position: absolute !important;
   z-index: 2 !important;
-  top: 112px;
-  right: 5%;
-  width: 19%;
+  top: calc(101 * var(--u));
+  left: 77.6%;
+  width: 17.6%;
   height: auto;
-  transform: rotate(-28deg);
   pointer-events: none;
 }
 
@@ -13,7 +13,19 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding: 56px 24px 0;
+  padding: 44px 24px 0;
+}
+
+/* Traços da Geodésica: 1071 px de largura, 81 px abaixo do topo do primeiro filme */
+.lista > .geodesica {
+  position: absolute;
+  z-index: -1;
+  top: calc(44px + 81 * var(--u));
+  left: -48.9%;
+  width: 272.6%;
+  max-width: none;
+  height: auto;
+  pointer-events: none;
 }
 
 .vazio {
@@ -58,7 +70,7 @@
   font-weight: 700;
   font-size: 1.05rem;
   line-height: 1.2;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   text-transform: uppercase;
   hyphens: auto;
 }
@@ -91,10 +103,12 @@
 }
 
 .acoes {
+  position: relative;
+  z-index: 2 !important;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 20px;
   padding: 56px 24px 0;
 }
 
