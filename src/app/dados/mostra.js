@@ -1,29 +1,33 @@
-// Programação da Mostra Competitiva da 13ª Mostra de Cinema de Gostoso (2026).
+// Programação da Mostra Competitiva da 13ª Mostra de Cinema de Gostoso (2026),
+// conforme o documento "13MCG – Programação Mostra Competitiva".
 //
-// Cada dia tem DUAS votações separadas:
-//   - curtas: aberta no intervalo, logo depois dos curtas;
-//   - longas: aberta depois que o(s) longa(s) terminar(em).
-// Quem abre e encerra cada votação é a equipe, pelo painel /admin
-// (não há mais horário automático). Na votação de curtas só aparecem
-// os curtas do dia, e na de longas só os longas.
+// Cada sessão tem a sua própria votação, só com os filmes daquela sessão.
+// Quem abre e encerra cada votação é a equipe, pelo painel /admin (não há
+// horário automático). Ex.: no sábado, a votação da Sessão 1 abre no intervalo
+// e a da Sessão 2 depois que ela terminar.
 //
+// categoria: 'curtas' ou 'longas' (usada no ranking do painel).
 // imagem: still do filme, em /public/mostra2026/filmes/ (1280x720, recortado em 16:9).
 
 const MESES = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
 
 export const CATEGORIAS = {
-  curtas: { nome: 'Curtas', singular: 'Curta-metragem' },
-  longas: { nome: 'Longas', singular: 'Longa-metragem' },
+  curtas: { nome: 'Curtas', singular: 'Curta' },
+  longas: { nome: 'Longas', singular: 'Longa' },
 };
 
-const DIAS = [
+export const SESSOES = [
   {
+    id: '21-nov-sessao-1',
+    numero: 1,
     data: '2026-11-21',
     diaSemana: 'Sábado',
-    curtas: [
+    horario: '20h',
+    filmes: [
       {
         id: 'lagoa-do-abandono',
         titulo: 'Lagoa do Abandono',
+        categoria: 'curtas',
         duracao: 10,
         uf: 'CE',
         ano: 2026,
@@ -36,6 +40,7 @@ const DIAS = [
       {
         id: 'irma',
         titulo: 'Irmã',
+        categoria: 'curtas',
         duracao: 25,
         uf: 'ES',
         ano: 2026,
@@ -48,6 +53,7 @@ const DIAS = [
       {
         id: 'revelacao',
         titulo: 'Revelação',
+        categoria: 'curtas',
         duracao: 17,
         uf: 'RJ',
         ano: 2026,
@@ -60,6 +66,7 @@ const DIAS = [
       {
         id: 'disciplina',
         titulo: 'Disciplina',
+        categoria: 'curtas',
         duracao: 45,
         uf: 'MG',
         ano: 2026,
@@ -69,9 +76,19 @@ const DIAS = [
           'Kelly, jovem professora de Português, começa a dar aulas em uma escola pública. Durante uma aula, ela discute com Nicolas, aluno do segundo ano, e os dois têm de resolver o conflito diante do diretor. A discussão traz ensinamentos: Kelly aprende que, na periferia do Brasil, a exceção é a regra.',
         imagem: '/mostra2026/filmes/disciplina.jpg',
       },
+    ],
+  },
+  {
+    id: '21-nov-sessao-2',
+    numero: 2,
+    data: '2026-11-21',
+    diaSemana: 'Sábado',
+    horario: '22h12',
+    filmes: [
       {
         id: 'a-voz-das-rochas',
         titulo: 'A Voz das Rochas',
+        categoria: 'curtas',
         duracao: 15,
         uf: 'RN',
         ano: 2026,
@@ -81,11 +98,10 @@ const DIAS = [
           'No sertão potiguar, entre fendas, cavernas e pinturas rupestres milenares, ecoa a história de Dodora Maia, que dedicou sua vida à defesa e preservação do Lajedo de Soledade, importante sítio arqueológico do Rio Grande do Norte.',
         imagem: '/mostra2026/filmes/a-voz-das-rochas.jpg',
       },
-    ],
-    longas: [
       {
         id: 'almeidinha-e-o-sertao-gelado',
         titulo: 'Almeidinha & O Sertão Gelado',
+        categoria: 'longas',
         duracao: 83,
         uf: 'RN',
         ano: 2026,
@@ -99,12 +115,16 @@ const DIAS = [
     ],
   },
   {
+    id: '22-nov-sessao-3',
+    numero: 3,
     data: '2026-11-22',
     diaSemana: 'Domingo',
-    curtas: [
+    horario: '20h',
+    filmes: [
       {
         id: 'mariposa',
         titulo: 'Mariposa',
+        categoria: 'curtas',
         duracao: 14,
         uf: 'RN',
         ano: 2026,
@@ -114,11 +134,10 @@ const DIAS = [
           'Nas dunas de Santa Rita, onde o vento desenha o tempo, Dona Zefa e Oliveira habitam um território em que memória, rito e paisagem se confundem. Entre o silêncio e o barro, suas existências se tensionam em uma batalha a ferro e fogo, movidas pelo desejo de permanência.',
         imagem: '/mostra2026/filmes/mariposa.jpg',
       },
-    ],
-    longas: [
       {
         id: 'olhe-para-mim',
         titulo: 'Olhe Para Mim',
+        categoria: 'longas',
         duracao: 88,
         uf: 'AL',
         ano: 2026,
@@ -131,12 +150,16 @@ const DIAS = [
     ],
   },
   {
+    id: '23-nov-sessao-4',
+    numero: 4,
     data: '2026-11-23',
     diaSemana: 'Segunda',
-    curtas: [
+    horario: '20h',
+    filmes: [
       {
         id: 'madorna',
         titulo: 'Madorna',
+        categoria: 'curtas',
         duracao: 16,
         uf: 'MG',
         ano: 2026,
@@ -146,11 +169,10 @@ const DIAS = [
           'Com a fatura do cartão de crédito prestes a vencer, dois irmãos cruzam a cidade tentando vender colchões magnéticos fornecidos com um assistente virtual. Thaís não crê no sonho de fazer marketing multinível, mas Jeison passa a questionar o negócio e a própria relação dos dois.',
         imagem: '/mostra2026/filmes/madorna.jpg',
       },
-    ],
-    longas: [
       {
         id: 'adeus-verao',
         titulo: 'Adeus, Verão!',
+        categoria: 'longas',
         duracao: 92,
         uf: 'ES',
         ano: 2026,
@@ -160,9 +182,19 @@ const DIAS = [
           'Espírito Santo, verão de 2017. Kenia, uma das líderes da Primavera Secundarista, resolve destruir o país depois de frustrações pessoais e políticas. Para isso, ela tem um plano sonoro que conta com a ajuda de Yuri, um youtuber decadente que se tornará seu namorado.',
         imagem: '/mostra2026/filmes/adeus-verao.jpg',
       },
+    ],
+  },
+  {
+    id: '23-nov-sessao-5',
+    numero: 5,
+    data: '2026-11-23',
+    diaSemana: 'Segunda',
+    horario: '22h23',
+    filmes: [
       {
         id: 'fiz-um-foguete-imaginando-que-voce-vinha',
         titulo: 'Fiz um Foguete Imaginando que Você Vinha',
+        categoria: 'longas',
         duracao: 92,
         uf: 'CE',
         ano: 2026,
@@ -175,18 +207,6 @@ const DIAS = [
     ],
   },
 ];
-
-// Uma sessão de votação por dia e categoria. id: "21-nov-curtas", "21-nov-longas"...
-export const SESSOES = DIAS.flatMap(({ data, diaSemana, ...categorias }) => {
-  const [, mes, dia] = data.split('-');
-  return Object.keys(CATEGORIAS).map((categoria) => ({
-    id: `${Number(dia)}-${MESES[Number(mes) - 1].toLowerCase()}-${categoria}`,
-    data,
-    diaSemana,
-    categoria,
-    filmes: categorias[categoria],
-  }));
-});
 
 export function buscarSessao(id) {
   return SESSOES.find((sessao) => sessao.id === id) ?? null;
@@ -203,8 +223,8 @@ export function infoFilme(filme) {
   return `${filme.duracao} min, ${filme.uf}, ${filme.ano}, ${filme.classificacao}`;
 }
 
-// "Curtas · 21 NOV. Sábado" (painel e mensagens)
+// "Sessão 1 · 21 NOV. Sábado, 20h" (painel)
 export function nomeSessao(sessao) {
   const { diaMes, diaSemana } = dataCurta(sessao);
-  return `${CATEGORIAS[sessao.categoria].nome} · ${diaMes} ${diaSemana}`;
+  return `Sessão ${sessao.numero} · ${diaMes} ${diaSemana}, ${sessao.horario}`;
 }

@@ -19,9 +19,10 @@ export async function GET(request) {
 
     const sessoes = SESSOES.map((sessao) => ({
       id: sessao.id,
+      numero: sessao.numero,
       data: sessao.data,
       diaSemana: sessao.diaSemana,
-      categoria: sessao.categoria,
+      horario: sessao.horario,
       votos: 0,
       pesquisas: 0,
       recentes: 0,
@@ -29,7 +30,7 @@ export async function GET(request) {
       ...stats.sessoes[sessao.id],
       filmes: sessao.filmes.map((filme) => {
         const f = stats.filmes[`${sessao.id}/${filme.id}`] ?? vazio;
-        return { id: filme.id, titulo: filme.titulo, votos: f.votos, media: media(f), notas: f.notas };
+        return { id: filme.id, titulo: filme.titulo, categoria: filme.categoria, votos: f.votos, media: media(f), notas: f.notas };
       }),
     }));
 
@@ -37,8 +38,8 @@ export async function GET(request) {
     const ranking = {};
     for (const categoria of Object.keys(CATEGORIAS)) {
       ranking[categoria] = sessoes
-        .filter((s) => s.categoria === categoria)
-        .flatMap((s) => s.filmes.map((f) => ({ ...f, data: s.data })))
+        .flatMap((s) => s.filmes.map((f) => ({ ...f, sessao: s.numero })))
+        .filter((f) => f.categoria === categoria)
         .sort((a, b) => (b.media ?? -1) - (a.media ?? -1) || b.votos - a.votos);
     }
 

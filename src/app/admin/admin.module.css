@@ -358,6 +358,22 @@
   min-width: 0;
 }
 
+.categoriaFilme {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--roxo);
+  white-space: nowrap;
+}
+
+.tituloCartao small,
+.nomeRanking small {
+  font-family: var(--font-lexend), sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
 .mediaFilme {
   flex-shrink: 0;
   font-weight: 600;

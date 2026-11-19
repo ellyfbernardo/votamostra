@@ -193,7 +193,9 @@ export function Painel() {
                 {dados.ranking[categoria].map((filme, i) => (
                   <li key={filme.id} className={style.itemRanking}>
                     <span className={style.posicao}>{filme.votos ? `${i + 1}º` : '–'}</span>
-                    <span className={style.nomeRanking}>{filme.titulo}</span>
+                    <span className={style.nomeRanking}>
+                      {filme.titulo} <small>· Sessão {filme.sessao}</small>
+                    </span>
                     <span className={style.mediaRanking}>{formatarMedia(filme.media)}</span>
                     <span className={style.votosRanking}>
                       {numero(filme.votos)} {filme.votos === 1 ? 'voto' : 'votos'}
@@ -232,13 +234,14 @@ function Legenda() {
 }
 
 function CartaoSessao({ sessao, aberta, alterando, aoAbrir, aoEncerrar }) {
-  const { nome } = CATEGORIAS[sessao.categoria];
   const ocupado = alterando !== null;
 
   return (
     <article className={`${style.cartao} ${aberta ? style.cartaoAberto : ''}`}>
       <div className={style.cabecalhoCartao}>
-        <h3 className={style.tituloCartao}>{nome}</h3>
+        <h3 className={style.tituloCartao}>
+          Sessão {sessao.numero} <small>· {sessao.horario}</small>
+        </h3>
         <span className={`${style.selo} ${aberta ? style.seloAberto : ''}`}>{aberta ? 'ABERTA' : 'FECHADA'}</span>
       </div>
 
@@ -265,7 +268,9 @@ function CartaoSessao({ sessao, aberta, alterando, aoAbrir, aoEncerrar }) {
         {sessao.filmes.map((filme) => (
           <li key={filme.id} className={style.filme}>
             <div className={style.linhaFilme}>
-              <span className={style.nomeFilme}>{filme.titulo}</span>
+              <span className={style.nomeFilme}>
+                {filme.titulo} <small className={style.categoriaFilme}>{CATEGORIAS[filme.categoria].singular}</small>
+              </span>
               <span className={style.mediaFilme}>
                 {formatarMedia(filme.media)}
                 <small> · {numero(filme.votos)}</small>
