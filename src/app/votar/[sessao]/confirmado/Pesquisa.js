@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import style from './Pesquisa.module.css';
 import { BotoesNota } from '../../../components/BotoesNota/BotoesNota';
 import { marcarPesquisaRespondida } from '../../../lib/votosLocais';
+import { formatarTelefone, telefoneValido } from '../../../lib/validacao';
 
 const FAIXAS = [
   ['-18', 'Menos de 18'],
@@ -54,6 +55,7 @@ const ehBrasil = (pais) => ['brasil', 'brazil', 'br'].includes(semAcento(pais));
 
 const INICIAL = {
   nome: '',
+  telefone: '',
   faixa: '',
   pais: 'Brasil',
   estado: '',
@@ -75,6 +77,7 @@ const INICIAL = {
 function validar(etapa, f) {
   if (etapa === 0) {
     if (!f.nome.trim()) return 'Informe seu nome.';
+    if (!telefoneValido(f.telefone.replace(/\D/g, ''))) return 'Informe seu telefone com DDD.';
     if (!f.faixa) return 'Escolha sua faixa etária.';
     if (!f.pais.trim() || !f.estado.trim() || !f.cidade.trim()) return 'Informe país, estado e cidade.';
   }
@@ -171,6 +174,7 @@ export function Pesquisa({ sessaoId, cpf, aoFechar, aoEnviar }) {
           sessao: sessaoId,
           form: {
             nome: form.nome,
+            telefone: form.telefone.replace(/\D/g, ''),
             faixa: form.faixa,
             pais: form.pais,
             estado: form.estado,
@@ -229,12 +233,21 @@ export function Pesquisa({ sessaoId, cpf, aoFechar, aoEnviar }) {
             {etapa === 0 && (
               <>
                 <Campo numero={1} rotulo="Nome e Sobrenome" valor={form.nome} aoMudar={(v) => alterar('nome', v)} autoComplete="name" />
-                <Opcoes numero={2} rotulo="Faixa Etária" nome="faixa" opcoes={FAIXAS} valor={form.faixa} aoMudar={(v) => alterar('faixa', v)} />
-                <Campo numero={3} rotulo="País" valor={form.pais} aoMudar={alterarPais} autoComplete="country-name" />
+                <Campo
+                  numero={2}
+                  rotulo="Telefone (WhatsApp)"
+                  valor={form.telefone}
+                  aoMudar={(v) => alterar('telefone', formatarTelefone(v))}
+                  autoComplete="tel-national"
+                  tipo="tel"
+                  placeholder="(84) 99999-9999"
+                />
+                <Opcoes numero={3} rotulo="Faixa Etária" nome="faixa" opcoes={FAIXAS} valor={form.faixa} aoMudar={(v) => alterar('faixa', v)} />
+                <Campo numero={4} rotulo="País" valor={form.pais} aoMudar={alterarPais} autoComplete="country-name" />
                 {usarMenus ? (
                   <>
                     <Selecao
-                      numero={4}
+                      numero={5}
                       rotulo="Estado"
                       valor={form.estado}
                       aoMudar={alterarEstado}
@@ -242,7 +255,7 @@ export function Pesquisa({ sessaoId, cpf, aoFechar, aoEnviar }) {
                       opcoes={locais.map((e) => e.nome)}
                     />
                     <Selecao
-                      numero={5}
+                      numero={6}
                       rotulo="Cidade"
                       valor={form.cidade}
                       aoMudar={(v) => alterar('cidade', v)}
@@ -253,8 +266,8 @@ export function Pesquisa({ sessaoId, cpf, aoFechar, aoEnviar }) {
                   </>
                 ) : (
                   <>
-                    <Campo numero={4} rotulo="Estado" valor={form.estado} aoMudar={(v) => alterar('estado', v)} autoComplete="address-level1" />
-                    <Campo numero={5} rotulo="Cidade" valor={form.cidade} aoMudar={(v) => alterar('cidade', v)} autoComplete="address-level2" />
+                    <Campo numero={5} rotulo="Estado" valor={form.estado} aoMudar={(v) => alterar('estado', v)} autoComplete="address-level1" />
+                    <Campo numero={6} rotulo="Cidade" valor={form.cidade} aoMudar={(v) => alterar('cidade', v)} autoComplete="address-level2" />
                   </>
                 )}
               </>
@@ -263,19 +276,19 @@ export function Pesquisa({ sessaoId, cpf, aoFechar, aoEnviar }) {
             {etapa === 1 && (
               <>
                 <Opcoes
-                  numero={6}
+                  numero={7}
                   rotulo="É sua primeira vez em São Miguel do Gostoso?"
                   nome="primeiraVez"
                   opcoes={[['sim', 'Sim'], ['nao', 'Não']]}
                   valor={form.primeiraVez}
                   aoMudar={(v) => alterar('primeiraVez', v)}
                 />
-                <Opcoes numero={7} rotulo="Você está em Gostoso por causa de:" nome="motivo" opcoes={MOTIVOS} valor={form.motivo} aoMudar={(v) => alterar('motivo', v)} />
+                <Opcoes numero={8} rotulo="Você está em Gostoso por causa de:" nome="motivo" opcoes={MOTIVOS} valor={form.motivo} aoMudar={(v) => alterar('motivo', v)} />
                 {form.motivo === 'outro' && (
                   <input className={style.campo} aria-label="Qual o motivo?" placeholder="Qual?" value={form.motivoOutro} onChange={(e) => alterar('motivoOutro', e.target.value)} />
                 )}
                 <Opcoes
-                  numero={8}
+                  numero={9}
                   rotulo="Como ficou sabendo da Mostra?"
                   nome="soube"
                   multiplo
@@ -294,13 +307,13 @@ export function Pesquisa({ sessaoId, cpf, aoFechar, aoEnviar }) {
                 {AVALIACOES.map(([campo, rotulo], i) => (
                   <div key={campo} className={style.grupo}>
                     <p className={style.rotulo}>
-                      {9 + i}. {rotulo}
+                      {10 + i}. {rotulo}
                     </p>
                     <BotoesNota pequeno nome={rotulo} valor={form[campo]} aoEscolher={(n) => alterar(campo, n)} />
                   </div>
                 ))}
                 <Opcoes
-                  numero={13}
+                  numero={14}
                   rotulo="Recomendaria a Mostra?"
                   nome="recomendacao"
                   opcoes={[['Sim', 'Sim'], ['Não', 'Não']]}
@@ -308,7 +321,7 @@ export function Pesquisa({ sessaoId, cpf, aoFechar, aoEnviar }) {
                   aoMudar={(v) => alterar('recomendacao', v)}
                 />
                 <label className={style.grupo}>
-                  <span className={style.rotulo}>14. Comentário (opcional)</span>
+                  <span className={style.rotulo}>15. Sugestões ou comentários (opcional)</span>
                   <textarea className={`${style.campo} ${style.areaTexto}`} rows={4} value={form.comentario} onChange={(e) => alterar('comentario', e.target.value)} />
                 </label>
               </>
@@ -347,13 +360,21 @@ export function Pesquisa({ sessaoId, cpf, aoFechar, aoEnviar }) {
   );
 }
 
-function Campo({ numero, rotulo, valor, aoMudar, autoComplete }) {
+function Campo({ numero, rotulo, valor, aoMudar, autoComplete, tipo = 'text', placeholder }) {
   return (
     <label className={style.grupo}>
       <span className={style.rotulo}>
         {numero}. {rotulo}
       </span>
-      <input className={style.campo} value={valor} onChange={(e) => aoMudar(e.target.value)} autoComplete={autoComplete} />
+      <input
+        className={style.campo}
+        type={tipo}
+        inputMode={tipo === 'tel' ? 'tel' : undefined}
+        placeholder={placeholder}
+        value={valor}
+        onChange={(e) => aoMudar(e.target.value)}
+        autoComplete={autoComplete}
+      />
     </label>
   );
 }

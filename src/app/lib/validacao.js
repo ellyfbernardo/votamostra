@@ -51,3 +51,17 @@ export function formatarCPF(valor) {
     .replace(/(\d{3})(\d)/, '$1.$2')
     .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
 }
+
+// Telefone brasileiro com DDD: 10 dígitos (fixo) ou 11 (celular)
+export function telefoneValido(digitos) {
+  return typeof digitos === 'string' && /^[1-9]{2}\d{8,9}$/.test(digitos);
+}
+
+// 84999998888 -> (84) 99999-8888 (enquanto a pessoa digita)
+export function formatarTelefone(valor) {
+  const d = valor.replace(/\D/g, '').slice(0, 11);
+  if (d.length <= 2) return d.length ? `(${d}` : '';
+  if (d.length <= 6) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
+  if (d.length <= 10) return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`;
+  return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+}

@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import style from './admin.module.css';
 import { CATEGORIAS, buscarSessao, dataCurta, nomeSessao } from '../dados/mostra';
+import { TelaSorteio } from './TelaSorteio';
 
 const INTERVALO = 5000; // atualiza os números a cada 5 s
 
@@ -15,6 +16,28 @@ const hora = (data) =>
 const formatarMedia = (media) => (media === null ? '—' : media.toFixed(2).replace('.', ','));
 
 const numero = (n) => n.toLocaleString('pt-BR');
+
+// 90 -> "1h30"
+const duracao = (min) => `${Math.floor(min / 60)}h${String(min % 60).padStart(2, '0')}`;
+
+const dataHora = (data) =>
+  new Date(data).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+
+// 52998224725 -> ***.982.247-**
+const cpfMascarado = (cpf) => `***.${cpf.slice(3, 6)}.${cpf.slice(6, 9)}-**`;
+
+// 84999998888 -> (84) 99999-8888
+const telefone = (t) =>
+  !t
+    ? 'sem telefone'
+    : t.length === 11
+      ? `(${t.slice(0, 2)}) ${t.slice(2, 7)}-${t.slice(7)}`
+      : `(${t.slice(0, 2)}) ${t.slice(2, 6)}-${t.slice(6)}`;
+
+const rotuloSessao = (id) => {
+  const sessao = buscarSessao(id);
+  return sessao ? nomeSessao(sessao) : id;
+};
 
 export function Painel() {
   const router = useRouter();
@@ -51,7 +74,7 @@ export function Painel() {
   const alterarVotacao = async (sessaoId) => {
     const atual = dados?.aberta ? buscarSessao(dados.aberta) : null;
     const pergunta = sessaoId
-      ? `Abrir a votação de ${nomeSessao(buscarSessao(sessaoId))}?` +
+      ? `Abrir a votação de ${nomeSessao(buscarSessao(sessaoId))}?\n\nEla fecha sozinha em ${duracao(dados.duracaoMin)}.` +
         (atual ? `\n\nA votação de ${nomeSessao(atual)} será encerrada.` : '')
       : `Encerrar a votação de ${nomeSessao(atual)}?`;
     if (!window.confirm(pergunta)) return;
@@ -125,6 +148,13 @@ export function Painel() {
           <p className={style.statusSessao}>
             {aberta ? nomeSessao(aberta) : 'O público vê a tela “Aguarde”.'}
           </p>
+          {aberta && dados.fechaEm && <Contagem fechaEm={dados.fechaEm} aoTerminar={carregar} />}
+          {!aberta && dados.encerradaAuto && buscarSessao(dados.encerradaAuto.sessao) && (
+            <p className={style.statusDesde}>
+              A votação da {nomeSessao(buscarSessao(dados.encerradaAuto.sessao))} fechou sozinha às{' '}
+              {hora(dados.encerradaAuto.em).slice(0, 5)} (timer de {duracao(dados.duracaoMin)}).
+            </p>
+          )}
           {dados.atualizadoEm && <p className={style.statusDesde}>Última alteração às {hora(dados.atualizadoEm)}</p>}
         </div>
         {aberta && (
@@ -207,7 +237,171 @@ export function Painel() {
           ))}
         </div>
       </section>
+
+      <Sorteio dados={dados.sorteio} aoAtualizar={carregar} />
+
+      <Comentarios lista={dados.comentarios} />
     </div>
+  );
+}
+
+// Tempo até a votação fechar sozinha, atualizado a cada segundo
+function Contagem({ fechaEm, aoTerminar }) {
+  const [agora, setAgora] = useState(() => Date.now());
+
+  useEffect(() => {
+    const id = setInterval(() => setAgora(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const restante = Math.max(0, new Date(fechaEm).getTime() - agora);
+  const terminou = restante === 0;
+  useEffect(() => {
+    if (terminou) aoTerminar();
+  }, [terminou, aoTerminar]);
+
+  const s = Math.floor(restante / 1000);
+  const relogio = [Math.floor(s / 3600), Math.floor((s % 3600) / 60), s % 60]
+    .map((n) => String(n).padStart(2, '0'))
+    .join(':');
+
+  return (
+    <p className={style.timer}>
+      Fecha sozinha em <strong>{relogio}</strong> <span>(às {hora(fechaEm).slice(0, 5)})</span>
+    </p>
+  );
+}
+
+function Sorteio({ dados, aoAtualizar }) {
+  const [sorteando, setSorteando] = useState(false);
+  const [resultado, setResultado] = useState(null);
+  const [erro, setErro] = useState('');
+
+  const enviar = async (acao) => {
+    setErro('');
+    setSorteando(true);
+    try {
+      const res = await fetch('/api/admin/sorteio', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ acao }),
+      });
+      if (res.status === 409) setErro('Não há mais ninguém para sortear.');
+      else if (!res.ok) throw new Error();
+      else if (acao === 'sortear') setResultado(await res.json());
+      else setResultado(null);
+      await aoAtualizar();
+    } catch {
+      setErro('Não foi possível sortear. Confira a internet e tente de novo.');
+    } finally {
+      setSorteando(false);
+    }
+  };
+
+  // O sorteio em si acontece na tela cheia (TelaSorteio), própria para gravar
+  const [telaAberta, setTelaAberta] = useState(false);
+  const fecharTela = useCallback(() => setTelaAberta(false), []);
+  const aoSortear = useCallback(
+    (sorteado) => {
+      setResultado(sorteado);
+      aoAtualizar();
+    },
+    [aoAtualizar]
+  );
+  const sortear = () => {
+    setErro('');
+    setTelaAberta(true);
+  };
+
+  const limpar = () => {
+    if (window.confirm('Apagar o histórico de sorteados? Todos voltam a concorrer.')) enviar('limpar');
+  };
+
+  return (
+    <section className={style.dia}>
+      <h2 className={style.tituloDia}>
+        <strong>SORTEIO</strong> entre quem respondeu a pesquisa
+      </h2>
+      <div className={style.cartao}>
+        <p className={style.textoSorteio}>
+          <strong>{numero(dados.disponiveis)}</strong> pessoa(s) concorrendo agora
+          {dados.sorteados.length > 0 && ` · ${numero(dados.sorteados.length)} já sorteada(s), que não concorrem de novo`}
+          <br />
+          <small>Cada CPF conta uma vez, mesmo que tenha respondido a pesquisa em mais de uma sessão.</small>
+        </p>
+
+        <button type="button" className={style.botaoAbrir} onClick={sortear} disabled={sorteando || dados.disponiveis === 0}>
+          {sorteando ? 'AGUARDE…' : 'SORTEAR'}
+        </button>
+
+        {telaAberta && <TelaSorteio disponiveis={dados.disponiveis} aoFechar={fecharTela} aoSortear={aoSortear} />}
+
+        {erro && (
+          <p className={style.erro} role="alert">
+            {erro}
+          </p>
+        )}
+
+        {resultado && (
+          <div className={style.sorteado} aria-live="polite">
+            <p className={style.statusRotulo}>ÚLTIMA PESSOA SORTEADA</p>
+            <p className={style.nomeSorteado}>{resultado.nome}</p>
+            <p>
+              <strong>{telefone(resultado.telefone)}</strong> · CPF {cpfMascarado(resultado.cpf)}
+            </p>
+            <p className={style.statusDesde}>{[resultado.cidade, rotuloSessao(resultado.sessao)].filter(Boolean).join(' · ')}</p>
+          </div>
+        )}
+
+        {dados.sorteados.length > 0 && (
+          <>
+            <h3 className={style.subtituloCartao}>Histórico</h3>
+            <ol className={style.ranking}>
+              {dados.sorteados.map((s) => (
+                <li key={`${s.cpf}-${s.em}`} className={style.itemSorteio}>
+                  <strong>{s.nome}</strong> · {telefone(s.telefone)}
+                  <br />
+                  <small>
+                    CPF {cpfMascarado(s.cpf)} · sorteado em {dataHora(s.em)} entre {numero(s.concorreram)}
+                  </small>
+                </li>
+              ))}
+            </ol>
+            <button type="button" className={style.botaoTexto} onClick={limpar} disabled={sorteando}>
+              Apagar histórico de sorteados
+            </button>
+          </>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function Comentarios({ lista }) {
+  return (
+    <section className={style.dia}>
+      <h2 className={style.tituloDia}>
+        <strong>SUGESTÕES E COMENTÁRIOS</strong> ({numero(lista.length)})
+      </h2>
+      <div className={style.cartao}>
+        {lista.length === 0 ? (
+          <p className={style.textoSorteio}>Ainda não há comentários.</p>
+        ) : (
+          <ul className={style.comentarios}>
+            {lista.map((c, i) => (
+              <li key={i} className={style.comentario}>
+                <p>{c.comentario}</p>
+                <small>
+                  {c.nome} · {rotuloSessao(c.sessao)}
+                  {c.em && ` · ${dataHora(c.em)}`}
+                  {c.recomendacao && ` · Recomendaria: ${c.recomendacao}`}
+                </small>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </section>
   );
 }
 

@@ -1,7 +1,7 @@
 import { SESSOES, CATEGORIAS } from '../../../dados/mostra';
 import { requisicaoAutorizada } from '../../../lib/admin';
-import { lerControle } from '../../../lib/controle';
-import { estatisticas, modoTeste, nomeBanco } from '../../../lib/armazenamento';
+import { DURACAO_VOTACAO_MIN, lerControle } from '../../../lib/controle';
+import { comentarios, estatisticas, modoTeste, nomeBanco, resumoSorteio } from '../../../lib/armazenamento';
 
 export const dynamic = 'force-dynamic';
 
@@ -14,7 +14,12 @@ export async function GET(request) {
   }
 
   try {
-    const [controle, stats] = await Promise.all([lerControle(), estatisticas()]);
+    const [controle, stats, listaComentarios, sorteio] = await Promise.all([
+      lerControle(),
+      estatisticas(),
+      comentarios(),
+      resumoSorteio(),
+    ]);
     const vazio = { votos: 0, soma: 0, notas: [0, 0, 0, 0, 0] };
 
     const sessoes = SESSOES.map((sessao) => ({
@@ -48,7 +53,13 @@ export async function GET(request) {
       modoTeste: modoTeste(),
       banco: nomeBanco(),
       aberta: controle.aberta,
+      abertaEm: controle.abertaEm,
+      fechaEm: controle.fechaEm,
+      encerradaAuto: controle.encerradaAuto,
+      duracaoMin: DURACAO_VOTACAO_MIN,
       atualizadoEm: controle.atualizadoEm,
+      comentarios: listaComentarios,
+      sorteio,
       sessoes,
       ranking,
     });

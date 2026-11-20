@@ -1,5 +1,6 @@
 // Programação da Mostra Competitiva da 13ª Mostra de Cinema de Gostoso (2026),
-// conforme o documento "13MCG – Programação Mostra Competitiva".
+// conforme o documento "13MCG – Programação Mostra Competitiva", com os filmes
+// das sessões 3 e 4 trocados (atualização de 19/11).
 //
 // Cada sessão tem a sua própria votação, só com os filmes daquela sessão.
 // Quem abre e encerra cada votação é a equipe, pelo painel /admin (não há
@@ -122,41 +123,6 @@ export const SESSOES = [
     horario: '20h',
     filmes: [
       {
-        id: 'mariposa',
-        titulo: 'Mariposa',
-        categoria: 'curtas',
-        duracao: 14,
-        uf: 'RN',
-        ano: 2026,
-        classificacao: 'Livre',
-        direcao: 'Alexandre Américo e Pedro Vitor',
-        sinopse:
-          'Nas dunas de Santa Rita, onde o vento desenha o tempo, Dona Zefa e Oliveira habitam um território em que memória, rito e paisagem se confundem. Entre o silêncio e o barro, suas existências se tensionam em uma batalha a ferro e fogo, movidas pelo desejo de permanência.',
-        imagem: '/mostra2026/filmes/mariposa.jpg',
-      },
-      {
-        id: 'olhe-para-mim',
-        titulo: 'Olhe Para Mim',
-        categoria: 'longas',
-        duracao: 88,
-        uf: 'AL',
-        ano: 2026,
-        classificacao: '14 anos',
-        direcao: 'Rafhael Barbosa',
-        sinopse:
-          'Marcelo embarca numa viagem com uma feiticeira e seu misterioso filho. Em meio a monstros e aberrações, ele finalmente se sente em casa.',
-        imagem: '/mostra2026/filmes/olhe-para-mim.jpg',
-      },
-    ],
-  },
-  {
-    id: '23-nov-sessao-4',
-    numero: 4,
-    data: '2026-11-23',
-    diaSemana: 'Segunda',
-    horario: '20h',
-    filmes: [
-      {
         id: 'madorna',
         titulo: 'Madorna',
         categoria: 'curtas',
@@ -181,6 +147,41 @@ export const SESSOES = [
         sinopse:
           'Espírito Santo, verão de 2017. Kenia, uma das líderes da Primavera Secundarista, resolve destruir o país depois de frustrações pessoais e políticas. Para isso, ela tem um plano sonoro que conta com a ajuda de Yuri, um youtuber decadente que se tornará seu namorado.',
         imagem: '/mostra2026/filmes/adeus-verao.jpg',
+      },
+    ],
+  },
+  {
+    id: '23-nov-sessao-4',
+    numero: 4,
+    data: '2026-11-23',
+    diaSemana: 'Segunda',
+    horario: '20h',
+    filmes: [
+      {
+        id: 'mariposa',
+        titulo: 'Mariposa',
+        categoria: 'curtas',
+        duracao: 14,
+        uf: 'RN',
+        ano: 2026,
+        classificacao: 'Livre',
+        direcao: 'Alexandre Américo e Pedro Vitor',
+        sinopse:
+          'Nas dunas de Santa Rita, onde o vento desenha o tempo, Dona Zefa e Oliveira habitam um território em que memória, rito e paisagem se confundem. Entre o silêncio e o barro, suas existências se tensionam em uma batalha a ferro e fogo, movidas pelo desejo de permanência.',
+        imagem: '/mostra2026/filmes/mariposa.jpg',
+      },
+      {
+        id: 'olhe-para-mim',
+        titulo: 'Olhe Para Mim',
+        categoria: 'longas',
+        duracao: 88,
+        uf: 'AL',
+        ano: 2026,
+        classificacao: '14 anos',
+        direcao: 'Rafhael Barbosa',
+        sinopse:
+          'Marcelo embarca numa viagem com uma feiticeira e seu misterioso filho. Em meio a monstros e aberrações, ele finalmente se sente em casa.',
+        imagem: '/mostra2026/filmes/olhe-para-mim.jpg',
       },
     ],
   },

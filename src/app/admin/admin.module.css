@@ -487,3 +487,138 @@
     width: 100%;
   }
 }
+
+/* Timer da votação aberta */
+.timer {
+  margin-top: 8px;
+  font-size: 0.95rem;
+}
+
+.timer strong {
+  font-family: var(--font-giga), sans-serif;
+  font-size: 1.15rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--roxo);
+}
+
+.timer span {
+  opacity: 0.7;
+  font-size: 0.85rem;
+}
+
+/* Sorteio */
+.textoSorteio {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.textoSorteio small {
+  opacity: 0.7;
+}
+
+.sorteado {
+  border: 3px solid var(--verde);
+  box-shadow: 0 0 0 4px rgba(197, 218, 75, 0.35);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nomeSorteado {
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--roxo);
+}
+
+.subtituloCartao {
+  font-family: var(--font-giga), sans-serif;
+  font-size: 0.85rem;
+  color: var(--roxo);
+  margin-top: 4px;
+}
+
+.itemSorteio {
+  padding: 8px 0;
+  border-top: 1px solid #e4dfe5;
+  font-size: 0.9rem;
+}
+
+.itemSorteio:first-child {
+  border-top: none;
+}
+
+.itemSorteio small {
+  opacity: 0.7;
+}
+
+.botaoTexto {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: var(--vermelho);
+  text-decoration: underline;
+  font-size: 0.85rem;
+}
+
+/* Comentários */
+.comentarios {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  max-height: 560px;
+  overflow-y: auto;
+}
+
+.comentario {
+  padding: 12px 0;
+  border-top: 1px solid #e4dfe5;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.comentario:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.comentario p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.comentario small {
+  opacity: 0.7;
+  font-size: 0.78rem;
+}
+
+/* Campo de senha com botão de mostrar/esconder */
+.campoSenha {
+  position: relative;
+  display: flex;
+  margin-bottom: 4px;
+}
+
+.campoSenha .campoLogin {
+  flex: 1;
+  min-width: 0;
+  padding-right: 52px;
+  margin-bottom: 0;
+}
+
+.verSenha {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--roxo);
+}

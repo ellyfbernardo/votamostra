@@ -1,11 +1,12 @@
 import { buscarSessao } from '../../dados/mostra';
-import { cpfValido, texto, listaDeTextos, objetoSimples } from '../../lib/validacao';
+import { cpfValido, telefoneValido, texto, listaDeTextos, objetoSimples } from '../../lib/validacao';
 import { salvarPesquisa } from '../../lib/armazenamento';
 
 // Monta o formulário só com os campos da pesquisa de satisfação.
 function limparFormulario(form) {
   return {
     nome: texto(form.nome, 120),
+    telefone: texto(form.telefone, 30).replace(/\D/g, ''),
     faixa: texto(form.faixa, 10),
     pais: texto(form.pais, 100),
     estado: texto(form.estado, 100),
@@ -39,6 +40,9 @@ export async function POST(request) {
   const formulario = limparFormulario(form);
   if (!formulario.nome) {
     return new Response('Nome é obrigatório', { status: 400 });
+  }
+  if (!telefoneValido(formulario.telefone)) {
+    return new Response('Telefone inválido', { status: 400 });
   }
 
   try {
