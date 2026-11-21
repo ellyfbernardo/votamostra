@@ -10,7 +10,7 @@
 }
 
 .chancela {
-  width: 58%;
+  width: 66%;
   height: auto;
 }
 
@@ -32,7 +32,7 @@
   position: absolute;
   top: 60%;
   left: 50%;
-  width: 74%;
+  width: 82%;
   height: auto;
   transform: translate(-50%, -50%) rotate(64deg);
 }

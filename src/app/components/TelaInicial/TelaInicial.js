@@ -14,7 +14,7 @@ export function TelaInicial({ sessaoId }) {
     <>
       <AcompanharVotacao sessaoId={sessaoId ?? null} />
       <main className={style.topo}>
-        <Image src={chancela} alt="Ministério da Cultura, Petrobras e Governo do Estado do Rio Grande do Norte apresentam" className={style.chancela} priority />
+        <Image src={chancela} alt="Ministério da Cultura, Governo do Estado do Rio Grande do Norte e Petrobras apresentam" className={style.chancela} priority />
         <Image src={nomeMostra} alt="13ª Mostra de Cinema de Gostoso" className={style.nomeMostra} priority />
 
         <div className={style.arte}>

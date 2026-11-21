@@ -122,7 +122,7 @@ export function TelaSorteio({ disponiveis, aoFechar, aoSortear }) {
       <header className={style.topo}>
         <Image
           src={chancela}
-          alt="Ministério da Cultura, Petrobras e Governo do Estado do Rio Grande do Norte apresentam"
+          alt="Ministério da Cultura, Governo do Estado do Rio Grande do Norte e Petrobras apresentam"
           className={style.chancela}
           priority
         />
