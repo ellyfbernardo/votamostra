@@ -1,16 +1,23 @@
 // Onde os votos são guardados (MongoDB, coleção COLECAO_VOTOS).
-// - Normal: banco BANCO (dados oficiais).
-// - Modo de teste (VOTACAO_MODO_TESTE=true): banco separado BANCO_TESTE,
-//   para os votos de teste nunca se misturarem com os oficiais.
-//   Para limpar os testes, basta apagar esse banco no MongoDB.
+// - Site oficial (Vercel Production): SEMPRE o banco BANCO (dados oficiais),
+//   mesmo que VOTACAO_MODO_TESTE esteja ligado.
+// - Fora da produção (local e endereços de teste da Vercel) com
+//   VOTACAO_MODO_TESTE=true: banco separado BANCO_TESTE, para os votos de teste
+//   nunca se misturarem com os oficiais. Para limpar, basta apagar esse banco.
 import clientPromise from '../mongodb';
 import { BANCO, COLECAO_VOTOS } from './validacao';
 
 export const BANCO_TESTE = `${BANCO}-teste`;
 
+// Modo de teste: aceita voto sem localização e não consulta a OpenCage
 export const modoTeste = () => process.env.VOTACAO_MODO_TESTE === 'true';
 
-export const nomeBanco = () => (modoTeste() ? BANCO_TESTE : BANCO);
+const producao = () => process.env.VERCEL_ENV === 'production';
+
+// Banco de teste só fora da produção
+export const usaBancoTeste = () => modoTeste() && !producao();
+
+export const nomeBanco = () => (usaBancoTeste() ? BANCO_TESTE : BANCO);
 
 // Banco em uso agora (oficial ou de teste). Também guarda o controle da votação.
 export async function bancoAtual() {

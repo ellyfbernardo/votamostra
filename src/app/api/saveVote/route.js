@@ -2,7 +2,7 @@ import axios from 'axios';
 import { buscarSessao } from '../../dados/mostra';
 import { votacaoAberta } from '../../lib/controle';
 import { cpfValido, notaValida, coordenadaValida, objetoSimples } from '../../lib/validacao';
-import { modoTeste, votoExiste, inserirVoto } from '../../lib/armazenamento';
+import { modoTeste, usaBancoTeste, votoExiste, inserirVoto } from '../../lib/armazenamento';
 
 async function buscarCidade(latitude, longitude) {
   const apiKey = process.env.OPENCAGE_API_KEY;
@@ -89,7 +89,7 @@ export async function POST(request) {
       notificar: notificar === true,
       horarioVoto: new Date(),
       form: null,
-      ...(teste && { teste: true }),
+      ...(usaBancoTeste() && { teste: true }),
     });
 
     return Response.json(result, { status: 200 });

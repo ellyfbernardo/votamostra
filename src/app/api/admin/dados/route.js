@@ -1,7 +1,7 @@
 import { SESSOES, CATEGORIAS } from '../../../dados/mostra';
 import { requisicaoAutorizada } from '../../../lib/admin';
 import { DURACAO_VOTACAO_MIN, lerControle } from '../../../lib/controle';
-import { comentarios, estatisticas, modoTeste, nomeBanco, resumoSorteio } from '../../../lib/armazenamento';
+import { comentarios, estatisticas, nomeBanco, resumoSorteio, usaBancoTeste } from '../../../lib/armazenamento';
 
 export const dynamic = 'force-dynamic';
 
@@ -50,7 +50,7 @@ export async function GET(request) {
 
     return Response.json({
       agora: new Date(),
-      modoTeste: modoTeste(),
+      modoTeste: usaBancoTeste(),
       banco: nomeBanco(),
       aberta: controle.aberta,
       abertaEm: controle.abertaEm,
