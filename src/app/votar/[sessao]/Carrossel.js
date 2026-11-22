@@ -20,6 +20,7 @@ export function Carrossel({ sessaoId }) {
 
   const router = useRouter();
   const trilhoRef = useRef(null);
+  const rodapeRef = useRef(null);
   const [indice, setIndice] = useState(0);
   const [votos, setVotos] = useState({});
 
@@ -42,14 +43,20 @@ export function Carrossel({ sessaoId }) {
     if (atual !== indice) setIndice(atual);
   };
 
+  const mostrarFinalizar = () => {
+    const reduzido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    rodapeRef.current?.scrollIntoView({ behavior: reduzido ? 'auto' : 'smooth', block: 'end' });
+  };
+
   const votar = (filmeId, nota, posicao) => {
     const novos = { ...votos };
     if (novos[filmeId] === nota) {
       delete novos[filmeId]; // tocar de novo na mesma nota desmarca
     } else {
       novos[filmeId] = nota;
-      // Avança sozinho para o próximo filme
+      // Avança sozinho para o próximo filme; no último, rola até o FINALIZAR
       if (posicao < total - 1) setTimeout(() => irPara(posicao + 1), 350);
+      else setTimeout(mostrarFinalizar, 350);
     }
     setVotos(novos);
     salvarVotos(sessaoId, novos);
@@ -136,7 +143,7 @@ export function Carrossel({ sessaoId }) {
         </div>
       )}
 
-      <footer className={style.rodape}>
+      <footer className={style.rodape} ref={rodapeRef}>
         <button
           type="button"
           className="btn-verde"
