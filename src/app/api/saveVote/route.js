@@ -11,7 +11,8 @@ async function buscarCidade(latitude, longitude) {
   }
 
   const response = await axios.get('https://api.opencagedata.com/geocode/v1/json', {
-    params: { q: `${latitude},${longitude}`, key: apiKey },
+    params: { q: `${latitude},${longitude}`, key: apiKey, no_annotations: 1 },
+    timeout: 4000,
   });
 
   const componentes = response.data.results?.[0]?.components ?? {};
@@ -70,12 +71,15 @@ export async function POST(request) {
       return new Response('CPF já votou nesta sessão', { status: 409 });
     }
 
-    // No modo de teste não consulta a OpenCage
+    // Nome da cidade pela OpenCage (não consulta no modo de teste).
+    // Se a consulta falhar (limite de 1/s do plano gratuito, chave, rede ou
+    // coordenada sem cidade), o voto é salvo assim mesmo com as coordenadas.
     let cidade = null;
-    if (!teste) {
-      cidade = await buscarCidade(latitude, longitude);
-      if (!cidade) {
-        throw new Error('Não foi possível encontrar o nome da cidade.');
+    if (!teste && temLocalizacao) {
+      try {
+        cidade = await buscarCidade(latitude, longitude);
+      } catch (error) {
+        console.error('OpenCage falhou; voto salvo sem cidade:', error.response?.status ?? error.message);
       }
     }
 
