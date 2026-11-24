@@ -12,24 +12,34 @@ import { cpfValido, formatarCPF } from '../../../lib/validacao';
 import { lerVotos, limparVotos, salvarCpf } from '../../../lib/votosLocais';
 import pessoas from '../../../assets/mostra2026/pessoas-bolhas.svg';
 
-function pedirLocalizacao() {
-  return new Promise((resolve, reject) => {
-    if (!navigator.geolocation) {
-      reject(new Error('sem suporte'));
-      return;
+// Localização opcional. Nunca falha nem trava: devolve as coordenadas ou null.
+// O limite próprio cobre aparelhos que ignoram o timeout do navegador
+// ou que nunca respondem ao pedido de permissão.
+function pedirLocalizacao(limiteMs) {
+  return new Promise((resolve) => {
+    try {
+      if (!navigator.geolocation) return resolve(null);
+      const desistir = setTimeout(() => resolve(null), limiteMs);
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          clearTimeout(desistir);
+          resolve({ latitude: pos.coords.latitude, longitude: pos.coords.longitude });
+        },
+        () => {
+          clearTimeout(desistir);
+          resolve(null);
+        },
+        { enableHighAccuracy: false, timeout: limiteMs, maximumAge: 10 * 60 * 1000 }
+      );
+    } catch {
+      resolve(null);
     }
-    navigator.geolocation.getCurrentPosition(
-      (pos) => resolve({ latitude: pos.coords.latitude, longitude: pos.coords.longitude }),
-      reject,
-      { enableHighAccuracy: false, timeout: 15000, maximumAge: 10 * 60 * 1000 }
-    );
   });
 }
 
 const MENSAGENS = {
   409: 'Este CPF já votou nesta sessão.',
   403: 'A votação desta sessão está encerrada.',
-  422: 'Ative a localização do celular para votar.',
 };
 
 // Tela 4: CPF, opção de notificação e envio do voto.
@@ -46,9 +56,9 @@ export default function Cpf() {
 
   // Já pede a localização ao abrir a tela, para não atrasar o envio
   useEffect(() => {
-    pedirLocalizacao()
-      .then((coords) => (local.current = coords))
-      .catch(() => {});
+    pedirLocalizacao(15000).then((coords) => {
+      if (coords) local.current = coords;
+    });
   }, []);
 
   if (!sessao) notFound();
@@ -71,10 +81,9 @@ export default function Cpf() {
 
     setEnviando(true);
     try {
-      // Tenta mais uma vez; se não conseguir, envia sem localização
-      // e o servidor decide se aceita (só aceita no modo de teste).
+      // Sem localização ainda: espera no máximo 2 s e envia com ou sem ela
       if (!local.current) {
-        local.current = await pedirLocalizacao().catch(() => null);
+        local.current = await pedirLocalizacao(2000);
       }
 
       const res = await fetch('/api/saveVote', {

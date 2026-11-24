@@ -43,10 +43,8 @@ export async function POST(request) {
     return new Response('CPF inválido', { status: 400 });
   }
 
+  // Localização é opcional: se o celular mandar, guarda; se não, o voto vale igual
   const temLocalizacao = coordenadaValida(latitude, 90) && coordenadaValida(longitude, 180);
-  if (!temLocalizacao && !teste) {
-    return new Response('Localização obrigatória', { status: 422 });
-  }
 
   if (!objetoSimples(notas)) {
     return new Response('Votos inválidos', { status: 400 });

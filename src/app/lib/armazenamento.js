@@ -9,7 +9,7 @@ import { BANCO, COLECAO_VOTOS } from './validacao';
 
 export const BANCO_TESTE = `${BANCO}-teste`;
 
-// Modo de teste: aceita voto sem localização e não consulta a OpenCage
+// Modo de teste: não consulta a OpenCage (e, fora da produção, usa o banco de teste)
 export const modoTeste = () => process.env.VOTACAO_MODO_TESTE === 'true';
 
 const producao = () => process.env.VERCEL_ENV === 'production';
