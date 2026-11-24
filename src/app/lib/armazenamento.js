@@ -115,6 +115,42 @@ export async function estatisticas() {
   return { sessoes, filmes };
 }
 
+// Todos os votos para a planilha do painel, em ordem de chegada.
+// A projeção já deixa de fora os dados pessoais (CPF, nome, telefone, coordenadas).
+export async function listarVotosParaExportar() {
+  const col = await colecao();
+  return col
+    .find(
+      {},
+      {
+        projection: {
+          _id: 0,
+          sessao: 1,
+          notas: 1,
+          cidade: 1,
+          notificar: 1,
+          horarioVoto: 1,
+          formRespondidoEm: 1,
+          'form.faixa': 1,
+          'form.pais': 1,
+          'form.estado': 1,
+          'form.cidade': 1,
+          'form.primeiraVez': 1,
+          'form.motivo': 1,
+          'form.soube': 1,
+          'form.estrutura': 1,
+          'form.organizacao': 1,
+          'form.programacao': 1,
+          'form.acessibilidade': 1,
+          'form.recomendacao': 1,
+          'form.comentario': 1,
+        },
+      }
+    )
+    .sort({ horarioVoto: 1 })
+    .toArray();
+}
+
 // ---------- Painel: comentários e sorteio ----------
 
 // Sugestões/comentários da pesquisa, mais recentes primeiro

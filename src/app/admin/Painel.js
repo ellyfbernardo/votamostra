@@ -238,6 +238,22 @@ export function Painel() {
         </div>
       </section>
 
+      <section className={style.dia}>
+        <h2 className={style.tituloDia}>
+          <strong>EXPORTAR</strong> planilha dos votos
+        </h2>
+        <div className={style.cartao}>
+          <p className={style.textoSorteio}>
+            Uma linha por voto, com as notas de cada filme e as respostas da pesquisa.
+            <br />
+            <small>Sem dados pessoais: CPF, nome, telefone e coordenadas ficam de fora. Abre no Excel e no Google Planilhas.</small>
+          </p>
+          <a href="/api/admin/exportar" className={style.botaoAbrir} download>
+            BAIXAR PLANILHA (CSV)
+          </a>
+        </div>
+      </section>
+
       <Sorteio dados={dados.sorteio} aoAtualizar={carregar} />
 
       <Comentarios lista={dados.comentarios} />

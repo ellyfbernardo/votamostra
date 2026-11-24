@@ -411,6 +411,14 @@
   color: var(--preto);
 }
 
+a.botaoAbrir {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  text-decoration: none;
+}
+
 .botaoEncerrar {
   background: var(--vermelho);
   color: var(--off-white);
