@@ -630,3 +630,113 @@ a.botaoAbrir {
   border: none;
   color: var(--roxo);
 }
+
+/* ---------- Gráficos de colunas ---------- */
+
+.grafico {
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.colunas {
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  min-width: min-content;
+  border-bottom: 1px solid #cbbfcd;
+}
+
+.coluna {
+  flex: 1 0 var(--largura-coluna);
+  display: grid;
+  grid-template-rows: auto 170px;
+  justify-items: center;
+  gap: 4px;
+  position: relative;
+  cursor: default;
+}
+
+.valorColuna {
+  font-family: var(--font-giga), sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--preto);
+  align-self: end;
+}
+
+.areaBarra {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.barra {
+  width: min(100%, 44px);
+  min-height: 0;
+  background: var(--roxo);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.4s ease;
+}
+
+.coluna:hover .barra {
+  background: var(--preto);
+}
+
+.nomeColuna {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding-top: 6px;
+  text-align: center;
+  font-size: 0.72rem;
+  line-height: 1.25;
+  color: var(--preto);
+  overflow-wrap: anywhere;
+}
+
+.nomeColuna small {
+  display: block;
+  color: #6b5d6e;
+  font-size: 0.66rem;
+}
+
+/* espaço para os nomes embaixo das colunas */
+.grafico {
+  padding-bottom: var(--espaco-nomes, 96px);
+}
+
+.filtroGrafico {
+  max-width: 60%;
+  min-height: 40px;
+  padding: 0 10px;
+  border: 1.5px solid #cbbfcd;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 0.85rem;
+}
+
+.notaGrafico {
+  font-size: 0.8rem;
+  color: #6b5d6e;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .barra {
+    transition: none;
+  }
+}
+
+.dicaRolar {
+  display: none;
+  font-size: 0.75rem;
+  color: #6b5d6e;
+}
+
+@media (max-width: 700px) {
+  .dicaRolar {
+    display: block;
+  }
+}

@@ -238,6 +238,8 @@ export function Painel() {
         </div>
       </section>
 
+      <Graficos sessoes={dados.sessoes} />
+
       <section className={style.dia}>
         <h2 className={style.tituloDia}>
           <strong>EXPORTAR</strong> planilha dos votos
@@ -426,6 +428,108 @@ function Numero({ rotulo, valor }) {
     <div className={style.numero}>
       <strong>{numero(valor)}</strong>
       <span>{rotulo}</span>
+    </div>
+  );
+}
+
+// Gráficos de colunas: votos por filme e quantidade de cada nota (1 a 5)
+function Graficos({ sessoes }) {
+  const filmes = sessoes.flatMap((s) =>
+    s.filmes.map((f) => ({ ...f, chave: `${s.id}/${f.id}`, sessao: s.numero }))
+  );
+  const [filtro, setFiltro] = useState('todos');
+
+  const escolhido = filmes.find((f) => f.chave === filtro);
+  const notas = escolhido
+    ? escolhido.notas
+    : filmes.reduce((soma, f) => soma.map((n, i) => n + f.notas[i]), [0, 0, 0, 0, 0]);
+  const totalNotas = notas.reduce((a, b) => a + b, 0);
+
+  return (
+    <section className={style.dia}>
+      <h2 className={style.tituloDia}>
+        <strong>GRÁFICOS</strong> dos votos
+      </h2>
+
+      <div className={style.cartao}>
+        <h3 className={style.tituloCartao}>Votos por filme</h3>
+        <Colunas
+          rotulo="Quantidade de votos por filme"
+          itens={filmes.map((f) => ({
+            chave: f.chave,
+            valor: f.votos,
+            nome: f.titulo,
+            detalhe: `Sessão ${f.sessao} · ${CATEGORIAS[f.categoria]?.singular ?? ''}`,
+            dica: `${f.titulo} (Sessão ${f.sessao}): ${numero(f.votos)} ${f.votos === 1 ? 'voto' : 'votos'}`,
+          }))}
+          larguraMinima={76}
+          espacoNomes={96}
+        />
+        <p className={style.dicaRolar}>Arraste o gráfico para o lado para ver todos os filmes.</p>
+      </div>
+
+      <div className={style.cartao}>
+        <div className={style.cabecalhoCartao}>
+          <h3 className={style.tituloCartao}>Quantidade de cada nota</h3>
+          <select
+            className={style.filtroGrafico}
+            value={filtro}
+            onChange={(e) => setFiltro(e.target.value)}
+            aria-label="Filme do gráfico de notas"
+          >
+            <option value="todos">Todos os filmes</option>
+            {filmes.map((f) => (
+              <option key={f.chave} value={f.chave}>
+                S{f.sessao} · {f.titulo}
+              </option>
+            ))}
+          </select>
+        </div>
+        <Colunas
+          rotulo={`Quantidade de notas de 1 a 5${escolhido ? ` para ${escolhido.titulo}` : ''}`}
+          itens={notas.map((qtd, i) => {
+            const pct = totalNotas ? Math.round((qtd / totalNotas) * 100) : 0;
+            return {
+              chave: String(i + 1),
+              valor: qtd,
+              nome: `Nota ${i + 1}`,
+              detalhe: `${pct}%`,
+              dica: `Nota ${i + 1}: ${numero(qtd)} (${pct}%)`,
+            };
+          })}
+          larguraMinima={48}
+          espacoNomes={44}
+        />
+        <p className={style.notaGrafico}>
+          {numero(totalNotas)} {totalNotas === 1 ? 'nota dada' : 'notas dadas'}
+          {escolhido ? ` para ${escolhido.titulo}` : ' em todos os filmes'}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function Colunas({ rotulo, itens, larguraMinima, espacoNomes }) {
+  const maximo = Math.max(1, ...itens.map((i) => i.valor));
+
+  return (
+    <div className={style.grafico} style={{ '--espaco-nomes': `${espacoNomes}px` }}>
+      <ul className={style.colunas} aria-label={rotulo} style={{ '--largura-coluna': `${larguraMinima}px` }}>
+        {itens.map((item) => (
+          <li key={item.chave} className={style.coluna} title={item.dica} aria-label={item.dica}>
+            <span className={style.valorColuna} aria-hidden="true">
+              {numero(item.valor)}
+            </span>
+            <span className={style.areaBarra} aria-hidden="true">
+              <span className={style.barra} style={{ height: `${(item.valor / maximo) * 100}%` }} />
+            </span>
+            <span className={style.nomeColuna} aria-hidden="true">
+              {item.nome}
+              <small>{item.detalhe}</small>
+            </span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
